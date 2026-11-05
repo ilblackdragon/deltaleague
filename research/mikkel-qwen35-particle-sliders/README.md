@@ -144,8 +144,12 @@ capability signal in this comparison. Native bank probes nevertheless confirm
 that its reloaded teacher has exact OFF behavior and a live 128x4 bank: zeroing
 the bank changes hidden responses by RMS 0.137157 on three generic probes.
 The teacher's total ON/OFF hidden RMS is 3.213307 on those probes. These are
-mechanics checks, not quality scores. Final generated particle screens are
-still in progress and will be recorded before this PR leaves draft.
+mechanics checks, not quality scores. The completed 16-example particle-student
+math screen scores 1/16 with every output truncated, versus parent 4/16. Its
+paired difference is -18.75 points with interval [-37.5, 0], sign-test p=0.25.
+The nonlinear teacher scores 1/4 on the first four rows, versus student 0/4 on
+those same rows; all outputs truncate. These small capped checks do not establish
+a teacher-quality advantage. The complete aggregate receipt is in `results.json`.
 
 ## Reproduction and artifacts
 
@@ -197,6 +201,14 @@ The particle patch's weights SHA256 is
 result canonical content
 `c93e2237b3cde2e9921025f801799913c1a8f0518a83cdfda4364eddda38b538`.
 All three patches passed exact tensor reconstruction and loaded-logit checks.
+
+The [v0.1.0 release](https://github.com/HyperGAN/qwen35-particle-sliders/releases/tag/v0.1.0)
+provides the preferred ready-to-submit bundle and separate teacher/student/LoRA
+state dictionaries. The preferred bundle archive SHA256 is
+`034a9041267b2584c0832c86a8bce3b7cf2099ae4b0219055bf2c88d6634c1a3`.
+Its seven payload-file hashes were verified after decompression, including the
+exact patch that passed the loaded-model checks. The archive includes the
+original Qwen model license and a modification notice. Weights remain outside Git.
 
 Weights, private material, credentials and raw generation logs are excluded from
 this PR. Aggregate evidence and metadata are suitable for public release.
