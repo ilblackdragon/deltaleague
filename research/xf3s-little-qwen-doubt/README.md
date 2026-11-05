@@ -68,7 +68,8 @@ Mean thinking length on GSM8K fell from ~15k to ~7.5k tokens, and "Wait" went fr
 - **The direction was fit on dev problems**, so the dev numbers may flatter it. The GSM8K run is the cleaner test.
 - **We couldn't reproduce Delta League's scorer.** We rebuilt the 14 text tasks with lm-eval 0.4.13 + vLLM at the
   published indices (doc hashes match). Our harness gives the parent 26.6 on GSM8K where the platform gives 59.4, so
-  our local numbers aren't comparable and we report none. The platform's scores are the result.
+  we report no local Delta League *scores*. The one local measure below is finish rate, which doesn't depend on the
+  scorer. The platform's scores are the result.
 - **Not a decoding knob.** Unlike the current top entries (embedding rows for Wait/Hmm ×0.6, final-norm gain), this
   edit changes no embedding, no norm and no output row. We also submit it stacked on the current leader
   (`a9340e14`, which touches only `embed_tokens` and the final norm, so there's no overlap) to see whether the two
@@ -78,11 +79,41 @@ Mean thinking length on GSM8K fell from ~15k to ~7.5k tokens, and "Wait" went fr
   they're different things. The published edit lines up better with the "stuck" direction we found
   separately (0.37 / 0.46).
 
-## Submissions
+## Submissions and verified results (2026-11-05)
 
-| submission | parent | Delta League version |
+All three were submitted as exact rank-1 LoRA patches (452 KB): every changed tensor's delta is rank 1. `make_lora.py`
+builds them from a `delta model pull` folder; with SCALE 1.0 its output is byte-identical to submission A's
+upload and reconstructs v0.1 bit-exactly.
+
+| submission | parent | version | private test | truncated | public val |
+|---|---|---|---|---|---|
+| A: v0.1 alone | `0ea62f40` (original, 18.6) | `85e98a7f-3056-4f32-89eb-988aa4a3981c` | 27.6 | 36.6% | 40.7 |
+| B: v0.1 stacked on the leader | `a9340e14` (31.4) | `b8af1dbc-d52b-4bbc-a302-3505d897303c` | **36.0** | 23.0% | 41.6 |
+| C: like B, projection ×0.85 | `a9340e14` (31.4) | `d6b5f7e3-6757-46e4-a5ae-14e40b8252ed` | 33.2 | 23.2% | 41.7 |
+
+Their test standard error is about 2.1 per entry.
+
+**What we predicted, before any score came back:** C > B > leader > A. B > leader > A held. **C > B did not.**
+
+**Local check that chose C (an estimate, not a score):** we measured finish rate on the 128 public gsm8k + math500
+rows (zero-shot, the platform's sampling, cap 8,192, k=2, 256 runs each). Finish rate doesn't depend on the scorer.
+
+| model | finished | right (math-verify) |
 |---|---|---|
-| v0.1 on the original model | `0ea62f40-7cd8-4d98-9ebb-484192fa05eb` | _to fill in_ |
-| v0.1 stacked on the leader | `a9340e14-190b-473a-952f-65722b37d576` | _to fill in_ |
+| original | 13 | 13 |
+| v0.1 | 112 | 91 |
+| leader | 101 | 96 |
+| leader + v0.1 (B) | 186 | 127 |
+| leader + v0.1, projection ×0.85 (C) | 173 | 142 |
+| leader + v0.1, projection ×0.75 | 174 | 138 |
 
-Evaluation config `public-ladder500-8k-v2`. We'll update this page with the verified results.
+This ordered A, the leader and B correctly, but its preference for ×0.85 didn't carry over: on the private test C
+truncates as often as B (23%) and scores 2.8 lower, about one standard error. Our check covered only math, while the
+test mixes 18 kinds of tasks. Our zero-shot prompt also makes the original finish far less often (5%) than on the
+platform, so only the ordering is meaningful.
+
+**Unexplained:** on the public validation rows, all three of our entries score low on math500 (28–30, against
+the leader's 50) and a little low on gsm8k (42–50 vs 52), which doesn't match their test scores. With 64 rows and one
+sample each this may be noise. We haven't looked further.
+
+Evaluation config `public-ladder500-8k-v2`.
