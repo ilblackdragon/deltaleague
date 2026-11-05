@@ -125,7 +125,8 @@ items were used to fit the edit; prompts in `prompts*.json` are hand-written.
 
 ## Submission
 
-Pending. Submission ID and verified results will be added here.
+- Submission ID `aedb45f3-fee9-4827-8ef1-95e6fbe5f088`, submitted 2026-11-05 11:45 UTC with PR #16 attached.
+- State at last update: verifying. Verified results will be added here.
 
 ## Limitations
 
