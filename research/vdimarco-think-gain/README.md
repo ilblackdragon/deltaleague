@@ -126,7 +126,27 @@ items were used to fit the edit; prompts in `prompts*.json` are hand-written.
 ## Submission
 
 - Submission ID `aedb45f3-fee9-4827-8ef1-95e6fbe5f088`, submitted 2026-11-05 11:45 UTC with PR #16 attached.
-- State at last update: verifying. Verified results will be added here.
+- Verified 2026-11-05 on `public-ladder500-8k-v2`, version `0ffb5aef`. Full result in `result_aedb45f3.json`.
+
+| metric | parent | this edit |
+| --- | --- | --- |
+| truncation rate | 0.746 | 0.440 |
+| output tokens | 3.58M | 2.06M (-42%) |
+| public validation | 41.83 | 41.19 |
+| private test | 18.6 +/- 1.76 | 17.6 +/- 1.70 |
+
+Predictions 1 and 2 held with margin. Prediction 3 failed, within one standard error; the
+falsifier (below 15.1) was not met. Per-benchmark on validation: bbh +7.4, mmlu_pro +2.9,
+mbpp +3.1, boolq +1.5, piqa +1.6; humaneval -6.3, ifeval -4.7, gsm8k -3.1. Unpaired, 32 to 64
+items each, so single-benchmark moves are mostly noise.
+
+Reading: the mechanism works as modeled. The gain closes thinking far more often, and the
+server sampler passes the shift through. Converting truncations into answers did not raise the
+score, so most capped generations were not about to produce a correct answer. The 8K cap is
+not the binding constraint on this model's accuracy; the rumination that fills it is.
+Next arm per the pre-registration rule is `s = 1.25`. A more promising follow-up is to stack
+this gain on the board's current leader (Wait/Hmm damping, version `67c994de`, truncation
+0.598), since the two act on different parts of the trace.
 
 ## Limitations
 
