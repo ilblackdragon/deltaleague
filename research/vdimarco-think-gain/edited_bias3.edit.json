@@ -1,0 +1,14 @@
+{
+ "delta": 0.06054625683610178,
+ "target_median_bias_nats": 3.0,
+ "proj_mean": 49.548892974853516,
+ "proj_min": 8.496744155883789,
+ "proj_max": 77.18354034423828,
+ "implied_shift_min": 0.5144460539327866,
+ "implied_shift_max": 4.673174457201874,
+ "old_norm": 0.5706068873405457,
+ "new_norm": 0.5763404369354248,
+ "cos_old_new": 0.9944726824760437,
+ "entries_changed": 999,
+ "output": "edited.safetensors"
+}

@@ -1,0 +1,16 @@
+[
+ {
+  "closed": true,
+  "tokens": 323,
+  "think_tokens": 319,
+  "think_logit_parent_at_emit": 25.815763473510742,
+  "think_logit_edited_at_emit": 38.725807189941406,
+  "max_other_logit_at_emit": 18.648576736450195,
+  "kl_after_think_end_by_offset": [
+   0.0,
+   0.04809,
+   1e-05
+  ],
+  "answer_text": "\n\nC<|im_end|>"
+ }
+]
