@@ -1,0 +1,16 @@
+{
+  "status": "interrupted_unexpectedly",
+  "stage": "train_student",
+  "observed_at_unix": 1794008630.8062387,
+  "last_progress_at_unix": 1793930277.8460042,
+  "process_alive": false,
+  "cause": "Unknown: no final error or normal shutdown record; execution session no longer exists.",
+  "prior_running_status_was_stale": true,
+  "budget_deadline_passed": true,
+  "restart_performed": false,
+  "completed_student_examples": 6,
+  "incomplete_student_example": "gsm8k-train-4560",
+  "incomplete_example_last_logged_tokens": 5888,
+  "teacher_examples": 0,
+  "candidate_exists": false
+}

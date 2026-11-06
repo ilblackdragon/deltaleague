@@ -1,0 +1,170 @@
+[
+  {
+    "id": "gsm8k-train-6819",
+    "dataset_index": 6819,
+    "split": "training",
+    "doc_sha256": "91f52b88ae63cc69916ceec1b69175cdaa963b65be97fc175408188a93350d28",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-3171",
+    "dataset_index": 3171,
+    "split": "training",
+    "doc_sha256": "23cef936561a0603d66ae05e39ee074f489564ca1d7e0a3677d23363222be0da",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-5037",
+    "dataset_index": 5037,
+    "split": "training",
+    "doc_sha256": "5adf0991f8ed8f4b403cf4547628d6adfe9f596de9635e683ddfcd647c927319",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-6229",
+    "dataset_index": 6229,
+    "split": "training",
+    "doc_sha256": "37ed387acb252d096ff1a65f255311453113e0a70abfa18f79dfa395b59bf2b6",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-1026",
+    "dataset_index": 1026,
+    "split": "training",
+    "doc_sha256": "59204c8e1211b627cf54e20bf7ed5433020f274ba9615214d510f61d2fcc081a",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-5128",
+    "dataset_index": 5128,
+    "split": "training",
+    "doc_sha256": "47dcfbb024ff4825066b606681862a38b7ff2e66936c6b64e783e514a91fe995",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-4560",
+    "dataset_index": 4560,
+    "split": "training",
+    "doc_sha256": "2597d481478952de0445179c08c4e0b1b1b8ebd51a26484f8cd46e8283bd3a07",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-5283",
+    "dataset_index": 5283,
+    "split": "training",
+    "doc_sha256": "42dd3802ecfbf3715bdbd364b8159517bbc90f9e4fc7bb85df6bf40aed26250d",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-6305",
+    "dataset_index": 6305,
+    "split": "training",
+    "doc_sha256": "553dae0312599aed5a651545d853f6aa404e00c67789ad99a4e57383dbdefd8e",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-1227",
+    "dataset_index": 1227,
+    "split": "training",
+    "doc_sha256": "a6f299bb84679e2ce262ab1580cbea3ab90fbda252a2b3c1c982ba461973cde9",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-4331",
+    "dataset_index": 4331,
+    "split": "training",
+    "doc_sha256": "033b3981676599b2934e32ac7e71a8eec86ffec0c3d77039a51f826bca81932d",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-2851",
+    "dataset_index": 2851,
+    "split": "training",
+    "doc_sha256": "dac9f8fd710fb79b9c1c581e7c51eaf53c8fb779e27e7dcf4dcf989107e7f844",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-5040",
+    "dataset_index": 5040,
+    "split": "training",
+    "doc_sha256": "d16255674398989cbf23f193dd55294023115175b1e9a9a2836c41af9414880f",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-2232",
+    "dataset_index": 2232,
+    "split": "training",
+    "doc_sha256": "0fbd5fc1e53770230f6d977c3c920b22945b559c3348550494bb35a1285de3d2",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-3114",
+    "dataset_index": 3114,
+    "split": "training",
+    "doc_sha256": "f156cd68d7cb7065a5ec59b262aa5fe2bd6f9cd4ec4ad75b14f4e91039621d98",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-949",
+    "dataset_index": 949,
+    "split": "training",
+    "doc_sha256": "500fc09db4ddaeff382ed053840e4bdcd769449f414dc63a460dee27378338e7",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-2809",
+    "dataset_index": 2809,
+    "split": "heldout",
+    "doc_sha256": "4b4aa029514cd79cf56d32ad2488d96e06f3039f0937715e24917ed49e58f1ec",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-1407",
+    "dataset_index": 1407,
+    "split": "heldout",
+    "doc_sha256": "86141ccfca893e3518b34621eb6cdc6cc10ded801ccc9b4460d49a9ea6aeba6d",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-6959",
+    "dataset_index": 6959,
+    "split": "heldout",
+    "doc_sha256": "3ec93f1ccdfd4bd7b44856bfbe62040e82f34bd5030ed0e60fbc7e7a1d19cf0a",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-2855",
+    "dataset_index": 2855,
+    "split": "heldout",
+    "doc_sha256": "0eeb03c92f1bf4069a874e343e2584a2b63e55282598978e14311e04649822d4",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-1238",
+    "dataset_index": 1238,
+    "split": "heldout",
+    "doc_sha256": "5ac9d94cba821b3d355ccb39533e0959f243742d089f7476699dcfb943dcb4b4",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-3547",
+    "dataset_index": 3547,
+    "split": "heldout",
+    "doc_sha256": "d958b8fccbb944a3dcb836e2dda1461957af353a9138639f13c6295fad614420",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-2272",
+    "dataset_index": 2272,
+    "split": "heldout",
+    "doc_sha256": "f47f5e1eb84efbb11b54103d65a67fa1381db0f6ebeb2db82849fec34a1c2f12",
+    "scorer": "math"
+  },
+  {
+    "id": "gsm8k-train-6630",
+    "dataset_index": 6630,
+    "split": "heldout",
+    "doc_sha256": "418b6619d6b7644d930bcf908fffa8f1b966c8f6da8bd98ff99e8efd6467c2b1",
+    "scorer": "math"
+  }
+]
