@@ -1,0 +1,16 @@
+{
+  "confirmed_loop_ids": [
+    "gsm8k-public-421"
+  ],
+  "observations": {
+    "gsm8k-public-421": "Repeatedly computes 50 - 4*5 - (3/5)*(50-4*5) = 12, then questions the same interpretation again; no closing think tag or final answer before cap."
+  },
+  "token_sha256": {
+    "gsm8k-public-421": "dbd5a01ffd25c58a546b14cd27ed8ce7993ab43920ad652e07a607f2c490c103"
+  },
+  "detector_limitations": {
+    "gsm8k-public-438": "Trace repeatedly revisits ingredient-quantity interpretation but only 3.5% of tail meets exact repeated-8-gram criterion. Excluded from teacher queries under the fixed criterion; threshold not changed.",
+    "gsm8k-public-170": "Repeatedly derives total uniform cost 150 and reopens interpretation, but only 3.5% exact-tail repetition; excluded by fixed threshold."
+  },
+  "teacher_observation": "Extended teacher completes at 2882 tokens with closing think tag and correct boxed answer 12; exact-tail repetition 17.97%, below fixed 20% threshold. First 1536 tokens match prior failed capped trace exactly. Full successful response supplies the contrast; segment fallback not used."
+}

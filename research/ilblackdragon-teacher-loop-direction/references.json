@@ -1,0 +1,40 @@
+{
+  "reviewed_at_utc": "2026-11-05T03:51:38.095991+00:00",
+  "requested_during": "Original-model baseline generation; experiment design was already fixed",
+  "effect_on_current_experiment": "No change to dataset, thresholds, layers, edit strength or selection rules",
+  "sources": [
+    {
+      "url": "https://zenodo.org/records/23958070",
+      "doi": "10.5281/zenodo.23958070",
+      "title": "Building foundational models using Weight Space Programming",
+      "author": "Quillan-Ronin Research Team",
+      "published": "2026-11-04",
+      "type": "Author-deposited preprint, not independent validation",
+      "access": "Read Zenodo API metadata and the full Markdown manuscript; checked listed MD5",
+      "document_md5": "f7db06f32cf3d9fc8bd902156c796752",
+      "document_sha256": "97ca189db7d67955c5d8a4980fda85ecc9d8eef4c3649a3b26064aa2546600be",
+      "notes": [
+        "Describes analytical direction removal, donor-matrix resizing/SVD, and additive adapter folding.",
+        "Cropping or periodically tiling matrices changes dimensions but does not establish semantic alignment across architectures.",
+        "The folding theorem assumes constant uniform routing and shared inputs; it does not establish equivalence for input-dependent routing.",
+        "The reported throughput comparison changes backend and precision, so it does not isolate an effect of weight editing.",
+        "The manuscript does not provide a controlled broad capability comparison sufficient to verify its general no-degradation claim. Linked implementation and model artifacts were not independently audited or executed."
+      ],
+      "future_use": "Consider paired-activation alignment before donor transfer; require same-evaluation quality and backend-controlled throughput comparisons."
+    },
+    {
+      "url": "https://x.com/borisaknyazev/status/2118065460377792918",
+      "author": "Boris Knyazev",
+      "published": "2026-11-04T19:38:52Z",
+      "type": "Research perspective and illustrative media",
+      "access": "Read original public X syndication JSON, viewed animation poster and quoted keynote slide; full animation not analyzed",
+      "syndication_sha256": "d12ec5188f89d92cc1ce070dc6762ef16edc58a1b728213a9c124c6825e97656",
+      "notes": [
+        "Proposes manipulating a learned latent representation of model weights instead of editing individual parameters.",
+        "The attached poster illustrates a 207-weight MLP; it is not evidence of successful transfer between our two Qwen models.",
+        "The quoted keynote slide distinguishes encoder, decoder, autoencoder, and equivariant or graph-based approaches to weight-space learning."
+      ],
+      "future_use": "A learned weight encoder/decoder could provide a compact edit space, but compatibility, parameter symmetries, training data and preservation of model behavior would need validation."
+    }
+  ]
+}
