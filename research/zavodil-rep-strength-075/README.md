@@ -44,4 +44,4 @@ The candidate is not distinguishable from its parent on this proxy. This entry t
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Submitted, evaluation pending: https://deltaleague.ai/submissions/1b419ede-f60a-4210-bb8b-acc67db3fed1/
+Verified (official): private test 33.6, validation 40.98, truncation 15.4%. Parent `cd0b95bb`: 37.2, 41.14, 16.2%. Rank 7 at the time of verification. Version `6447a643-b876-4523-a432-813fb139aba3`, submission: https://deltaleague.ai/submissions/1b419ede-f60a-4210-bb8b-acc67db3fed1/
