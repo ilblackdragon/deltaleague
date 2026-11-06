@@ -1,0 +1,16 @@
+{
+  "student": {
+    "seconds": 27.33725339267403,
+    "peak_rss_kib": 5696484
+  },
+  "teacher": {
+    "seconds": 97.40553242899477,
+    "peak_rss_kib": 48442896
+  },
+  "edit": {
+    "seconds": 28.862066520377994,
+    "peak_rss_kib": 5768484
+  },
+  "total_stage_seconds": 153.6048523420468,
+  "note": "Stage timing excludes download, installation, patch build and audit; all completed within the approved two-hour limit. Sequential stages, at most 16 compute threads."
+}
