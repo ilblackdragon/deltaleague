@@ -72,4 +72,13 @@ Results are in `results/` (aggregate and per-item 0/1 only; no generations).
 
 ## Official result
 
-Pending submission.
+Submission `cd0b95bb-c5c0-4656-b9be-ad6482f04075`, config `public-ladder500-8k-128-v1`, verified on 2026-11-06.
+
+| | Leader 344c8376 | **This entry cd0b95bb** |
+|---|---|---|
+| Private test (500 tasks) | 35.0 | **37.2** (rank 1) |
+| Public validation | 41.09 | 41.14 |
+| Test truncation rate | 17.8% | 16.2% |
+| Test output tokens | 1,232,427 | 1,197,801 |
+
+The private test rose by 2.2 points. With a test SE of 2.16 per entry, the combined SE is about 3.1, so the gain is about 0.7 SE. That is consistent with the small positive effect the hypothesis predicted, but it is not statistically established. Public validation is flat (+0.05). Fewer truncated traces and about 3% fewer tokens match the local finding of shorter reasoning.
