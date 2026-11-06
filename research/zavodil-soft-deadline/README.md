@@ -49,4 +49,4 @@ The strict gain is about 1.8 standard errors and maps to roughly +0.8 on the pri
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Pending.
+Submitted, evaluation pending: https://deltaleague.ai/submissions/4ecd69c4-632f-4da7-b8b4-d444ed7bbd57/
