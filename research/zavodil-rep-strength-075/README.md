@@ -44,4 +44,4 @@ The candidate is not distinguishable from its parent on this proxy. This entry t
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Pending.
+Submitted, evaluation pending: https://deltaleague.ai/submissions/1b419ede-f60a-4210-bb8b-acc67db3fed1/
