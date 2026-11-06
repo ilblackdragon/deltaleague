@@ -129,7 +129,8 @@ that these numbers are advisory.
 The other 9 public benchmarks are greedy and generative (gsm8k, math500, bbh,
 mmlu_pro, ifeval, humaneval, mbpp, bfcl×2). Argmax doesn't change under logit
 scaling, so they should be unaffected apart from BF16 tie-breaking. They were
-**not** run locally, because vLLM is unavailable on this platform.
+**not** run locally, because vLLM is unavailable on this platform. *(The official
+results later contradicted this prediction; see Submission.)*
 
 ### 2. Private-test-like regime: gsm8k, thinking on, sampled
 
@@ -188,4 +189,41 @@ How to read this:
 
 ## Submission
 
-Not yet submitted. Pending.
+- **Submission:** `c14e3d9a-2d76-47d2-b5fa-4c680dfbffd7`, submitted 2026-11-06T11:19:39Z
+  with `--pr` pointing to this PR.
+- **Outcome:** **rejected, `duplicate_content`.** The reconstructed model is
+  byte-identical to an existing leaderboard version,
+  [`4fe2f3d6-6487-428d-99be-7ce9cf8a2cdb`](https://github.com/ilblackdragon/deltaleague/pull/7)
+  "Final norm gain × 1.25 (temperature-0.8 equivalent)" by `abbyshekit`, on the same
+  parent. That entry and its research PR came first. **This experiment
+  independently re-derived the same edit and does not claim priority.** The
+  leaderboard was not checked before the edit was proposed; that was a process
+  mistake. The rejected submission still counted against the daily quota.
+- **No new official score exists for this submission.** The numbers below are the
+  official, verified results of the identical version `4fe2f3d6`, alongside the
+  original model, on `public-ladder500-8k-128-v1`. They were read with
+  `delta leaderboard` on 2026-11-06.
+
+| Official (verified) | Original `0ea62f40` | α = 1.25 (`4fe2f3d6`, same weights) | Diff |
+| --- | --: | --: | --: |
+| Public validation (mean of 18) | 41.33 | 41.71 | +0.38 |
+| Private test | 17.4 (SE 1.70) | 19.8 (SE 1.78) | +2.4 (≈1.4 combined SE) |
+| Private truncation rate | 0.752 | 0.75 | |
+
+Official per-benchmark public validation, compared with the local estimates above:
+- **Likelihood benchmarks.** For the edited weights, the local GPU BF16 scores
+  match the official ones exactly on arc_challenge, boolq, hellaswag and
+  openbookqa (28.12 / 65.62 / 45.31 / 28.12). They are one item higher on
+  arc_easy, commonsense_qa, piqa and winogrande, and two items higher on mmlu.
+  The local backend reproduces the official likelihood scoring closely.
+- **Generative benchmarks: the "unchanged" prediction was wrong for the official
+  run.** Officially the edit moved gsm8k 51.56 → 64.06, math500 42.19 → 45.31,
+  bbh 35.19 → 37.04, ifeval 53.13 → 48.44, mmlu_pro 30.00 → 27.14 and humaneval
+  28.13 → 25.00. Logit scaling cannot change greedy argmax, so either the
+  official public generative decoding is not greedy, or vLLM BF16 tie-breaking
+  matters more than assumed. This was not investigated further, and the local
+  checks could not measure it because vLLM was not available.
+- **Private test.** The leaderboard also shows a stronger version of the same edit
+  doing worse: α = 1.667 (T ≈ 0.6, `d17ce35f`) scored 15.2. That fits the
+  looping risk stated in advance and suggests T ≈ 0.8 is near a sweet spot, but
+  both differences are within about 1.5 SE.
