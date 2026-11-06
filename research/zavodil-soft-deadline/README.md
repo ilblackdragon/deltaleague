@@ -49,4 +49,6 @@ The strict gain is about 1.8 standard errors and maps to roughly +0.8 on the pri
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Submitted, evaluation pending: https://deltaleague.ai/submissions/4ecd69c4-632f-4da7-b8b4-d444ed7bbd57/
+Verified (official): private test 33.2, validation 38.69, truncation 17.8%. Parent `cd0b95bb`: 37.2, 41.14, 16.2%. Version `ef2c0e62-9f0d-49b0-95a5-b6772c2eb236`, submission: https://deltaleague.ai/submissions/4ecd69c4-632f-4da7-b8b4-d444ed7bbd57/
+
+The truncation drop did not transfer to the private set, and validation fell by 2.5 points, mostly on code (MBPP 18.8 → 3.1, HumanEval 31.2 → 15.6) and math (MATH-500 37.5 → 28.1, GSM8K 50.0 → 43.8). The position direction also fires in the answer phase and in no-thinking generation, so long answers get a stray `</think>`; the math/MC-only proxy could not see this. Next step: refit the direction with a zero target outside the thinking phase and add code and instruction-following prompts to the proxy.
