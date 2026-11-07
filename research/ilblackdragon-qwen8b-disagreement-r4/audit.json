@@ -1,0 +1,13 @@
+{
+  "parent_files_verified": 7,
+  "tensor_count": 488,
+  "changed_tensors": [
+    "model.language_model.layers.23.mlp.down_proj.weight"
+  ],
+  "reconstruction_bitwise_equal": true,
+  "parent_target_sha256": "1866748ce87d32cfee34891d2fa393fdfeee77447935f6a31d036e4b80332a48",
+  "edited_target_sha256": "808048e328840e04daf82ae31a91fa772e816e314ede9584b0ac21c8aaed2ca0",
+  "patch_sha256": "baf46a93851e7f22b856cba246ac677368cb2ae090acd2e017a0d1d5e3ae6d94",
+  "patch_bytes": 24015116,
+  "manifest_sha256": "741514573ed3c5f32ad153df2e88714010d4ec6b568b9ef1efb6e78b0f72d975"
+}
