@@ -1,0 +1,43 @@
+{
+  "config_id": "public-ladder500-8k-v2",
+  "state": "complete",
+  "validation_score": 41.18738686995266,
+  "test_score": 17.599999999999998,
+  "validation_benchmarks": {
+    "bbh": 33.33333333333333,
+    "mbpp": 15.625,
+    "mmlu": 45.614035087719294,
+    "piqa": 71.875,
+    "boolq": 65.625,
+    "gsm8k": 50.0,
+    "ifeval": 59.375,
+    "math500": 40.625,
+    "arc_easy": 64.0625,
+    "mmlu_pro": 28.57142857142857,
+    "hellaswag": 46.875,
+    "humaneval": 31.25,
+    "openbookqa": 29.6875,
+    "winogrande": 54.6875,
+    "arc_challenge": 31.25,
+    "commonsense_qa": 56.25,
+    "bfcl_multi_turn": 0.0,
+    "bfcl_single_turn": 16.666666666666664
+  },
+  "stats": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "output_tokens": 2063532,
+    "truncation_rate": 0.44,
+    "generation_seconds": 1208.4327281299047,
+    "test_standard_error": 1.704785202062225,
+    "allocated_gpu_seconds": 1368.951624,
+    "estimated_gpu_cost_usd": 0.2639316196888889,
+    "post_generation_scoring_seconds": 3.481523
+  },
+  "completed_at": "2026-11-05T12:13:11.107979Z",
+  "progress": {
+    "label": "Verified",
+    "detail": "",
+    "state": "complete",
+    "active": false
+  }
+}
