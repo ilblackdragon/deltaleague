@@ -33,4 +33,6 @@ Expected sha256: checkpoint `57bfd4b4b4ee1779b4bf17ad519e6d521326011cd97d4c5bcda
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Pending.
+Verified (official): private test 49.2, rank 1, validation 44.62, truncation 13.2%. Parent `d5fc95ea`: 47.2, 43.16, 12.0%. Version `773f4844-31db-4356-b76f-0458f496fcd3`.
+
+The private score rose 2.0 points and validation 1.46. The sampling error of a difference between two private runs is about 1.8, so this one entry does not establish the gain on its own. It is the fifth parent on which this step has raised the private score.
