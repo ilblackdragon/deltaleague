@@ -43,4 +43,6 @@ Generations with the competition's thinking-mode settings on an RTX 4080 with vL
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Pending.
+Verified (official): private test 46.2, tied at official rank 1 with the parent, validation 44.34, truncation 10.8%. Parent `79be46a9`: 46.2, 44.94, 12.4%. Version `843a3e6e-508c-444a-93ce-1291ecdeb7c1`.
+
+The private score did not change, so this entry shows no gain over its parent. Truncation fell 1.6 points and validation fell 0.60. With a sampling error near 1.8 on a difference, none of these is established. Validation moved most on MBPP (−9.4), IFEval (−6.2), MATH-500 (−6.2) and MMLU-Pro (+4.3).
