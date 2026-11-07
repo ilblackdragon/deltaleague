@@ -1,0 +1,68 @@
+{
+  "status": "blocked_before_inference_on_protocol_parity",
+  "evaluation_id": "public-ladder500-8k-v2",
+  "engine_image": "ghcr.io/ilblackdragon/deltaleague-worker@sha256:0a35f9f45db8456d9b39de4f5d008c5a4dda33fe331527629f31549353aae350",
+  "validation_hash_verified": true,
+  "generation": {
+    "top_k": 20,
+    "top_p": 0.95,
+    "max_tokens": 8192,
+    "temperature": 1.0,
+    "max_num_seqs": 32,
+    "max_model_len": 34816,
+    "enable_thinking": true,
+    "presence_penalty": 1.5
+  },
+  "task": "gsm8k",
+  "task_metadata": {
+    "metrics": [
+      "exact_match"
+    ],
+    "num_fewshot": 5,
+    "output_type": "generate_until",
+    "population": 1319
+  },
+  "harness_version": "0.4.13",
+  "manifest_seed": 20261104,
+  "teacher_coverage_correction": {
+    "queried_unique_problems": 1,
+    "comparison_problems": 8,
+    "completed_correct_extended_query": 1,
+    "unqueried_problems": 7,
+    "eight_problem_teacher_accuracy": null
+  },
+  "prior_mismatches": [
+    "1536 student tokens instead of pinned 8192",
+    "zero-shot boxed-answer instruction instead of native five-shot GSM8K",
+    "CLI math scorer with explicit reasoning-close gate instead of native task exact_match filters",
+    "Transformers CPU instead of pinned worker execution; student float32 and teacher BF16"
+  ],
+  "unresolved": [
+    "Worker overrides to native task generation settings (upstream GSM8K defaults are greedy, pinned evaluation requests sampling)",
+    "Exact few-shot selection/RNG, prompt assembly/chat-template flags, stopping and answer-filter choice",
+    "Pinned worker public-only execution recipe/backend precision and seeds"
+  ],
+  "access_findings": [
+    "Public CLI main d5fb6169fe6384c20077811c4860fb59874bd5b8 expects legacy benchmark mapping, rejects pinned manifest",
+    "Anonymous GHCR pull-token request for pinned worker returned 401; no private worker files or tests accessed"
+  ],
+  "next_run_design": {
+    "models": [
+      "unchanged original",
+      "existing frozen direct-edit candidate",
+      "pinned Qwen3-8B teacher"
+    ],
+    "examples": "same eight public manifest examples for every model",
+    "max_tokens": 8192,
+    "no_new_weight_edits": true,
+    "requires_protocol_resolution": true,
+    "requires_new_local_budget_agreement": true,
+    "old_budget_expired": true,
+    "tentative_wall_ceiling_hours": 12,
+    "cpu_threads": 16,
+    "ram_gib": 64,
+    "paid_compute": false,
+    "completion_not_guaranteed_under_wall_ceiling": true
+  },
+  "no_new_inference_or_submission": true
+}

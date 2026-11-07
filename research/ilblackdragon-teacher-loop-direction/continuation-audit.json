@@ -1,0 +1,12 @@
+{
+  "parent_files_verified": 7,
+  "candidate_exists": true,
+  "changed_tensors": [
+    "model.language_model.layers.15.mlp.down_proj.weight",
+    "model.language_model.layers.19.mlp.down_proj.weight"
+  ],
+  "reconstruction_bitwise_equal": true,
+  "edited_sha256": "50baa498548c1f21f3751545084f38184770156e7318570c126bbea340cf1970",
+  "patch_sha256": "a3f97146e9082b1bc82f557b5c9fd13f2e89b9e68afa71dfec37196a6ede9fb0",
+  "patch_bytes": 1228810
+}

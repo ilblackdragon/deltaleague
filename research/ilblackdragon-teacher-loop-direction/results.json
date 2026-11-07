@@ -1,0 +1,278 @@
+{
+  "workspace": {
+    "api": "https://deltaleague.ai",
+    "model_id": "qwen35-08b-v1",
+    "parent_version_id": "0ea62f40-7cd8-4d98-9ebb-484192fa05eb",
+    "config_id": "public-ladder500-8k-v2"
+  },
+  "validation_sha256": "996573d687b0d0f1e088f1e918cd153fa0f80cff454a7e9a7ab5ac2eb374d4d2",
+  "scope": "Public local diagnostic estimates; not official League scores",
+  "outcome": {
+    "status": "no_supported_edit",
+    "reason": "No repetitive incorrect student trace paired with a correct nonrepetitive teacher trace."
+  },
+  "selection": [
+    {
+      "id": "gsm8k-public-421",
+      "dataset_index": 421,
+      "manifest_position": 23,
+      "doc_sha256": "21b327c58e4da006f4ad2f2f7ca5d1f06d721887bc19557cb6dba32868afe6b8",
+      "split": "development"
+    },
+    {
+      "id": "gsm8k-public-438",
+      "dataset_index": 438,
+      "manifest_position": 25,
+      "doc_sha256": "504713efc4b8821694a17325a4ac76be27c151c16ed3a4c9937792dc3a857d74",
+      "split": "development"
+    },
+    {
+      "id": "gsm8k-public-170",
+      "dataset_index": 170,
+      "manifest_position": 7,
+      "doc_sha256": "599f2b4babbb356cdb49c1d3aa76838ee1ed25929894976644c879dec03cbb07",
+      "split": "development"
+    },
+    {
+      "id": "gsm8k-public-420",
+      "dataset_index": 420,
+      "manifest_position": 22,
+      "doc_sha256": "deb7cfd551e8c23f82d465c93c8698be2468db14e37029ef7bc8b18ff91a4bb7",
+      "split": "development"
+    },
+    {
+      "id": "gsm8k-public-870",
+      "dataset_index": 870,
+      "manifest_position": 45,
+      "doc_sha256": "a6f3b60a6223b2e497ea4798fb70bb1d25e3d10de2cff4c74882e38b66f25004",
+      "split": "holdout"
+    },
+    {
+      "id": "gsm8k-public-627",
+      "dataset_index": 627,
+      "manifest_position": 33,
+      "doc_sha256": "8052eb8a4bfb3645d7e47412b4e868b211ae90eb7cf5e1d7f1cf2df79dc8b18a",
+      "split": "holdout"
+    },
+    {
+      "id": "gsm8k-public-379",
+      "dataset_index": 379,
+      "manifest_position": 19,
+      "doc_sha256": "d40f9f0745b7d276debe280b3ae745a8bc65d625bbec88244af6265df584fca2",
+      "split": "holdout"
+    },
+    {
+      "id": "gsm8k-public-1267",
+      "dataset_index": 1267,
+      "manifest_position": 59,
+      "doc_sha256": "a4ea78e9be1d0e51302430052ae7eaa0749fedf5368e41a6f79e83f2d03bf01c",
+      "split": "holdout"
+    }
+  ],
+  "aggregates": {
+    "baseline": {
+      "development": {
+        "n": 4,
+        "correct": 0.0,
+        "accuracy": 0.0,
+        "loop_count": 1,
+        "mean_tail_repetition_coverage": 0.1142578125,
+        "reasoning_closed_count": 0,
+        "truncated_count": 4,
+        "total_generated_tokens": 6144,
+        "generation_seconds": 1004.5592912090942
+      },
+      "holdout": {
+        "n": 4,
+        "correct": 0.0,
+        "accuracy": 0.0,
+        "loop_count": 0,
+        "mean_tail_repetition_coverage": 0.0673828125,
+        "reasoning_closed_count": 0,
+        "truncated_count": 4,
+        "total_generated_tokens": 6144,
+        "generation_seconds": 703.8534797066823
+      }
+    },
+    "teacher": {
+      "development": {
+        "n": 1,
+        "correct": 0.0,
+        "accuracy": 0.0,
+        "loop_count": 0,
+        "mean_tail_repetition_coverage": 0.1015625,
+        "reasoning_closed_count": 0,
+        "truncated_count": 1,
+        "total_generated_tokens": 1536,
+        "generation_seconds": 501.32656099367887
+      },
+      "holdout": null
+    },
+    "candidate": {
+      "development": null,
+      "holdout": null
+    }
+  },
+  "examples": {
+    "baseline": [
+      {
+        "id": "gsm8k-public-421",
+        "dataset_index": 421,
+        "split": "development",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 283.66172904800624,
+        "tail_repetition_coverage": 0.29296875,
+        "loop_detected": true,
+        "max_8gram_occurrences": 7
+      },
+      {
+        "id": "gsm8k-public-438",
+        "dataset_index": 438,
+        "split": "development",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 304.24944714363664,
+        "tail_repetition_coverage": 0.03515625,
+        "loop_detected": false,
+        "max_8gram_occurrences": 4
+      },
+      {
+        "id": "gsm8k-public-170",
+        "dataset_index": 170,
+        "split": "development",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 243.21126043982804,
+        "tail_repetition_coverage": 0.03515625,
+        "loop_detected": false,
+        "max_8gram_occurrences": 6
+      },
+      {
+        "id": "gsm8k-public-420",
+        "dataset_index": 420,
+        "split": "development",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 173.4368545776233,
+        "tail_repetition_coverage": 0.09375,
+        "loop_detected": false,
+        "max_8gram_occurrences": 4
+      },
+      {
+        "id": "gsm8k-public-870",
+        "dataset_index": 870,
+        "split": "holdout",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 174.5811850503087,
+        "tail_repetition_coverage": 0.0390625,
+        "loop_detected": false,
+        "max_8gram_occurrences": 6
+      },
+      {
+        "id": "gsm8k-public-627",
+        "dataset_index": 627,
+        "split": "holdout",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 172.81123455893248,
+        "tail_repetition_coverage": 0.0703125,
+        "loop_detected": false,
+        "max_8gram_occurrences": 8
+      },
+      {
+        "id": "gsm8k-public-379",
+        "dataset_index": 379,
+        "split": "holdout",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 174.3008204754442,
+        "tail_repetition_coverage": 0.11328125,
+        "loop_detected": false,
+        "max_8gram_occurrences": 14
+      },
+      {
+        "id": "gsm8k-public-1267",
+        "dataset_index": 1267,
+        "split": "holdout",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 182.16023962199688,
+        "tail_repetition_coverage": 0.046875,
+        "loop_detected": false,
+        "max_8gram_occurrences": 3
+      }
+    ],
+    "teacher": [
+      {
+        "id": "gsm8k-public-421",
+        "dataset_index": 421,
+        "split": "development",
+        "tokens": 1536,
+        "truncated": true,
+        "reasoning_closed": false,
+        "score": 0.0,
+        "seconds": 501.32656099367887,
+        "tail_repetition_coverage": 0.1015625,
+        "loop_detected": false,
+        "max_8gram_occurrences": 7
+      }
+    ],
+    "candidate": []
+  },
+  "runtime": {
+    "baseline-runtime": {
+      "seconds": 1709.832396544516,
+      "peak_rss_kib": 5754156,
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.22.1",
+        "datasets": "5.1.0",
+        "deltaleague": "0.1.1"
+      }
+    },
+    "edit-runtime": {
+      "seconds": 0.0007266681641340256,
+      "peak_rss_kib": 407276,
+      "dtype": "float32",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.22.1",
+        "datasets": "5.1.0",
+        "deltaleague": "0.1.1"
+      }
+    },
+    "teacher-runtime": {
+      "seconds": 502.30908957030624,
+      "peak_rss_kib": 15679340,
+      "dtype": "bfloat16",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.22.1",
+        "datasets": "5.1.0",
+        "deltaleague": "0.1.1"
+      }
+    }
+  },
+  "candidate_official_validation_score": null,
+  "candidate_official_test_score": null,
+  "submission_id": null,
+  "submission_url": null
+}

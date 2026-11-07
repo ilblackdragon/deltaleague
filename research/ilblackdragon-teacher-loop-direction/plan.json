@@ -1,0 +1,71 @@
+{
+  "status": "completed_no_supported_edit",
+  "parent_version_id": "0ea62f40-7cd8-4d98-9ebb-484192fa05eb",
+  "evaluation_id": "public-ladder500-8k-v2",
+  "teacher": "Qwen/Qwen3-8B",
+  "teacher_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "hypothesis": "Removing a direction associated with repetitive student reasoning, contrasted against a verified successful teacher trace replayed through the student, may reduce loops without gradient training.",
+  "data": {
+    "source": "Only GSM8K public selections named in the downloaded validation manifest",
+    "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+    "document_verification": "SHA-256 of sorted compact UTF-8 JSON, ensure_ascii=false",
+    "split_seed": 42,
+    "development_count": 4,
+    "holdout_count": 4,
+    "selection": "Shuffle the 64 public manifest positions with random.Random(42); first four development, next four holdout. Freeze before inference."
+  },
+  "generation": {
+    "max_new_tokens": 1536,
+    "seed": 1000,
+    "enable_thinking": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "fewshot": 0,
+    "teacher_max_problems": 2,
+    "note": "Public diagnostic proxy, not official GSM8K fewshot scoring or full 8192-token evaluation. Parent and candidate use identical settings."
+  },
+  "loop_diagnosis": {
+    "ngram_tokens": 8,
+    "minimum_occurrences": 3,
+    "tail_window_tokens": 256,
+    "minimum_tail_coverage": 0.2,
+    "note": "Token-limit exhaustion alone does not count as repetition. Check detected traces before deriving an edit."
+  },
+  "edit": {
+    "layers": [
+      15,
+      19
+    ],
+    "target": "MLP down_proj.weight",
+    "direction": "Student-space mean MLP-output difference between repeated student tokens and reasoning tokens from a correct, nonrepeating teacher answer replayed through the student; normalize each layer direction.",
+    "selected_columns_per_layer": 64,
+    "column_ranking": "Absolute projection of column onto direction multiplied by RMS input activation on loop tokens",
+    "operation": "Subtract 0.5 * outer(direction, direction @ selected_columns), capped at 0.5 percent of the full tensor Frobenius norm before BF16 rounding",
+    "candidate_count": 1,
+    "gradient_training": false,
+    "cross_model_weight_subtraction": false,
+    "stop_condition": "No clear repetitive student trace paired with a verified correct nonrepetitive teacher trace means no supported edit; report the negative diagnosis rather than fabricate one."
+  },
+  "validation": [
+    "Evaluate candidate once on fixed development and holdout with matched generation seed/settings",
+    "Report final-answer correctness, repetition coverage, completion and truncation separately",
+    "Preserve original model and delta-model.json; save candidate separately",
+    "Build and validate patch and verify exact reconstruction if an edit is produced",
+    "Open a separate research PR with code, hashes, parameters, seeds and honest findings",
+    "Ask for explicit quota approval before any submission"
+  ],
+  "proposed_budget": {
+    "wall_seconds": 7200,
+    "cpu_threads": 16,
+    "ram_gib": 64,
+    "additional_disk_gib": 5,
+    "paid_compute": false,
+    "approved": true
+  },
+  "started_at_unix": 1793849301.744319,
+  "deadline_unix": 1793856501.7443192,
+  "completed_at_unix": 1793851762.8338912,
+  "elapsed_wall_seconds": 2461.089572429657
+}
