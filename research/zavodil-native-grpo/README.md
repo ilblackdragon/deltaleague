@@ -40,4 +40,6 @@ Measure: 891 test-split docs in native format, excluding validation docs: GSM8K,
 Built on AI quota from holding $BRRRAIN.
 
 ## Submission
-Pending.
+Verified (official): private test 45.8 (rank 6), validation 43.62, truncation 13.8%. Parent `843a3e6e`: 46.2, 44.34, 10.8%. Version `84048630-f746-421f-a1a1-0c896931fbdd`.
+
+The private score fell 0.4 points against a local estimate of −0.39 ± 1.54. Validation BBH fell from 44.4 to 29.6, the same direction as the local BBH loss (−7.7). Validation GSM8K fell from 65.6 to 59.4 (local +4.0), and MATH-500 rose from 46.9 to 50.0 (local −2.0). With about 64 docs per benchmark, each of these validation moves is within noise.
