@@ -1,0 +1,13 @@
+{
+ "tensor": "model.language_model.norm.weight",
+ "alpha": 1.25,
+ "changed_entries": 1024,
+ "original_sha256": "30832e6642a9c1555485d5c9553a35e539278c33ce3b7a9665e06cd2c5598381",
+ "edited_sha256": "6960071031ac175ce8e1b8efe37ef4abd5b24e970666ee8e49473a6cf19c1dcb",
+ "realized_scale": {
+  "mean": 1.2500128746032715,
+  "min": 1.2456140518188477,
+  "max": 1.253731369972229,
+  "std": 0.0019030198454856873
+ }
+}
