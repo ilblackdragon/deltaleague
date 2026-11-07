@@ -33,11 +33,11 @@ Generations with the competition's thinking-mode settings on an RTX 4080 with vL
 **This gain is not established.** It is about 0.5 standard errors. The entry is a test of the private response to the step, not a demonstrated improvement.
 
 ## Limitations and negative findings
-- The same measure gives the x1.05 step from `9492e219` to `79be46a9` only +0.41 ± 0.46, against +2.6 on the private test. Repeated samples suggest a sampling error near 1.3 for one 500-task run and 1.8 for a difference, so the two agree within noise.
-- The measure's prompts are a guess at the private format, and its benchmark mix is unknown relative to the private test. It reproduces platform truncation closely (r 0.995 over 10 checkpoints, Original and `632210ae` the largest misses) but not the order of private scores among the top entries.
+- The same measure gives the x1.05 step from `9492e219` to `79be46a9` only +0.59 ± 0.44, against +2.6 on the private test. Repeated samples suggest a sampling error near 1.3 for one 500-task run and 1.8 for a difference, so the two agree within noise.
+- The measure's prompts end in a suffix we wrote ourselves ("Think it through, then ... inside \\boxed{}"), which public validation prompts do not have and which may hide breakage. They are a guess at the private format, and its benchmark mix is unknown relative to the private test. It reproduces platform truncation closely (r 0.995 over 10 checkpoints, Original and `632210ae` the largest misses) but not the order of private scores among the top entries.
 - Continuing the leader's GRPO delta does not help: x1.5 gives −1.44 ± 1.34 and x2 gives −3.84 ± 1.63, and first-token `</think>` rises from 19% to 38% and 72% on the 320 prompts.
 - Blocking `</think>` as the first generated token with a rank-1 layer 23 edit gives −0.16 ± 1.59 and breaks code prompts: stray `</think>` 1.9% to 22.4%, truncation 1.3% to 7.4%.
-- Further GRPO on this parent, with the official score as reward over all families: −0.31 ± 0.89 after 5 rounds on 3 seeds, compared with `9492e219` on the same seeds. It shortens traces (truncation 6.9% to 5.8%) without raising accuracy.
+- Further GRPO on this parent, with the official score as reward over all families: −0.28 ± 0.71 after 5 rounds against the parent's rebuild, 3 seeds each. It shortens traces (truncation 6.9% to 5.8%) without raising accuracy.
 
 ## Compute
 Built on AI quota from holding $BRRRAIN.
@@ -46,3 +46,5 @@ Built on AI quota from holding $BRRRAIN.
 Verified (official): private test 46.2, tied at official rank 1 with the parent, validation 44.34, truncation 10.8%. Parent `79be46a9`: 46.2, 44.94, 12.4%. Version `843a3e6e-508c-444a-93ce-1291ecdeb7c1`.
 
 The private score did not change, so this entry shows no gain over its parent. Truncation fell 1.6 points and validation fell 0.60. With a sampling error near 1.8 on a difference, none of these is established. Validation moved most on MBPP (−9.4), IFEval (−6.2), MATH-500 (−6.2) and MMLU-Pro (+4.3).
+
+Correction: an earlier version of this record gave +0.41 ± 0.46 and −0.31 ± 0.89. A broken link in our results dropped one baseline seed for those two comparisons. The verdicts do not change.
