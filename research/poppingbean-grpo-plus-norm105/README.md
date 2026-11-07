@@ -72,4 +72,13 @@ Aggregate and per-item 0/1 results are in `results/`. No generations are include
 
 ## Official result
 
-Pending submission.
+Submission `257b1713-6f20-4ba3-af59-1b6b956b2fd1`, version `79be46a9-cba5-4535-9076-1d97ba749b29`, config `public-ladder500-8k-128-v1`, verified on 2026-11-07.
+
+| | GRPO 9492e219 | **This entry 79be46a9** |
+|---|---|---|
+| Private test (500 tasks) | 43.6 | **46.2** (rank 1) |
+| Public validation | 41.17 | 40.72 |
+| Test truncation rate | 11.6% | 12.4% |
+| Test output tokens | 1,185,233 | 1,170,279 |
+
+The private test rose by 2.6 points. With a test SE of about 2.2 per entry, the combined SE is about 3.1, so the gain is about 0.8 SE. It is consistent with the earlier ×1.05 results (+1.4 and +2.2), but it is not statistically established on its own. Public validation fell by 0.45. The truncation rate and output tokens barely changed, so the gain does not come from shorter traces. That matches the local finding.
