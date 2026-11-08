@@ -55,14 +55,29 @@ delta validate ./submission
 
 ## Local check
 
-A paired gsm8k run against the rebuilt leader `773f4844` was in progress at submission time. Setup:
+Setup:
 
-- public gsm8k validation items, hash-verified;
-- private-test sampler (T 1.0, top_p 0.95, top_k 20, presence 1.5, thinking on, 8,192-token cap);
-- seeds 1000+position, paired across both models;
-- AMD Radeon 8060S, ROCm, BF16, with a 2 h budget.
+- All 64 public gsm8k validation items, hash-verified.
+- Private-test sampler: T 1.0, top_p 0.95, top_k 20, presence 1.5, thinking on, 8,192-token cap.
+- Seeds 1000+position, paired across the two models.
+- AMD Radeon 8060S, ROCm, BF16.
+- Rescored in-process with `rescore_gsm8k.py`, because the CLI's math scorer fails on Windows.
 
-Results will be added to `results/`. With about 64 items, this check can only catch a clearly broken merge. It cannot resolve differences of 1–2 points. A one-question smoke test reasons normally and answers correctly.
+The comparison is against a local rebuild of the current leader `773f4844`.
+
+| | `773f4844` (leader) | TIES merge |
+|---|---|---|
+| gsm8k accuracy | 67.2 | 62.5 |
+| mean tokens | 1,590 | 1,457 |
+| truncated | 1.6% | 0% |
+
+Paired difference: **−4.7 points**, 95% bootstrap CI [−17.2, +7.8], 7 wins and 10 losses, sign-test p = 0.63.
+
+Reading:
+
+- The direction is negative but not significant. With 64 items, this check can only rule out a badly broken merge.
+- The merge thinks about 8% shorter than the leader.
+- Per-item 0/1 results are in `results/`. No generations are included.
 
 ## Credit
 
