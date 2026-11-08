@@ -1,0 +1,8 @@
+{
+ "gain": 1.5,
+ "old_norm": 0.5706068873405457,
+ "new_norm": 0.8558669686317444,
+ "entries_changed": 1024,
+ "max_rel_rounding_error": 0.003831417066976428,
+ "output": "edited.safetensors"
+}
