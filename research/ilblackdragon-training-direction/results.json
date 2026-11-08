@@ -1,0 +1,149 @@
+{
+  "scope": "Independent training-split experiment; not official League evaluation",
+  "stages": {
+    "train_student": {
+      "planned": 16,
+      "completed": 6,
+      "correct": 1.0,
+      "accuracy_on_completed": 0.16666666666666666,
+      "truncated": 5,
+      "examples": [
+        {
+          "id": "gsm8k-train-6819",
+          "dataset_index": 6819,
+          "split": "training",
+          "tokens": 8192,
+          "truncated": true,
+          "max_new_tokens": 8192,
+          "reasoning_closed": false,
+          "score": 0.0,
+          "seconds": 1000.1866447087377,
+          "tail_repetition_coverage": 0.6875,
+          "loop_detected": true,
+          "max_8gram_occurrences": 67
+        },
+        {
+          "id": "gsm8k-train-3171",
+          "dataset_index": 3171,
+          "split": "training",
+          "tokens": 8192,
+          "truncated": true,
+          "max_new_tokens": 8192,
+          "reasoning_closed": false,
+          "score": 0.0,
+          "seconds": 996.0970924459398,
+          "tail_repetition_coverage": 0.28125,
+          "loop_detected": true,
+          "max_8gram_occurrences": 27
+        },
+        {
+          "id": "gsm8k-train-5037",
+          "dataset_index": 5037,
+          "split": "training",
+          "tokens": 8192,
+          "truncated": true,
+          "max_new_tokens": 8192,
+          "reasoning_closed": false,
+          "score": 0.0,
+          "seconds": 991.8866106439382,
+          "tail_repetition_coverage": 0.44140625,
+          "loop_detected": true,
+          "max_8gram_occurrences": 20
+        },
+        {
+          "id": "gsm8k-train-6229",
+          "dataset_index": 6229,
+          "split": "training",
+          "tokens": 8192,
+          "truncated": true,
+          "max_new_tokens": 8192,
+          "reasoning_closed": false,
+          "score": 0.0,
+          "seconds": 995.1356777679175,
+          "tail_repetition_coverage": 0.33984375,
+          "loop_detected": true,
+          "max_8gram_occurrences": 25
+        },
+        {
+          "id": "gsm8k-train-1026",
+          "dataset_index": 1026,
+          "split": "training",
+          "tokens": 5266,
+          "truncated": false,
+          "max_new_tokens": 8192,
+          "reasoning_closed": true,
+          "score": 1.0,
+          "seconds": 618.5015614582226,
+          "tail_repetition_coverage": 0.50390625,
+          "loop_detected": true,
+          "max_8gram_occurrences": 11
+        },
+        {
+          "id": "gsm8k-train-5128",
+          "dataset_index": 5128,
+          "split": "training",
+          "tokens": 8192,
+          "truncated": true,
+          "max_new_tokens": 8192,
+          "reasoning_closed": false,
+          "score": 0.0,
+          "seconds": 992.9265994764864,
+          "tail_repetition_coverage": 0.6328125,
+          "loop_detected": true,
+          "max_8gram_occurrences": 28
+        }
+      ]
+    },
+    "train_teacher": {
+      "planned": 16,
+      "completed": 0,
+      "correct": 0,
+      "accuracy_on_completed": null,
+      "truncated": 0,
+      "examples": []
+    },
+    "heldout_student": {
+      "planned": 8,
+      "completed": 0,
+      "correct": 0,
+      "accuracy_on_completed": null,
+      "truncated": 0,
+      "examples": []
+    },
+    "heldout_candidate": {
+      "planned": 8,
+      "completed": 0,
+      "correct": 0,
+      "accuracy_on_completed": null,
+      "truncated": 0,
+      "examples": []
+    },
+    "heldout_teacher": {
+      "planned": 8,
+      "completed": 0,
+      "correct": 0,
+      "accuracy_on_completed": null,
+      "truncated": 0,
+      "examples": []
+    }
+  },
+  "submission_id": null,
+  "official_validation_score": null,
+  "official_private_score": null,
+  "pipeline-status": {
+    "status": "interrupted_unexpectedly",
+    "stage": "train_student",
+    "observed_at_unix": 1794008630.8062387,
+    "last_progress_at_unix": 1793930277.8460042,
+    "process_alive": false,
+    "cause": "Unknown: no final error or normal shutdown record; execution session no longer exists.",
+    "prior_running_status_was_stale": true,
+    "budget_deadline_passed": true,
+    "restart_performed": false,
+    "completed_student_examples": 6,
+    "incomplete_student_example": "gsm8k-train-4560",
+    "incomplete_example_last_logged_tokens": 5888,
+    "teacher_examples": 0,
+    "candidate_exists": false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "data_frozen",
+  "started_at_unix": 1793923887.7313073,
+  "deadline_unix": 1793967087.7313073,
+  "parent_version_id": "0ea62f40-7cd8-4d98-9ebb-484192fa05eb",
+  "evaluation_id": "public-ladder500-8k-v2",
+  "proposed_budget": {
+    "approved": true,
+    "wall_seconds": 43200,
+    "cpu_threads": 16,
+    "ram_gib": 64,
+    "paid_compute": false
+  },
+  "dataset": "openai/gsm8k",
+  "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+  "dataset_split": "train",
+  "split_seed": 20261106,
+  "generation_seed": 1000,
+  "training_count": 16,
+  "heldout_count": 8,
+  "max_new_tokens": 8192,
+  "prompt": "zero-shot question plus step-by-step and boxed final answer; identical across models",
+  "official_protocol_parity": false,
+  "league_validation_used": false,
+  "minimum_pairs": 3,
+  "pair_eligibility": "training only; teacher completed correct final answer, student score zero; no loop-threshold requirement",
+  "contrast": "equal-weight mean student-space final-256-reasoning-token outputs, failed student minus successful teacher; same question pairs",
+  "layers": [
+    15,
+    19
+  ],
+  "columns_per_layer": 64,
+  "strength": 0.5,
+  "relative_norm_cap": 0.005,
+  "candidate_count": 1,
+  "gradient_training": false,
+  "heldout_policy": "Do not load heldout generation outcomes into edit routine. Evaluate original, teacher, candidate only after frozen edit; if fewer than 3 pairs, stop without edit.",
+  "submission_authorized": false,
+  "on_budget_exhaustion": "Stop; preserve completed rows and report incomplete coverage. Never shorten token allowance.",
+  "selected_sha256": "598027f0e57de7c7c8162e8f1ec0b0257dc9443e3a0342f277dc99e662aaf67c",
+  "demonstrations_used": 0,
+  "demonstration_exclusion": "No demonstrations used in this independent zero-shot experiment. Official worker demonstration identities unavailable; no claim of exclusion from unknown official few-shot draws."
+}
