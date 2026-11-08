@@ -49,4 +49,4 @@ Each row has n = 500. CIs are a paired bootstrap 95%. Full output is in `proxy_c
 
 ## Submission
 
-Submission ID: _to be added after `delta submit`._
+Submission ID: `cf7645be-d1e5-4550-b81e-9572bac4adff` (submitted 2026-11-08 04:14 UTC). Official result pending.
