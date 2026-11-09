@@ -48,3 +48,15 @@ Credit goes to:
 - ma4ypic4y: `9492e219`.
 
 The ×1.05 final-norm step comes from #43 and #55.
+
+## Official result
+
+Submission `92acd7f1-0933-48f6-98f0-e63bdcc7d0b9`, version `c7954411-bf63-437f-8da5-28e76de6b026`, config `public-thinking8k-ladder500-v1`.
+
+| | `fdad0374` (parent) | `fb984a19` (full Δr) | **This entry (sign-consistent Δr)** |
+|---|---|---|---|
+| Private test (500 tasks) | 50.8 | 51.0 | **50.2** (rank 4) |
+| Public validation | 44.55 | 44.51 | 44.53 |
+| Test truncation rate | 14.6% | 14.2% | 15.2% |
+
+Dropping the 38% of Δr that opposes our GRPO merge delta gave 0.8 points less than the full transplant on the private test, with essentially the same validation score. With a test SE of about 2.2 per entry, all three entries are statistically indistinguishable. The sign filter did not help. This is consistent with `0d7af43b`, where sign election also failed to add value.
