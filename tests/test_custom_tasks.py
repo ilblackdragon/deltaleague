@@ -1,6 +1,17 @@
 import pytest
 from delta_cli.public_eval.custom_tasks import candidate_files,chat_request,answer
 
+def test_coding_prompt_uses_real_paths():
+    from delta_cli.public_eval.custom_tasks import coding_prompt
+    prompt=coding_prompt('Implement solve.',{'solution.py':'pass','helpers.py':'pass'})
+    assert 'relative/path.py' not in prompt
+    assert '"files": {"solution.py":' in prompt and '"helpers.py":' in prompt
+
+def test_malformed_json_is_not_python_fallback():
+    with pytest.raises(ValueError):candidate_files('{"files":{"solution.py":"def solve(x):', ['solution.py'])
+    with pytest.raises(ValueError):candidate_files('', ['solution.py'])
+    with pytest.raises(ValueError):candidate_files('explanation then code', ['solution.py'])
+
 def test_file_allowlist_and_traversal():
     with pytest.raises(ValueError):candidate_files('{"files":{"../solution.py":"pass"}}',['../solution.py'])
     with pytest.raises(ValueError):candidate_files('{"files":{"secret.py":"pass"}}',['solution.py'])

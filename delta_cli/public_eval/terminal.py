@@ -207,6 +207,8 @@ def prepare_dataset(root, protocol):
 def evaluate(root):
     from .history import History,ResponseProxy,export_checkpoint,import_checkpoint
     from harbor.trial.trial import Trial
+    from .native_trial import pin_simple_docker_images
+    pin_simple_docker_images()
     config=json.loads((root/'manifest.json').read_text());p=dict(config['protocol'])
     selected=config.get('terminal_keys')
     if selected:

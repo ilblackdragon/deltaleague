@@ -4,6 +4,7 @@ Candidate programs run with only candidate files and test inputs. Expected
 outputs stay in the trusted caller, outside the execution container.
 """
 import json
+import ast
 import os
 from pathlib import Path
 import re
@@ -25,6 +26,16 @@ def answer(response, thinking=True):
     return final_answer(text) if thinking else text.strip()
 
 
+def coding_prompt(prompt, starter_files):
+    """Use real filenames in the output example; placeholders become model output."""
+    if not starter_files:raise ValueError('No candidate files')
+    example={'files':{name:'complete Python source for this file' for name in starter_files}}
+    return (prompt+'\nExisting files:\n'+json.dumps(starter_files)+
+            '\nReturn only a JSON object with this structure: '+json.dumps(example)+
+            '\nUse exactly the filenames shown above. Include complete contents of changed files. '+
+            'Encode newlines as JSON escapes inside strings. Do not include explanations.')
+
+
 def candidate_files(text, allowed):
     match=re.fullmatch(r'\s*```(?:json|python)?\s*\n(.*?)\n```\s*',text,re.S)
     text=match.group(1) if match else text
@@ -32,7 +43,15 @@ def candidate_files(text, allowed):
         data=json.loads(text)
         files=data.get('files') if isinstance(data,dict) else None
     except ValueError:
-        files={'solution.py':text} if set(allowed)=={'solution.py'} else None
+        # Only accept actual Python as the single-file fallback. Malformed JSON
+        # used to be executed as Python and mislabeled as an execution failure.
+        files=None
+        if set(allowed)=={'solution.py'}:
+            try:tree=ast.parse(text)
+            except SyntaxError:pass
+            else:
+                if any(isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name=='solve' for node in tree.body):
+                    files={'solution.py':text}
     if not isinstance(files,dict) or not files or set(files)-set(allowed):
         raise ValueError('Invalid candidate file set')
     for name,source in files.items():
