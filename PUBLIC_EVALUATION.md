@@ -283,3 +283,20 @@ For external inference, specify the endpoint's model name and `--api-key-env MOD
 Terminal-Bench uses `--benchmark terminal_bench_2_1`; full coverage includes all 89 pinned native tasks. Sample coverage requires one or more `--task NATIVE_TASK_ID` arguments. `--attempts 5` records five attempts per task, scored as mean pass@1. This adapter currently declares a Qwen tokenizer, 8192-token thinking, Terminus-2, native Docker environments and native verifier rewards. It preserves native task timeouts and compaction settings; it adds no overall run deadline. Infrastructure failures are retried and never silently scored as incorrect answers.
 
 Python callers use `delta_cli.public_eval.standalone.make_protocol` and `run_benchmark`. Scheduled workers use `execute` with a prepared local directory and an injected inference endpoint. Both paths use the same public modules.
+
+### Custom Python call contracts
+
+The custom-task primitives support a trusted `entrypoint` object with `module`,
+`function`, and `call_style`. The default remains `solution.solve(input)` for
+existing tasks. With `call_style="args_kwargs"`, each test input is an object
+containing optional `args` (list) and `kwargs` (object), and the sandbox calls the
+named function with Python's normal argument binding. This supports multiple
+parameters, omitted defaults, and keyword-only arguments without task-specific
+wrappers. Expected outputs remain outside the candidate container.
+
+Pass the same entrypoint to both `candidate_files(..., entrypoint=...)` and
+`check_python(..., entrypoint=...)`. For example, a module named `arithmetic` and
+function named `combine` uses `arithmetic.py`; raw single-file Python responses
+must define `combine`. Module/function identifiers and call envelopes are
+validated before sandbox execution. Private task definitions do not belong in
+this repository.

@@ -5,6 +5,7 @@ outputs stay in the trusted caller, outside the execution container.
 """
 import json
 import ast
+import keyword
 import os
 from pathlib import Path
 import re
@@ -36,7 +37,32 @@ def coding_prompt(prompt, starter_files):
             'Encode newlines as JSON escapes inside strings. Do not include explanations.')
 
 
-def candidate_files(text, allowed):
+def python_entrypoint(entrypoint=None):
+    """Validate the trusted call contract; preserve legacy solve(input) tasks."""
+    spec={'module':'solution','function':'solve','call_style':'single'}
+    if entrypoint is not None:
+        if not isinstance(entrypoint,dict) or set(entrypoint)-set(spec):
+            raise ValueError('Invalid Python entrypoint')
+        spec.update(entrypoint)
+    for field in ('module','function'):
+        value=spec[field]
+        if not isinstance(value,str) or not value.isascii() or not value.isidentifier() or keyword.iskeyword(value):
+            raise ValueError('Invalid Python entrypoint identifier')
+    if spec['call_style'] not in ('single','args_kwargs'):
+        raise ValueError('Invalid Python call style')
+    return spec
+
+
+def python_bootstrap(entrypoint=None):
+    spec=python_entrypoint(entrypoint)
+    call='fn(x)' if spec['call_style']=='single' else "fn(*x.get('args',[]),**x.get('kwargs',{}))"
+    return ("import sys,json,importlib;sys.path.insert(0,'/candidate');"
+            f"fn=getattr(importlib.import_module({spec['module']!r}),{spec['function']!r});"
+            f"print(json.dumps([{call} for x in json.load(sys.stdin)],allow_nan=False))")
+
+
+def candidate_files(text, allowed, *, entrypoint=None):
+    spec=python_entrypoint(entrypoint)
     match=re.fullmatch(r'\s*```(?:json|python)?\s*\n(.*?)\n```\s*',text,re.S)
     text=match.group(1) if match else text
     try:
@@ -46,12 +72,12 @@ def candidate_files(text, allowed):
         # Only accept actual Python as the single-file fallback. Malformed JSON
         # used to be executed as Python and mislabeled as an execution failure.
         files=None
-        if set(allowed)=={'solution.py'}:
+        if set(allowed)=={spec['module']+'.py'}:
             try:tree=ast.parse(text)
             except SyntaxError:pass
             else:
-                if any(isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name=='solve' for node in tree.body):
-                    files={'solution.py':text}
+                if any(isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name==spec['function'] for node in tree.body):
+                    files={spec['module']+'.py':text}
     if not isinstance(files,dict) or not files or set(files)-set(allowed):
         raise ValueError('Invalid candidate file set')
     for name,source in files.items():
@@ -61,8 +87,17 @@ def candidate_files(text, allowed):
     return files
 
 
-def check_python(files, inputs, expected, *, image, timeout=30):
+def check_python(files, inputs, expected, *, image, timeout=30, entrypoint=None):
     if len(inputs)!=len(expected):raise ValueError('Case count mismatch')
+    spec=python_entrypoint(entrypoint)
+    if spec['module']+'.py' not in files:raise ValueError('Missing Python entrypoint file')
+    if spec['call_style']=='args_kwargs':
+        for case in inputs:
+            if (not isinstance(case,dict) or set(case)-{'args','kwargs'}
+                or not isinstance(case.get('args',[]),list)
+                or not isinstance(case.get('kwargs',{}),dict)
+                or any(not isinstance(k,str) for k in case.get('kwargs',{}))):
+                raise ValueError('Invalid Python call arguments')
     name='delta-custom-'+uuid.uuid4().hex
     with tempfile.TemporaryDirectory(prefix='delta-candidate-') as td:
         root=Path(td);root.chmod(0o755)
@@ -75,7 +110,7 @@ def check_python(files, inputs, expected, *, image, timeout=30):
                 directory.chmod(0o755)
             target.write_text(source);target.chmod(0o444)
         # No hidden reference data is mounted or embedded in this bootstrap.
-        bootstrap="import sys,json;sys.path.insert(0,'/candidate');from solution import solve;print(json.dumps([solve(x) for x in json.load(sys.stdin)],allow_nan=False))"
+        bootstrap=python_bootstrap(spec)
         command=['docker','run','--rm','-i','--name',name,'--network','none','--read-only',
                  '--cap-drop','ALL','--security-opt','no-new-privileges','--pids-limit','32',
                  '--memory','512m','--memory-swap','512m','--cpus','1','--user','65534:65534',
