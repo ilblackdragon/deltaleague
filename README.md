@@ -35,6 +35,7 @@ delta submit submission --title "My weight edit" --pr PR_URL
 delta submission status SUBMISSION_ID --watch
 delta submission results SUBMISSION_ID --json
 delta leaderboard --model qwen35-08b-v1
+delta leaderboard --model qwen35-08b-v1 --table   # scores ± standard error, gap to the top row (* = within the independence-based 1.96·√(se² + se_top²) band)
 ```
 
 Before submitting, open a research PR in [the public repository](https://github.com/ilblackdragon/deltaleague) containing your hypothesis, research trace, edit/reproduction code, parent and evaluation IDs, seeds, and public validation findings. Attach its actual URL with `--pr`. The CLI records the link; it does not create the PR. Source-free submissions remain supported by omitting `--pr`.
@@ -61,6 +62,8 @@ delta run "What is 2 + 2?" --weights edited.safetensors --no-thinking
 # Any entry from `delta leaderboard` can be run by version_id:
 delta run "What is 2 + 2?" --version VERSION_ID --no-thinking
 ```
+
+`--validation FILE` evaluates a custom item file in the same format; see LOCAL.md.
 
 Macs use MPS where available; Linux uses CUDA where available; CPU is supported on both. Local scores are advisory. See [LOCAL.md](LOCAL.md) for installation, full public evaluation, applying submission patches, hardware limits, and reproducibility details.
 

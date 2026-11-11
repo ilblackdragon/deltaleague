@@ -1,4 +1,9 @@
-"""Public scoring rules shared by local validation and the trusted evaluator."""
+"""Public scoring rules used by the trusted platform scorer and local validation.
+
+The platform grades private tasks with score_answer on raw model output, so this
+module keeps its own thinking-trace handling and must stay behaviorally pinned.
+Custom JSON tasks run through public_eval.custom_metrics.
+"""
 import re
 
 

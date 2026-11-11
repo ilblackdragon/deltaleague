@@ -48,7 +48,7 @@ def test_local_validation_accepts_contract_and_rejects_bad_metadata(workspace):
     data['a'][0].update(scorer='exact_delimited', answer='red,blue', answer_separators=',')
     path.write_text(json.dumps(data))
     config['validation_sha256'] = file_hash(path)
-    tasks, _, _ = local.public_examples(root, config)
+    tasks, _, _, _ = local.public_examples(root, config)
     assert score_answer(tasks[0]['example'], 'red, blue') == 1
     data['a'][0]['answer_separators'] = 'letters'
     path.write_text(json.dumps(data))
