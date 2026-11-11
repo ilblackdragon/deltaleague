@@ -32,7 +32,7 @@ def configuration():
 
 
 def evaluate_public(*, endpoint, model, tokenizer, content_hash, output, manifest_path=None,
-                    concurrency=32, progress=None, generation=None, config_id=None):
+                    concurrency=32, progress=None, generation=None, config_id=None, reuse_non_bfcl=None):
     """Return public_validation/public_evidence; never accepts platform/private job payloads.
 
     The content hash identifies the checkpoint the caller serves. It is recorded,
@@ -54,6 +54,15 @@ def evaluate_public(*, endpoint, model, tokenizer, content_hash, output, manifes
              'status': 'running', 'completed': 0, 'total': sum(map(len, expected_items(suite).values()))}
     state_path = output / 'run.json'
     groups, evidence = {}, {}
+    if reuse_non_bfcl is not None:
+        import copy
+        previous = reuse_non_bfcl['public_validation']
+        score_public(previous, content_hash)  # Complete, same-checkpoint evidence only.
+        groups = {name: copy.deepcopy(rows) for name, rows in previous['groups'].items()
+                  if name not in ('bfcl_single_turn', 'bfcl_multi_turn')}
+        evidence = {name: copy.deepcopy(value) for name, value in reuse_non_bfcl.get('public_evidence', {}).items()
+                    if name != 'bfcl'}
+        state['reused_benchmarks'] = sorted(groups)
     started = time.monotonic()
 
     def record():
@@ -65,6 +74,7 @@ def evaluate_public(*, endpoint, model, tokenizer, content_hash, output, manifes
     try:
         record()
         for group, spec in suite['text'].items():
+            if group in groups:continue
             from .text import run as text_run
             report = text_run(suite, group, endpoint, model, str(tokenizer), reports / (group + '.json'),
                               concurrency=concurrency, **({'generation':generation} if generation else {}))
@@ -77,6 +87,7 @@ def evaluate_public(*, endpoint, model, tokenizer, content_hash, output, manifes
                                       for row in samples] for task, samples in report['samples'].items()}
             record()
         for group in suite['code']:
+            if group in groups:continue
             from .coding import run as code_run
             report = code_run(suite, group, endpoint, model, '', reports / (group + '.json'),
                               sandbox_backend='wasi', concurrency=concurrency, **({'generation':generation} if generation else {}))

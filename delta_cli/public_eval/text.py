@@ -15,6 +15,12 @@ def pinned_datasets(pins, *, discover=False):
             if not discover:
                 raise ValueError(f'Unpinned dataset: {path}')
             pins[path] = HfApi().dataset_info(path).sha
+        import json, os
+        source=json.loads(os.environ.get('DELTA_DATASET_SOURCES','{}')).get(path)
+        if source:
+            if source['revision']!=pins[path]:raise ValueError('Mirror revision mismatch')
+            kwargs.pop('revision',None)
+            return original(source['path'],*args,**kwargs)
         kwargs['revision'] = pins[path]
         return original(path, *args, **kwargs)
     with patch.object(datasets, 'load_dataset', load):

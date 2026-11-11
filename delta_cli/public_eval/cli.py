@@ -46,3 +46,46 @@ def run_command(endpoint: str = typer.Option(..., help='OpenAI-compatible vLLM e
     typer.echo(json.dumps({'output': str(output), 'local_only': True,
                           'validation_score': result['validation_score'],
                           'validation_benchmarks': result['validation_benchmarks']}, indent=2))
+
+
+@app.command('benchmark-config')
+def benchmark_config_command(
+        benchmark: str = typer.Option(..., help='Native benchmark name, including terminal_bench_2_1'),
+        generation: Path = typer.Option(..., help='JSON with explicit generation settings'),
+        coverage: str = typer.Option('sample', help='sample or full'),
+        concurrency: int = typer.Option(8, min=1, max=256),
+        task: list[str] = typer.Option([], help='Native Terminal task ID; repeat for a sample'),
+        attempts: int = typer.Option(1, help='Terminal attempts per task: 1 or 5')):
+    """Write a standalone protocol to stdout, without loading a model."""
+    from .standalone import make_protocol
+    try:
+        result = make_protocol(benchmark, json.loads(generation.read_text()), coverage=coverage,
+                               concurrency=concurrency, task_ids=task, attempts=attempts)
+    except (ValueError, KeyError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(json.dumps(result, indent=2))
+
+
+@app.command('benchmark')
+def benchmark_command(
+        protocol: Path = typer.Option(..., help='Protocol from benchmark-config or an exported run'),
+        endpoint: str = typer.Option(..., help='Compatible inference endpoint, optionally ending in /v1'),
+        tokenizer: Path = typer.Option(..., help='Matching local tokenizer directory'),
+        content_hash: str = typer.Option(..., help='Immutable SHA-256 identity of the served model'),
+        model: str = typer.Option('candidate', help='Model name accepted by the endpoint'),
+        output: Path = typer.Option(Path('benchmark-results'), help='New output directory'),
+        start: int | None = typer.Option(None, help='Inclusive shard ordinal'),
+        end: int | None = typer.Option(None, help='Exclusive shard ordinal'),
+        api_key_env: str | None = typer.Option(None, help='Environment variable containing endpoint credentials')):
+    """Run a native benchmark, full set, or shard without the Delta League controller."""
+    from .standalone import run_benchmark
+    if (start is None) != (end is None):
+        raise typer.BadParameter('Supply both --start and --end for a shard')
+    try:
+        result = run_benchmark(protocol=json.loads(protocol.read_text()), endpoint=endpoint, model=model,
+                               tokenizer=tokenizer, content_hash=content_hash, output=output,
+                               bounds=None if start is None else [start, end], api_key_env=api_key_env)
+    except Exception as exc:
+        typer.echo(f'Benchmark failed ({type(exc).__name__}); inspect local evidence. No complete score was accepted.', err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(json.dumps(result, indent=2))

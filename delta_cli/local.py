@@ -207,9 +207,11 @@ def public_examples(workspace, config, benchmark=None, limit=None, validation_fi
             if not all(isinstance(example.get(k), str) and example[k] for k in ('id', 'prompt')):
                 raise ValueError('Validation examples need id and prompt.')
             scorer = example.get('scorer', 'exact')
-            if scorer not in {'exact', 'choice', 'math', 'ifeval'}:
+            if scorer not in {'exact', 'exact_delimited', 'choice', 'math', 'ifeval'}:
                 raise ValueError(f'Unsupported scorer: {scorer}')
             check_scorer_fields(example, scorer)
+            if scorer == 'exact_delimited':
+                score_answer(example, '')  # Validate its contract before inference.
             # Fail on missing scoring dependencies before spending time on inference.
             if scorer == 'math':
                 __import__('math_verify')

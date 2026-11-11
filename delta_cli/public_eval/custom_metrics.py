@@ -6,9 +6,19 @@ def score_answer(example, text):
     # The shared backend normalizes thinking output before task scoring.
     answer = text.strip()
     scorer = example.get("scorer", "exact")
-    if scorer == "exact":
+    if scorer in ("exact", "exact_delimited"):
+        separators = example.get("answer_separators") if scorer == "exact_delimited" else None
+        if scorer == "exact_delimited" and (
+            not isinstance(separators, str) or not separators
+            or any(c not in ",;|=/" for c in separators)
+        ):
+            raise ValueError("exact_delimited requires explicit answer_separators")
+
         def normalize(s):
-            return re.sub(r"\s+", " ", str(s).strip()).casefold()
+            value = re.sub(r"\s+", " ", str(s).strip()).casefold()
+            if separators:
+                value = re.sub(r"\s*([" + re.escape(separators) + r"])\s*", r"\1", value)
+            return value
         return float(normalize(answer) == normalize(example["answer"]))
     if scorer == "choice":
         boxed = re.findall(r"\\boxed\{([A-E1-5])\}", answer)
