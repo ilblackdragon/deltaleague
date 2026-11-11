@@ -7,7 +7,7 @@ pip install deltaleague
 pip install 'deltaleague[local]'  # optional local inference and public validation
 ```
 
-Version `0.1.0` was published on 2026-11-04 using Trusted Publishing. Version `0.1.1` adds the login confirmation code display required by the server. For development, install from this checkout with `pip install .` or `pip install '.[local]'`.
+Version `0.1.0` was published on 2026-11-04 using Trusted Publishing. Version `0.1.1` adds the login confirmation code display required by the server. Version `0.3.0` aligns sparse reconstruction with the platform verifier (float64 and wide-integer replacement precision; BF16/FP16/FP32 hashes unchanged) and adds custom tasks, standalone public benchmarks and offline Harbor recording. For development, install from this checkout with `pip install .` or `pip install '.[local]'`.
 
 ## One-time account setup
 
