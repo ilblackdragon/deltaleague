@@ -285,6 +285,23 @@ Terminal-Bench uses `--benchmark terminal_bench_2_1`; full coverage includes all
 
 Python callers use `delta_cli.public_eval.standalone.make_protocol` and `run_benchmark`. Scheduled workers use `execute` with a prepared local directory and an injected inference endpoint. Both paths use the same public modules.
 
+### Recording in network-isolated terminal environments
+
+Native trial setup can supply the bundled, SHA-256-verified asciinema 2.4.0 wheel
+without sandbox network access. Existing installed recording tools are preserved.
+The helper uses local pip installation without dependencies, then invokes Harbor's
+normal tool setup and fallback behavior. Recording stays enabled; task instructions,
+model generation settings and native deadlines are unchanged. This avoids repeated
+failed apt/PyPI attempts in isolated sandboxes. The wheel retains its upstream
+license and is included in public runtime source bundles.
+
+Custom terminal suites distinguish their configured aggregate output/call budget
+from provider outages. A budget stop is signaled locally to the isolated native
+agent and recorded using Harbor's agent-budget outcome; the native verifier must
+still run and produce valid evidence. Generic provider errors remain infrastructure
+failures. The caller can receive an `inference_finished` callback before verifier
+and publication work; it must not treat that callback as task completion.
+
 ### Custom Python call contracts
 
 The custom-task primitives support a trusted `entrypoint` object with `module`,
