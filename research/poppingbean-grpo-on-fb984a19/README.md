@@ -76,3 +76,15 @@ Reading:
 
 - **IFEval fingerprints:** the official `delta public-eval run` aborted on the parent at IFEval. In this environment, the IFEval documents no longer match the suite's pinned document fingerprints ("selected documents changed").
 - **Workaround:** `pe_groups.py` runs the same text and code groups through the evaluator's own `text.run` and `coding.run`, at the evaluation config's sampler. It skips only the IFEval fingerprint check and BFCL. Both models see identical documents, so the comparison stays paired. It is not an official public-validation score.
+
+## Official result
+
+Submission `079a9847-702b-4eb3-8bec-058ec7039036`, version `1b23b576-64fb-4990-b4f5-5a3c3ce71e30`, verified.
+
+| | `fb984a19` (parent) | **This entry (step 8)** |
+|---|---|---|
+| Private test (500 tasks) | 53.4 | **51.5** (rank 5, tied) |
+| Public validation | 47.40 | 47.01 |
+| Test truncation rate | 14.2% | 14.4% |
+
+The private test fell by 1.9 points, matching the direction of the local evidence: −0.9 on the public groups and −1.0 on the math probe. With a test SE of about 2.2 per entry, the drop is not significant on its own. Still, all three signals agree that 8 more GRPO steps with this recipe do not improve `fb984a19`. The IFEval gain seen locally did not lift the overall private score, and truncation did not fall.
