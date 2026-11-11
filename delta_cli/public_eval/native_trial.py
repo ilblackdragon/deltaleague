@@ -52,7 +52,7 @@ def pin_simple_docker_images():
     DockerEnvironment._delta_image_identity=True
 
 
-def run_trial_isolated(config, *, tokenizer_path=None):
+def run_trial_isolated(config, *, tokenizer_path=None, budget_stop_path=None, inference_finished=None):
     from harbor.models.trial.result import TrialResult
     root=Path(config.trials_dir)
     root.mkdir(parents=True,exist_ok=True)
@@ -60,13 +60,55 @@ def run_trial_isolated(config, *, tokenizer_path=None):
     result=root/(config.trial_name+'.native.json')
     if request.exists() or result.exists():
         raise FileExistsError('Use a unique trial name for each execution attempt')
-    payload={'config':config.model_dump(mode='json'),'tokenizer_path':str(tokenizer_path) if tokenizer_path else None}
+    phase=root/(config.trial_name+'.inference-finished')
+    payload={'config':config.model_dump(mode='json'),'tokenizer_path':str(tokenizer_path) if tokenizer_path else None,
+        'budget_stop_path':str(budget_stop_path) if budget_stop_path else None,'inference_finished_path':str(phase)}
     with request.open('x') as f:json.dump(payload,f)
     request.chmod(0o600)
     with (root/(config.trial_name+'.process.log')).open('x') as log:
-        process=subprocess.run([sys.executable,str(Path(__file__).resolve()),str(request),str(result)],stdout=log,stderr=subprocess.STDOUT)
+        process=subprocess.Popen([sys.executable,str(Path(__file__).resolve()),str(request),str(result)],stdout=log,stderr=subprocess.STDOUT)
+        reported=False
+        while process.poll() is None:
+            if inference_finished and not reported and phase.exists():
+                inference_finished();reported=True
+            import time
+            time.sleep(.2)
+        if inference_finished and not reported and phase.exists():inference_finished()
     if process.returncode or not result.is_file():raise RuntimeError('Native trial subprocess failed; inspect process log')
     return TrialResult.model_validate_json(result.read_text())
+
+
+
+def install_agent_lifecycle(payload):
+    """Map our authenticated local budget stop to Harbor's native budget policy."""
+    from harbor.agents.terminus_2.terminus_2 import Terminus2
+    from harbor.llms.base import OutputLengthExceededError
+    original=Terminus2.run
+    async def run(self,*args,**kwargs):
+        try:
+            return await original(self,*args,**kwargs)
+        except Exception as exc:
+            marker=payload.get('budget_stop_path')
+            if (type(exc).__name__=='BadRequestError' and marker and Path(marker).exists()
+                    and Path(marker).read_text()=='agent_budget_exhausted'
+                    and 'agent budget exhausted' in str(exc)):
+                raise OutputLengthExceededError('Configured agent budget exhausted') from exc
+            raise
+        finally:
+            if payload.get('inference_finished_path'):
+                Path(payload['inference_finished_path']).write_text('finished')
+    Terminus2.run=run
+    # The pinned single-step runner only continues to verification for selected
+    # agent errors. Extend that boundary for our explicit local budget stop.
+    from harbor.trial.single_step import SingleStepTrial
+    original_phase=SingleStepTrial._run_agent
+    async def agent_phase(self):
+        try:return await original_phase(self)
+        except OutputLengthExceededError as exc:
+            marker=payload.get('budget_stop_path')
+            if not marker or not Path(marker).exists() or str(exc)!='Configured agent budget exhausted':raise
+            self._record_exception(exc)
+    SingleStepTrial._run_agent=agent_phase
 
 
 def main():
@@ -75,6 +117,8 @@ def main():
     from harbor.models.trial.config import TrialConfig
     from harbor.trial.trial import Trial
     pin_simple_docker_images()
+    from delta_cli.public_eval.offline_recording import enable_offline_recording
+    enable_offline_recording()
     payload=json.loads(Path(sys.argv[1]).read_text())
     if payload.get('tokenizer_path'):
         from transformers import AutoTokenizer
@@ -82,6 +126,7 @@ def main():
         from delta_cli.public_eval.terminal import context_tokens
         tokenizer=AutoTokenizer.from_pretrained(payload['tokenizer_path'],trust_remote_code=False)
         Terminus2._count_total_tokens=lambda self,chat:context_tokens(tokenizer,chat.messages)
+    install_agent_lifecycle(payload)
     config=TrialConfig.model_validate(payload['config'])
     async def go():return await (await Trial.create(config)).run()
     result=asyncio.run(go())

@@ -33,4 +33,4 @@ delta = "delta_cli.main:app"
 include = ["delta_cli*"]
 
 [tool.setuptools.package-data]
-"delta_cli.public_eval" = ["data/*.json", "requirements.txt", "terminal-requirements.txt"]
+"delta_cli.public_eval" = ["data/*.json", "data/*.whl", "requirements.txt", "terminal-requirements.txt"]

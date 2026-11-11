@@ -140,7 +140,7 @@ def check_python(files, inputs, expected, *, image, timeout=30, entrypoint=None)
 
 from contextlib import contextmanager
 @contextmanager
-def bounded_agent_endpoint(upstream, protocol, attempt, *, output_limit=65536, call_limit=128):
+def bounded_agent_endpoint(upstream, protocol, attempt, *, output_limit=65536, call_limit=128, budget_stop_path=None):
     """Bound a multi-turn agent including summarization calls; expose usage."""
     import threading
     import httpx
@@ -157,6 +157,7 @@ def bounded_agent_endpoint(upstream, protocol, attempt, *, output_limit=65536, c
                 remaining=output_limit-stats['completion_tokens']
                 if remaining<=0 or stats['calls']>=call_limit:
                     stats['budget_exhausted']=True
+                    if budget_stop_path is not None:Path(budget_stop_path).write_text('agent_budget_exhausted')
                     self.send_response(400);self.end_headers();self.wfile.write(b'{"error":{"message":"agent budget exhausted","type":"budget_exhausted"}}');return
                 request=normalized_request(json.loads(self.rfile.read(size)),protocol,attempt)
                 request['max_tokens']=min(request['max_tokens'],remaining);stats['calls']+=1

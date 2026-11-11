@@ -12,7 +12,7 @@ from .custom_tasks import chat_request, answer, coding_prompt, candidate_files, 
 
 
 def evaluate_item(task, *, endpoint, generation, seed, root, tokenizer, harbor_root,
-                  image, epoch=0):
+                  image, epoch=0, inference_finished=None):
     import httpx
     started = time.monotonic()
     row = {'id': task['id'], 'track': task['track'], 'state': 'complete'}
@@ -28,10 +28,12 @@ def evaluate_item(task, *, endpoint, generation, seed, root, tokenizer, harbor_r
                         'proactive_summarization_threshold': 8000, 'max_turns': limits['max_turns']}}
         name = trial_name(root, task['id'], 0, epoch)
         trials = root / 'trials'
+        budget_stop=trials/(name+'.budget-stop')
+        trials.mkdir(parents=True,exist_ok=True)
         with bounded_agent_endpoint(endpoint, protocol, 0,
-                output_limit=limits['max_total_output_tokens'], call_limit=limits['max_turns']) as (agent_endpoint, stats):
+                output_limit=limits['max_total_output_tokens'], call_limit=limits['max_turns'], budget_stop_path=budget_stop) as (agent_endpoint, stats):
             cfg = trial_config(harbor_root / task['split'] / task['id'], trials, name, agent_endpoint, protocol)
-            native = run_trial_isolated(cfg, tokenizer_path=tokenizer)
+            native = run_trial_isolated(cfg, tokenizer_path=tokenizer, budget_stop_path=budget_stop, inference_finished=inference_finished)
         # Even budget exhaustion requires a real verifier result: infrastructure
         # failures must not silently become incorrect model answers.
         reward = valid_reward(native)
@@ -47,6 +49,7 @@ def evaluate_item(task, *, endpoint, generation, seed, root, tokenizer, harbor_r
         response = httpx.post(endpoint, json=chat_request(prompt, generation, seed), timeout=None)
         response.raise_for_status()
         data = response.json()
+        if inference_finished:inference_finished()
         from .history import valid_response
         if not valid_response(data):
             raise ValueError('Incomplete model response')
@@ -69,13 +72,19 @@ def evaluate_item(task, *, endpoint, generation, seed, root, tokenizer, harbor_r
     return row, evidence
 
 
-def evaluate(tasks, *, concurrency=8, progress=None, **kwargs):
+def evaluate(tasks, *, concurrency=8, progress=None, inference_finished=None, **kwargs):
     tasks = list(tasks)
     if not tasks or len({t['id'] for t in tasks}) != len(tasks):
         raise ValueError('Empty or duplicate custom tasks')
+    import threading
+    lock=threading.Lock();finished=set()
+    def finished_item(key):
+        with lock:
+            finished.add(key)
+            if len(finished)==len(tasks) and inference_finished:inference_finished()
     rows, evidence = {}, {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool:
-        futures = {pool.submit(evaluate_item, t, **kwargs): t['id'] for t in tasks}
+        futures = {pool.submit(evaluate_item, t, inference_finished=lambda key=t['id']:finished_item(key), **kwargs): t['id'] for t in tasks}
         for future in concurrent.futures.as_completed(futures):
             row, raw = future.result()
             rows[row['id']] = row
