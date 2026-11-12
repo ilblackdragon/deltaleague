@@ -48,7 +48,8 @@ def evaluate(root, phase_callback=None):
             for key in ('prompt_tokens', 'completion_tokens'):
                 counts[key] += response.get('usage',{}).get(key,0)
             for choice in response['choices']:
-                counts['truncated'] += choice.get('finish_reason') == 'length'
+                # Likelihood requests generate one token by design; that is not truncation.
+                counts['truncated'] += choice.get('finish_reason') == 'length' and not request.get('delta_reduce')
                 text = choice.get('text', choice.get('message',{}).get('content')) or ''
                 counts['unfinished_thinking'] += request.get('max_tokens',0) > 1 and p['thinking'] and '</think>' not in text
             status = {'stage':'evaluating','benchmark':group, 'requests_completed':counts['requests'],
@@ -74,6 +75,10 @@ def evaluate(root, phase_callback=None):
 
 
 def evaluate_with_proxy(root, proxy, phase_callback=None):
+    from . import fineweb_loss
+    config = json.loads((root/'manifest.json').read_text());p=config['protocol']
+    if p['benchmarks'][0] == fineweb_loss.NAME:
+        return fineweb_loss.evaluate(root, proxy.endpoint, config, phase_callback=phase_callback)
     from contextlib import ExitStack
     from unittest.mock import patch
     import httpx
@@ -83,7 +88,6 @@ def evaluate_with_proxy(root, proxy, phase_callback=None):
     from .coverage import expand, populations
     import lm_eval.models.openai_completions as api
     check_versions()
-    config = json.loads((root/'manifest.json').read_text());p=config['protocol']
     suite = manifest()
     assert suite['sha256'] == p['suite_sha256']
     group = p['benchmarks'][0]
