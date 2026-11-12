@@ -13,6 +13,7 @@ from .suite import manifest
 
 DATA = Path(__file__).parent / 'data'
 TERMINAL = 'terminal_bench_2_1'
+FINEWEB = 'fineweb_nanogpt_val'
 
 
 def make_protocol(benchmark, generation, *, coverage='sample', concurrency=8,
@@ -20,6 +21,17 @@ def make_protocol(benchmark, generation, *, coverage='sample', concurrency=8,
     """Declare semantics before execution; generation settings are always explicit."""
     if coverage not in ('sample', 'full'):
         raise ValueError('coverage must be sample or full')
+    if benchmark == FINEWEB:
+        # Likelihood scoring: no generation, sampling or thinking settings apply.
+        from .fineweb_loss import SCORING_WINDOW, protocol_fields
+        if coverage != 'full':
+            raise ValueError('FineWeb loss is defined on the full validation window; shard with bounds')
+        if type(concurrency) is not int or not 1 <= concurrency <= 256:
+            raise ValueError('concurrency must be between 1 and 256')
+        if max_model_len <= SCORING_WINDOW:
+            raise ValueError('max_model_len must exceed the FineWeb scoring window')
+        return {'id': 'public-benchmark-v1', 'benchmarks': [benchmark], 'coverage': 'full',
+                'max_model_len': max_model_len, 'concurrency': concurrency, **protocol_fields()}
     if type(concurrency) is not int or not 1 <= concurrency <= 256:
         raise ValueError('concurrency must be between 1 and 256')
     if type(generation.get('max_tokens')) is not int or not 0 < generation['max_tokens'] < max_model_len:

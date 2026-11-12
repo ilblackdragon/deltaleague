@@ -143,6 +143,9 @@ class ResponseProxy:
                                 self.send_response(result.status_code);self.send_header('Content-Length',str(len(result.content)));self.end_headers();self.wfile.write(result.content)
                                 return
                             response = result.json()
+                            if request.get('delta_reduce'):
+                                from .fineweb_loss import reduce_response
+                                response = reduce_response(request, response)
                             if not valid_response(response):
                                 raise ValueError('Incomplete inference response')
                             history.put(scope, key, response)

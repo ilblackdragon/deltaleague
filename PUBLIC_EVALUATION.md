@@ -318,3 +318,30 @@ function named `combine` uses `arithmetic.py`; raw single-file Python responses
 must define `combine`. Module/function identifiers and call envelopes are
 validated before sandbox execution. Private task definitions do not belong in
 this repository.
+
+## FineWeb validation loss (NanoGPT speedrun window)
+
+`fineweb_nanogpt_val` measures language-model cross-entropy on the validation text used by the [modded-nanogpt speedrun](https://github.com/KellerJordan/modded-nanogpt): the first 10,485,760 GPT-2 tokens of `fineweb_val_000000.bin` from `kjj0/fineweb10B-gpt2` (revision `889765ea1f90…`). The window holds 14,983 documents and 46,515,251 UTF-8 bytes; the last document is cut by the window.
+
+- **Data.** The pinned shard and GPT-2 `vocab.json` are downloaded from Hugging Face, checked by SHA-256 and decoded without a tokenizer dependency. The rebuilt `docs.jsonl` must match `DOCUMENTS_SHA256`. Runners may supply a verified mirror through `DELTA_DATASET_SOURCES`.
+- **Framing.** Each document is scored as `<|endoftext|> document <|endoftext|>` with the candidate's tokenizer: every document token and the closing end-of-text token are predicted, as in the speedrun. The truncated final document predicts no closing token. Documents longer than 32,768 tokens are split into independent windows that each restart from `<|endoftext|>` (one document in this window).
+- **Requests.** One `/v1/completions` request per window, with token-ID prompts, `max_tokens: 1`, `prompt_logprobs: 0` and `delta_reduce: "prompt_logprob_sum"`. Servers that do not understand the reduction field ignore it; the evaluator then sums native vLLM `prompt_logprobs` itself and stores only the sum.
+- **Metrics (lower is better).** `loss_per_gpt2_token` is total negative log-likelihood in nats divided by the 10,485,759 GPT-2 targets in the window. It puts any tokenizer on the speedrun's scale (whose target is 3.28) because the text and target count are fixed. `bits_per_byte` and `nats_per_token` (per candidate token) are reported too. Shards report additive totals, so combined results are exact.
+- **Engine memory.** vLLM materializes full-vocabulary logits for each prompt chunk outside its KV-cache budget. With Qwen3.5's 248K vocabulary, `--gpu-memory-utilization 0.85` ran out of memory on an RTX 5090; `0.70` peaked at 27.7 GB of 32.6 GB.
+
+```sh
+delta public-eval benchmark-config --benchmark fineweb_nanogpt_val --generation <(echo '{}') --coverage full --concurrency 32 > fineweb.json
+delta public-eval benchmark --protocol fineweb.json --endpoint http://127.0.0.1:8000/v1 --tokenizer ./model \
+  --content-hash <sha256> --output fineweb-results
+```
+
+Calibration, 2026-11-12, `Qwen/Qwen3.5-0.8B` at revision `2fc06364…` (BF16), one RTX 5090, vLLM 0.19.2rc1, 32 concurrent requests:
+
+| Metric | Value |
+| --- | --- |
+| Loss per GPT-2 token (nats) | 3.3050 |
+| Nats per Qwen token | 3.3071 (10,478,856 targets) |
+| Bits per byte | 1.0748 |
+| Scoring time | 188 s (≈55,600 scored tokens/s), plus 58 s engine startup |
+
+A Transformers forward pass on 40 sampled documents (23,073 targets) agreed to within 0.0008 nats per token.
