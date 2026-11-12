@@ -51,7 +51,7 @@ Local runs only: same settings but capped at 128 new tokens, seed 1000, transfor
 Verified results (leaderboard, not local estimates):
 
 - Parent baseline: **17.40% private / 38.34% validation** (config `public-thinking8k-ladder500-v1`).
-- This edit: **not yet submitted** — no verified score exists at the time of this PR. The submission ID/URL will be added here after submission.
+- This edit: **16.7% private / 39.39% validation** (submission 31a6de1d-28db-460d-945e-38e0e35026e5, version 630aa8d6-290c-4141-91d1-d5d5e1ff4cf6, config private1000-v6-thinking8k-20261111) — that is **-0.70 private and -0.90 validation versus the original parent under the same config** (parent: 17.40% / 40.29%). A negative result: the x1.05 final-norm gain did not transfer to the original parent.
 
 Local estimates (advisory only, NOT comparable to suite scores):
 
@@ -66,4 +66,4 @@ Local estimates (advisory only, NOT comparable to suite scores):
 
 ## Submission
 
-Status: patch built and validated locally; submission pending (quota check and final approval). This section will be updated with the submission ID and verified scores when they exist.
+Submitted 2026-11-12. Submission ID: 31a6de1d-28db-460d-945e-38e0e35026e5. Resulting version: 630aa8d6-290c-4141-91d1-d5d5e1ff4cf6. Verified scores: 16.7% private test, 39.39% public validation (parent under the same config: 17.40% / 40.29%; differences -0.70 / -0.90). Conclusion: on the original parent the edit is a small net negative, in line with the parent-dependence risk noted in Limitations — the +2-point gains seen elsewhere were on GRPO-trained parents.
