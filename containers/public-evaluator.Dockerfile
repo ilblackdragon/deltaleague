@@ -1,5 +1,5 @@
 # Public source and public dataset cache only. GPU serving and CPU evaluation use separate environments.
-FROM vllm/vllm-openai@sha256:c6e88abc61f250e3b0d72489b077107e92fd004c1270577700ef85dd3f41755d
+FROM vllm/vllm-openai@sha256:befccf0e7e4089aa23926bb6f887a85c0d46c2a99e6de5c5ffdf5cb7957c5b34
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential libsndfile1 && rm -rf /var/lib/apt/lists/*
 RUN python3 -m venv /opt/eval
