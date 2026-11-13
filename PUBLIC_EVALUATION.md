@@ -337,6 +337,8 @@ delta public-eval benchmark --protocol fineweb.json --endpoint http://127.0.0.1:
 
 Calibration, 2026-11-12, `Qwen/Qwen3.5-0.8B` at revision `2fc06364…` (BF16), one RTX 5090, vLLM 0.19.2rc1, 32 concurrent requests:
 
+(Measured on the previous pinned engine, vLLM 0.19.2rc1. The evaluator now pins vLLM 0.32.0; numbers on 0.32.0 will be added after the reference re-score.)
+
 | Metric | Value |
 | --- | --- |
 | Loss per GPT-2 token (nats) | 3.3050 |
