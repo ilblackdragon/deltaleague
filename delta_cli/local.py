@@ -12,6 +12,8 @@ import time
 from .artifacts import file_hash, reconstruct, validate_manifest, verify_artifact_bytes
 from .scoring import score_answer
 
+MAX_TOKENS = 32768
+
 
 def generation_settings(config):
     """Use the versioned public generation profile when the workspace has one."""
@@ -114,7 +116,7 @@ class Runner:
                     add_generation_prompt=True, enable_thinking=generation.get('enable_thinking', False))
         inputs = self.tokenizer(rendered, return_tensors='pt', add_special_tokens=False).to(self.device)
         prompt_length = inputs['input_ids'].shape[1]
-        max_tokens = generation.get('max_tokens', 32768)
+        max_tokens = generation.get('max_tokens', MAX_TOKENS)
         if prompt_length + max_tokens > generation.get('max_model_len', 34816):
             raise ValueError('Prompt plus output budget exceeds max_model_len; reduce --max-new-tokens.')
         penalty = generation.get('presence_penalty', 1.5)
@@ -190,11 +192,13 @@ def check_scorer_fields(example, scorer):
         raise ValueError(f"Example {example['id']} ({scorer}) needs answer: a non-empty string or a number.")
 
 
-def public_examples(workspace, config, benchmark=None, limit=None, validation_file=None):
+def public_examples(workspace, config, benchmark=None, limit=None, validation_file=None, samples=None):
     data, names, sha = load_validation(validation_file or workspace / 'validation.json',
                                        None if validation_file else config)
     if benchmark and benchmark not in names:
         raise ValueError('Unknown benchmark; choose from: ' + ', '.join(names))
+    if samples is not None and (type(samples) is not int or not 1 <= samples <= 16):
+        raise ValueError('Invalid sample count.')
     selected = [benchmark] if benchmark else names
     rows = []
     for name in selected:
@@ -217,13 +221,13 @@ def public_examples(workspace, config, benchmark=None, limit=None, validation_fi
                 __import__('math_verify')
             elif scorer == 'ifeval':
                 __import__('lm_eval.tasks.ifeval.instructions_registry')
-            samples = example.get('samples', 1)
-            if type(samples) is not int or not 1 <= samples <= 16:
+            count = example.get('samples', 1) if samples is None else samples
+            if type(count) is not int or not 1 <= count <= 16:
                 raise ValueError('Invalid sample count.')
-            for sample in range(samples):
+            for sample in range(count):
                 rows.append({'benchmark': name, 'example_index': index, 'sample': sample,
                              'seed': 1000 + sample, 'example': example})
-    full = validation_file is None and not benchmark and all(limit is None or limit >= len(v) for v in data.values())
+    full = validation_file is None and samples is None and not benchmark and all(limit is None or limit >= len(v) for v in data.values())
     return rows, selected, full, sha
 
 

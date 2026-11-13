@@ -65,6 +65,8 @@ delta evaluate --limit 2 --max-new-tokens 256 --output baseline-quick.json
 
 `--limit` selects the first N problems **per benchmark**; `--benchmark gsm8k` selects one benchmark. These are development checks, not representative estimates of the full public score.
 
+`--samples K` runs every example K times (seeds 1000 to 1000+K−1) and averages, which cuts per-example noise for local comparisons; it is recorded in the report as `samples_override`, sets `full_validation_set` to false, and never changes an official score.
+
 For the entire public set with its configured generation settings:
 
 ```sh
@@ -125,3 +127,44 @@ or modify the pinned public suite. Do not combine `--validation` with `--endpoin
 `--content-hash` or `--tokenizer`; those select the pinned external-server path.
 Custom reports record `validation_kind: custom`, the file path and the hash of
 the exact bytes parsed, and always set `full_validation_set: false`.
+
+`--samples` applies to legacy workspace data and custom `--validation` files.
+It is rejected for the pinned public suite. For a custom file, its exact hash and
+`samples_override` are both recorded, and `full_validation_set` remains false.
+
+## Decoding grid
+
+`delta grid` evaluates one checkpoint under a fixed set of decoding settings, loading the model once. Each cell overrides the generation block of `evaluation.json`:
+
+| Cell | Overrides |
+| --- | --- |
+| `default` | none |
+| `temp-0.6` | `temperature 0.6` |
+| `temp-0.8` | `temperature 0.8` |
+| `presence-0.5` | `presence_penalty 0.5` |
+| `no-thinking` | `enable_thinking false` |
+| `temp-0.6-no-thinking` | `temperature 0.6`, `enable_thinking false` |
+
+```sh
+delta grid --limit 2 --max-new-tokens 256
+delta grid --cells temp-0.8,no-thinking      # default always runs
+delta grid --grid my-grid.json --output-dir my-grid-results
+```
+
+Each cell writes `<output-dir>/<cell>.json` and `<cell>.generations.jsonl` in the `delta evaluate` report format, plus `grid_cell` and `grid_overrides`. `grid-summary.json` lists every cell, the best cell (highest validation score; ties go to `default`) and `best_minus_default`. Results are written to `<output-dir>.partial` and renamed on success; an existing output directory is never overwritten, and a failed run leaves `<output-dir>.partial` with the finished cells (delete it to rerun). `--max-new-tokens` and `--thinking/--no-thinking` apply to every cell; a cell override wins.
+
+A custom grid is a JSON object `{"cell": {"key": value}}`. Allowed keys: `temperature`, `top_p`, `top_k`, `presence_penalty`, `max_tokens`, `enable_thinking`; values are numbers (`max_tokens` and `top_k` positive integers, `top_p` from 0 to 1, the rest finite and non-negative; `max_tokens` must stay below `max_model_len`) or, for `enable_thinking`, a boolean. `default` must stay empty and `grid-summary` is reserved. A `default: {}` cell is added when none has empty overrides.
+
+`grid_sha256` in the summary is the SHA-256 of the grid as `json.dumps(grid, sort_keys=True, separators=(',', ':'))`. `preregistered` is true only when the grid equals the built-in table above, and the hash is printed before the run and recorded in the summary, so a grid can be committed to (for example in a research PR) before scores exist.
+
+Cost is cells × a full evaluation: the default grid runs six. Use `--limit`, `--cells` and `--max-new-tokens` for a quick check; the CLI prints the generation count and token ceiling before loading the model.
+
+Grids are for legacy workspace data or explicit custom `--validation FILE` data.
+The pinned public suite is rejected before model loading. Custom files may also
+use `--samples K`; every cell records the file hash and sample override, and
+custom/sample-overridden runs never claim full official validation coverage.
+`grid-summary.json` records effective generation settings for every selected cell;
+the grid hash alone commits only relative overrides. The best cell was selected
+on the evaluation data, so confirm any gain on separate data before treating it
+as evidence of generalization. Failing to beat this reference does not establish
+what mechanism a weight edit uses.
