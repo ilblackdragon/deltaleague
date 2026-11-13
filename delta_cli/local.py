@@ -190,11 +190,13 @@ def check_scorer_fields(example, scorer):
         raise ValueError(f"Example {example['id']} ({scorer}) needs answer: a non-empty string or a number.")
 
 
-def public_examples(workspace, config, benchmark=None, limit=None, validation_file=None):
+def public_examples(workspace, config, benchmark=None, limit=None, validation_file=None, samples=None):
     data, names, sha = load_validation(validation_file or workspace / 'validation.json',
                                        None if validation_file else config)
     if benchmark and benchmark not in names:
         raise ValueError('Unknown benchmark; choose from: ' + ', '.join(names))
+    if samples is not None and (type(samples) is not int or not 1 <= samples <= 16):
+        raise ValueError('Invalid sample count.')
     selected = [benchmark] if benchmark else names
     rows = []
     for name in selected:
@@ -217,13 +219,13 @@ def public_examples(workspace, config, benchmark=None, limit=None, validation_fi
                 __import__('math_verify')
             elif scorer == 'ifeval':
                 __import__('lm_eval.tasks.ifeval.instructions_registry')
-            samples = example.get('samples', 1)
-            if type(samples) is not int or not 1 <= samples <= 16:
+            count = example.get('samples', 1) if samples is None else samples
+            if type(count) is not int or not 1 <= count <= 16:
                 raise ValueError('Invalid sample count.')
-            for sample in range(samples):
+            for sample in range(count):
                 rows.append({'benchmark': name, 'example_index': index, 'sample': sample,
                              'seed': 1000 + sample, 'example': example})
-    full = validation_file is None and not benchmark and all(limit is None or limit >= len(v) for v in data.values())
+    full = validation_file is None and samples is None and not benchmark and all(limit is None or limit >= len(v) for v in data.values())
     return rows, selected, full, sha
 
 
