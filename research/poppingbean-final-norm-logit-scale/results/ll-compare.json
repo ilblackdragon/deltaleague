@@ -1,0 +1,95 @@
+{
+ "groups": {
+  "arc_challenge": {
+   "n": 64,
+   "base": 31.25,
+   "edit": 28.125,
+   "diff": -3.125,
+   "wins": 1,
+   "losses": 3,
+   "sign_test_p": 0.625
+  },
+  "arc_easy": {
+   "n": 64,
+   "base": 64.0625,
+   "edit": 65.625,
+   "diff": 1.5625,
+   "wins": 1,
+   "losses": 0,
+   "sign_test_p": 1.0
+  },
+  "boolq": {
+   "n": 64,
+   "base": 65.625,
+   "edit": 65.625,
+   "diff": 0.0,
+   "wins": 0,
+   "losses": 0,
+   "sign_test_p": 1.0
+  },
+  "commonsense_qa": {
+   "n": 64,
+   "base": 56.25,
+   "edit": 57.8125,
+   "diff": 1.5625,
+   "wins": 1,
+   "losses": 0,
+   "sign_test_p": 1.0
+  },
+  "hellaswag": {
+   "n": 64,
+   "base": 48.4375,
+   "edit": 45.3125,
+   "diff": -3.125,
+   "wins": 1,
+   "losses": 3,
+   "sign_test_p": 0.625
+  },
+  "mmlu": {
+   "n": 114,
+   "base": 46.49122807017544,
+   "edit": 48.24561403508772,
+   "diff": 1.7543859649122806,
+   "wins": 2,
+   "losses": 0,
+   "sign_test_p": 0.5
+  },
+  "openbookqa": {
+   "n": 64,
+   "base": 29.6875,
+   "edit": 28.125,
+   "diff": -1.5625,
+   "wins": 0,
+   "losses": 1,
+   "sign_test_p": 1.0
+  },
+  "piqa": {
+   "n": 64,
+   "base": 71.875,
+   "edit": 73.4375,
+   "diff": 1.5625,
+   "wins": 1,
+   "losses": 0,
+   "sign_test_p": 1.0
+  },
+  "winogrande": {
+   "n": 64,
+   "base": 57.8125,
+   "edit": 60.9375,
+   "diff": 3.125,
+   "wins": 2,
+   "losses": 0,
+   "sign_test_p": 0.5
+  }
+ },
+ "overall": {
+  "diff": 0.1949317738791423,
+  "ci95": [
+   -1.0416666666666667,
+   1.48635477582846
+  ],
+  "wins": 9,
+  "losses": 7,
+  "sign_test_p": 0.803619384765625
+ }
+}
