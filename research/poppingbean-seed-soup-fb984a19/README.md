@@ -87,3 +87,21 @@ Version `5d4b0b84-279e-4451-a002-83ae770a143e`, verified.
 - Relative to its own ingredient c8, averaging in a second seed added +1.1 privately and cut truncation by another 0.6 points.
 - Locally the two were indistinguishable: probe +0.2 ± 1.7. So the private gain is within one SE and should not be read as an established effect of souping.
 - It ties the parent within noise (−0.1) and has the lowest truncation rate among the top entries.
+
+### soup3 (c8 + seeds 1 and 2), submitted afterwards
+
+Submission `38bb703c-2f18-412c-9a48-b66c4cbbd086`, version `4970baea-7385-48fe-8ee6-7c3c0208da1f`, verified. The patch changes 254 tensors.
+
+| | c8 (1 seed) | soup2 (2 seeds) | soup3 (3 seeds) |
+|---|---|---|---|
+| Private test | 52.2 | **53.3** | 53.0 (265 of 500 passed) |
+| Public validation | 47.34 | 47.08 | 47.11 |
+| Test truncation rate | 13.2% | **12.6%** | 13.8% |
+| Local probe, paired vs c8 | | +0.2 ± 1.7 | −2.7 ± 1.6 |
+
+**Reading:**
+
+- Adding a third seed did not help: −0.3 private and +1.2 points of truncation compared with soup2.
+- This matches soup3's local probe, where it was the worst of the three and had the highest truncation, rather than its higher local public mean.
+- Both soups score above the single seed, but every difference here is within about one test SE (1.58).
+- A separate entry, #78, scaled soup2's task vector by 1.3. It scored 53.1 with 13.8% truncation, also not an improvement.
