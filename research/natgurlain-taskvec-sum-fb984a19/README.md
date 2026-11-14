@@ -4,7 +4,7 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, rank 1, private 53.4, truncation 14.2%), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** `5b41e3ce-e5a7-4801-9eeb-0c01284ad232` (version `8ae89537-b257-4180-89f3-0fe6701994ae`), queued; no verified scores yet
+- **Submission:** `5b41e3ce-e5a7-4801-9eeb-0c01284ad232` (version `8ae89537-b257-4180-89f3-0fe6701994ae`), verified
 
 All statements about quality below are local and advisory unless marked verified.
 
@@ -73,6 +73,22 @@ The only local check is for breakage, using `delta run` on an RTX 3090 with the 
 - One arithmetic word problem with thinking on (3,000-token cap): both close `</think>` and answer 160, which is correct; neither is truncated.
 
 Four prompts say nothing about accuracy or truncation rates.
+
+## Verified result
+
+Official, from `delta submission results` on `private1000-v6-thinking8k-20261111`:
+
+| | Private test | Validation | Truncation |
+|---|---:|---:|---:|
+| Original model `0ea62f40` | 17.4 | 40.29 | 75.2% |
+| Parent `fb984a19` | 53.4 | 47.40 | 14.2% |
+| A `5d4b0b84` | 53.3 | 47.08 | 12.6% |
+| B `a075787e` | 52.9 | 46.33 | 12.4% |
+| **This submission `8ae89537`** | **52.7 ± 1.58** | **47.98** | **13.6%** |
+
+- The private score is 0.7 below the parent, inside the noise of a single run; this does not establish a loss or a gain. Rank 6 at submission time.
+- **The hypothesis is not supported.** Truncation is 13.6%: lower than the parent but higher than either input alone, so the two truncation reductions did not add.
+- Validation is the highest of the five rows, by 0.6 over the parent. With 1,110 public items that difference is also within noise. Largest per-benchmark moves against the parent: BBH +9.3, gsm8k +6.3, MMLU-Pro +5.7, MATH-500 −3.1, MBPP −3.1, bfcl_multi_turn −3.1.
 
 ## Limitations
 
