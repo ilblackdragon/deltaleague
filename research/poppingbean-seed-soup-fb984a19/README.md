@@ -11,7 +11,7 @@ Two independent runs from the same parent with the same recipe should share the 
 ## Method
 
 1. **Seed 0** is c8 itself, pulled from the platform with `delta model pull 4b8a20a6-…`. Its diff to the parent changes 253 tensors, matching the #74 patch.
-2. **Seeds 1 and 2** use #74's recipe unchanged: #58's `grpo.py` with `--len-shape 3000`, mix `math=0.35,choice=0.30,ifeval=0.25,logic=0.10`, 64 prompts × 8 samples, lr 1e-6, train cap 6144, `--match-sampler`, 8 steps from `fb984a19`. They add a `--seed` argument; `--seed 0` reproduces #74. It changes two things:
+2. **Seeds 1 and 2** use #74's recipe unchanged: #58's `grpo.py` (included here with #74's `--len-shape` patch) with `--len-shape 3000`, mix `math=0.35,choice=0.30,ifeval=0.25,logic=0.10`, 64 prompts × 8 samples, lr 1e-6, train cap 6144, `--match-sampler`, 8 steps from `fb984a19`. They add a `--seed` argument; `--seed 0` reproduces #74. It changes two things:
    - prompt order: `random.Random(1234 + seed)`;
    - rollout sampling seeds: `1000 + step + 100000 * seed`.
 3. **Soups:** `soup.py` averages the weights uniformly in float64 and stores each tensor in its original dtype.
