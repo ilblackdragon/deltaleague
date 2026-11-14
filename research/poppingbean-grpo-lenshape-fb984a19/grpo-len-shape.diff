@@ -1,0 +1,20 @@
+--- grpo_orig.py	2026-11-12 04:21:10.745962919 +0000
++++ grpo.py	2026-11-12 04:21:10.757963020 +0000
+@@ -168,6 +168,7 @@
+     p.add_argument("--train-max-tokens", type=int, default=8192)
+     p.add_argument("--match-sampler", action="store_true")
+     p.add_argument("--stop-on-decline", type=float, default=0.0)
++    p.add_argument("--len-shape", type=int, default=0, help="correct answers longer than this lose up to half their reward at the cap")
+     p.add_argument("--mix", default="", help="e.g. math=0.35,choice=0.3,ifeval=0.25,logic=0.1")
+     a = p.parse_args()
+ 
+@@ -239,6 +240,9 @@
+                 jobs.append((it, c.text, truncated))
+                 seqs.append((it, p_ids, list(c.token_ids), truncated))
+         rewards = list(scorer.map(score_one, jobs, chunksize=16))
++        if a.len_shape:
++            span = max(1, a.train_max_tokens - a.len_shape)
++            rewards = [r * (1 - 0.5 * min(1.0, max(0, len(s[2]) - a.len_shape) / span)) for r, s in zip(rewards, seqs)]
+         stats = {"step": step, "reward": sum(rewards) / len(rewards),
+                  "trunc": sum(s[3] for s in seqs) / len(seqs),
+                  "tokens": sum(len(s[2]) for s in seqs) / len(seqs)}

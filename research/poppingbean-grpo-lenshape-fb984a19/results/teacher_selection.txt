@@ -1,0 +1,12 @@
+4000 prompts, 8000 samples, teacher truncated 18.4%, kept 2407, mean kept tokens 1828
+  arc        teacher acc 100.0%  kept 7
+  boolq      teacher acc 83.6%  kept 47
+  csqa       teacher acc 68.4%  kept 39
+  gsm8k      teacher acc 86.8%  kept 575
+  hswag      teacher acc 79.3%  kept 160
+  ifeval     teacher acc 45.9%  kept 385
+  logic      teacher acc 68.6%  kept 246
+  math       teacher acc 45.6%  kept 264
+  mmlu       teacher acc 84.6%  kept 476
+  obqa       teacher acc 84.8%  kept 27
+  wino       teacher acc 83.5%  kept 181
