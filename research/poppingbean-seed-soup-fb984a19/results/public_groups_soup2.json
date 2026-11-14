@@ -1,0 +1,18 @@
+{
+ "arc_challenge": 26.5625,
+ "arc_easy": 68.75,
+ "bbh": 46.2962962962963,
+ "boolq": 64.0625,
+ "commonsense_qa": 56.25,
+ "gsm8k": 67.1875,
+ "hellaswag": 43.75,
+ "ifeval": 76.5625,
+ "math500": 53.125,
+ "mmlu": 47.36842105263158,
+ "mmlu_pro": 27.142857142857142,
+ "openbookqa": 29.6875,
+ "piqa": 71.875,
+ "winogrande": 62.5,
+ "humaneval": 25.0,
+ "mbpp": 25.0
+}
