@@ -51,4 +51,12 @@ Credit goes to:
 
 ## Official result
 
-Added after `delta submit … --pr`.
+Submission `f8a6b4ab-186a-477d-8335-94290757cc12`, version `266b4d90-7d42-486a-a894-af9b3c76cefd`, verified.
+
+| | `fb984a19` (parent) | soup2 (#77) | **This entry: 1.3 × soup2** |
+|---|---|---|---|
+| Private test | 53.4 | 53.3 | **53.1** (rank 3; SE 1.58) |
+| Public validation | 47.40 | 47.08 | 46.61 |
+| Test truncation rate | 14.2% | 12.6% | 13.8% |
+
+**Reading:** a negative result, within noise. Scaling the soup's direction by 1.3 lowered the private score by 0.2 and pushed truncation back up by 1.2 points. Most of the 52.2 → 53.3 gain from c8 to soup2 does not look like a direction that keeps paying off when amplified. It is more consistent with averaging away noise, plus seed luck. soup2 (λ = 1.0) remains our best entry.
