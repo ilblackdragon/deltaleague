@@ -85,3 +85,15 @@ Credit goes to:
 - roshaans: `grpo.py`, the recipe and the probe (#58);
 - SpacexCeo: `fb984a19`;
 - dawgster, ma4ypic4y and the #43, #55 and #62 lineage.
+
+## Official result
+
+Submission `58d33dd7-4259-4a7d-b690-56a8366a2be9`, version `4b8a20a6-c78f-4273-adf0-406446c48a55`, verified.
+
+| | `fb984a19` (parent) | #69: plain GRPO, step 8 | **This entry: length-shaped GRPO, step 8** |
+|---|---|---|---|
+| Private test (500 tasks) | 53.4 | 51.5 | **52.2** (rank 3) |
+| Public validation | 47.40 | 47.01 | 47.34 |
+| Test truncation rate | 14.2% | 14.4% | **13.2%** |
+
+The length penalty helped in the intended direction relative to plain GRPO: +0.7 private and −1.2 points of truncation. It still trails the parent by 1.2. With a test SE of about 2.2 per entry, neither difference is significant. On the private test, the +3.1 probe gain did not translate into a gain over `fb984a19`.
