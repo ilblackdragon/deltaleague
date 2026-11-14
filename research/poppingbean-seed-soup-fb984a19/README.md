@@ -74,4 +74,16 @@ Credit goes to:
 
 ## Official result
 
-Added after `delta submit … --pr`.
+Version `5d4b0b84-279e-4451-a002-83ae770a143e`, verified.
+
+| | `fb984a19` (parent) | #74: c8 (seed 0) | **This entry: soup2 (c8 + seed 1)** |
+|---|---|---|---|
+| Private test (500 tasks) | 53.4 | 52.2 | **53.3** (rank 2; 275 of 500 passed, SE 1.58) |
+| Public validation | 47.40 | 47.34 | 47.08 |
+| Test truncation rate | 14.2% | 13.2% | **12.6%** |
+
+**Reading:**
+
+- Relative to its own ingredient c8, averaging in a second seed added +1.1 privately and cut truncation by another 0.6 points.
+- Locally the two were indistinguishable: probe +0.2 ± 1.7. So the private gain is within one SE and should not be read as an established effect of souping.
+- It ties the parent within noise (−0.1) and has the lowest truncation rate among the top entries.
