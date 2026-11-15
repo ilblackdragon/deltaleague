@@ -1,0 +1,7 @@
+A probe/leader_p2.jsonl {'prompts': 1000, 'samples': 4000, 'score': 65.58, 'trunc': 6.38, 'mean_tokens': 1928}
+B probe/tail_s16_p2.jsonl {'prompts': 1000, 'samples': 4000, 'score': 66.4, 'trunc': 3.27, 'mean_tokens': 1522}
+B - A = +0.83 points, 95% bootstrap interval [-0.60, +2.25], n=1000 prompts
+  choice   n= 300  A= 65.2  diff= +0.75 ± 1.40
+  ifeval   n= 250  A= 75.6  diff= +0.50 ± 1.59
+  logic    n= 100  A= 63.7  diff= +1.75 ± 2.64
+  math     n= 350  A= 59.2  diff= +0.86 ± 1.04
