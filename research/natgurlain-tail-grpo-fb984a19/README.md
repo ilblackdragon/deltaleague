@@ -4,9 +4,9 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, rank 1, private 53.4), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** `bb069288-ff60-42de-bd95-36bcb0c16744`, PR https://github.com/ilblackdragon/deltaleague/pull/81; verification pending
+- **Submission:** `bb069288-ff60-42de-bd95-36bcb0c16744` (version `856bfe07-2ed5-4148-97a3-5e15ec0114ea`), verified: private 50.9 ± 1.58 against the parent's 53.4
 
-All statements about quality below are local and advisory.
+All statements about quality below are local and advisory unless marked verified.
 
 ## Hypothesis
 
@@ -68,6 +68,19 @@ Environment: RTX 3090 (24 GB), Python 3.12, torch 2.13.0+cu130, vLLM 0.32.0, tra
 - `manifest.json`: `dc79fa9f55551f0b86b9a829362a153287546ccd753fdbfd25b36db86a9cee19`
 
 `delta validate` passes.
+
+## Verified result
+
+Official, from `delta submission status` on `private1000-v6-thinking8k-20261111`:
+
+| | Private test | Private suite passed (of 500) | Validation | Truncation | Output tokens |
+|---|---:|---:|---:|---:|---:|
+| Parent `fb984a19` | 53.4 | 279 | 47.40 | 14.2% | 1,324,788 |
+| **This submission `856bfe07`** | **50.9 ± 1.58** | **263** | **46.91** | **7.0%** | **1,042,855** |
+
+- **The accuracy half of the hypothesis is not supported.** The private score is 2.5 below the parent (rank 18 at submission time). With a standard error of 1.58 per row this does not establish a loss, but it rules out the gain the local probes suggested.
+- **The length half held:** truncation on the private test halved (14.2% → 7.0%) and output tokens fell 21%, as measured locally.
+- **Negative findings:** (1) halving truncation at this level bought no score, so the answers that still run out of tokens on this parent are probably ones it would get wrong anyway; (2) a +0.95 [−0.06, +1.95] paired gain on 2,000 held-out training-split prompts did not carry over to the private test, in line with what #69, #74 and #77 reported for local probes.
 
 ## Limitations
 
