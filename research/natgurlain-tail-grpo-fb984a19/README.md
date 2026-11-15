@@ -4,7 +4,7 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, rank 1, private 53.4), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** not submitted yet
+- **Submission:** `bb069288-ff60-42de-bd95-36bcb0c16744`, PR https://github.com/ilblackdragon/deltaleague/pull/81; verification pending
 
 All statements about quality below are local and advisory.
 
