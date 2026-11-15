@@ -1,0 +1,1 @@
+{"mined_prompts": 3000, "kept": 1330, "why": {"mixed+long": 248, "mixed": 761, "long": 321}, "kept_by_pool": {"math": 560, "ifeval": 298, "logic": 112, "choice": 360}, "mined_by_pool": {"math": 1050, "ifeval": 750, "logic": 300, "choice": 900}, "parent_score": 65.2, "parent_trunc_8192": 6.91}
