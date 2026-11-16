@@ -1,0 +1,7 @@
+A both probe sets {'prompts': 2000, 'samples': 8000, 'score': 65.45, 'trunc': 6.76, 'mean_tokens': 1978}
+B both probe sets {'prompts': 2000, 'samples': 8000, 'score': 67.67, 'trunc': 4.65, 'mean_tokens': 1927}
+B - A = +2.23 points, 95% bootstrap interval [+1.19, +3.29], n=2000 prompts
+  choice   n= 600  A= 64.1  diff= +1.17 ± 1.08
+  ifeval   n= 500  A= 77.8  diff= +2.35 ± 1.18
+  logic    n= 200  A= 66.8  diff= +6.12 ± 1.92
+  math     n= 700  A= 57.5  diff= +1.93 ± 0.76

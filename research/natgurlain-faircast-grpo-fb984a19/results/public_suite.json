@@ -1,0 +1,78 @@
+{
+ "parent": {
+  "protocol": "delta-public-v1",
+  "suite_sha256": "16988c0dd47b7bb0e653be3f7c37da30ae73954f5ec79becc581035651a8a67f",
+  "content_hash": "bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd",
+  "config_id": "private1000-v6-thinking8k-20261111",
+  "local_only": true,
+  "validation_score": 47.432523244840496,
+  "validation_benchmarks": {
+   "arc_challenge": 26.5625,
+   "arc_easy": 67.1875,
+   "bbh": 31.48148148148148,
+   "boolq": 64.0625,
+   "commonsense_qa": 59.375,
+   "gsm8k": 60.9375,
+   "hellaswag": 43.75,
+   "ifeval": 76.5625,
+   "math500": 54.6875,
+   "mmlu": 47.368421052631575,
+   "mmlu_pro": 41.42857142857143,
+   "openbookqa": 28.125,
+   "piqa": 71.875,
+   "winogrande": 60.9375,
+   "humaneval": 34.375,
+   "mbpp": 25.0,
+   "bfcl_single_turn": 56.94444444444444,
+   "bfcl_multi_turn": 3.125
+  },
+  "generation": {
+   "seed": 20261104,
+   "top_k": 20,
+   "top_p": 0.95,
+   "max_tokens": 8192,
+   "temperature": 1.0,
+   "bfcl_adapter": "current",
+   "enable_thinking": true,
+   "presence_penalty": 1.5
+  }
+ },
+ "fc_step60": {
+  "protocol": "delta-public-v1",
+  "suite_sha256": "16988c0dd47b7bb0e653be3f7c37da30ae73954f5ec79becc581035651a8a67f",
+  "content_hash": "64e6b3833e2f5dd68733be1c272a4d20f295177b349f021da098ca8936ff25aa",
+  "config_id": "private1000-v6-thinking8k-20261111",
+  "local_only": true,
+  "validation_score": 47.8978309972462,
+  "validation_benchmarks": {
+   "arc_challenge": 26.5625,
+   "arc_easy": 68.75,
+   "bbh": 29.629629629629626,
+   "boolq": 64.0625,
+   "commonsense_qa": 56.25,
+   "gsm8k": 67.1875,
+   "hellaswag": 45.3125,
+   "ifeval": 78.125,
+   "math500": 62.5,
+   "mmlu": 48.24561403508772,
+   "mmlu_pro": 34.285714285714285,
+   "openbookqa": 28.125,
+   "piqa": 71.875,
+   "winogrande": 62.5,
+   "humaneval": 31.25,
+   "mbpp": 18.75,
+   "bfcl_single_turn": 62.5,
+   "bfcl_multi_turn": 6.25
+  },
+  "generation": {
+   "seed": 20261104,
+   "top_k": 20,
+   "top_p": 0.95,
+   "max_tokens": 8192,
+   "temperature": 1.0,
+   "bfcl_adapter": "current",
+   "enable_thinking": true,
+   "presence_penalty": 1.5
+  }
+ }
+}
