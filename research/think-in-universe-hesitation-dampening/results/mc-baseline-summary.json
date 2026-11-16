@@ -1,0 +1,106 @@
+{
+  "protocol": "lm-eval-0.4.13-likelihood (official public text protocol, local transformers/MPS)",
+  "official_harness": false,
+  "note": "Same public docs, prompts, few-shot and metrics as the pinned public suite; backend is transformers float32 on MPS instead of vLLM BF16.",
+  "model_id": "qwen35-08b-v1",
+  "source_version_id": "0ea62f40-7cd8-4d98-9ebb-484192fa05eb",
+  "config_id": "public-ladder500-8k-v2",
+  "validation_sha256": "996573d687b0d0f1e088f1e918cd153fa0f80cff454a7e9a7ab5ac2eb374d4d2",
+  "artifact": {
+    "kind": "parent",
+    "weights_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696"
+  },
+  "tasks": [
+    "arc_challenge",
+    "arc_easy",
+    "boolq",
+    "commonsense_qa",
+    "hellaswag",
+    "openbookqa",
+    "piqa",
+    "winogrande"
+  ],
+  "components": {
+    "arc_easy": 50.0,
+    "arc_challenge": 29.166666666666668,
+    "boolq": 66.66666666666666,
+    "commonsense_qa": 54.166666666666664,
+    "hellaswag": 45.83333333333333,
+    "openbookqa": 37.5,
+    "piqa": 70.83333333333334,
+    "winogrande": 54.166666666666664
+  },
+  "mean": 51.041666666666664,
+  "raw_results": {
+    "arc_easy": {
+      "name": "arc_easy",
+      "alias": "arc_easy",
+      "sample_len": 24,
+      "acc,none": 0.9166666666666666,
+      "acc_stderr,none": 0.05763033956734372,
+      "acc_norm,none": 0.5,
+      "acc_norm_stderr,none": 0.1042572070285374
+    },
+    "arc_challenge": {
+      "name": "arc_challenge",
+      "alias": "arc_challenge",
+      "sample_len": 24,
+      "acc,none": 0.375,
+      "acc_stderr,none": 0.10094660663590604,
+      "acc_norm,none": 0.2916666666666667,
+      "acc_norm_stderr,none": 0.09477598811252413
+    },
+    "boolq": {
+      "name": "boolq",
+      "alias": "boolq",
+      "sample_len": 24,
+      "acc,none": 0.6666666666666666,
+      "acc_stderr,none": 0.09829463743659811
+    },
+    "commonsense_qa": {
+      "name": "commonsense_qa",
+      "alias": "commonsense_qa",
+      "sample_len": 24,
+      "acc,none": 0.5416666666666666,
+      "acc_stderr,none": 0.10389457216622948
+    },
+    "hellaswag": {
+      "name": "hellaswag",
+      "alias": "hellaswag",
+      "sample_len": 24,
+      "acc,none": 0.20833333333333334,
+      "acc_stderr,none": 0.0846811296559438,
+      "acc_norm,none": 0.4583333333333333,
+      "acc_norm_stderr,none": 0.10389457216622949
+    },
+    "openbookqa": {
+      "name": "openbookqa",
+      "alias": "openbookqa",
+      "sample_len": 24,
+      "acc,none": 0.25,
+      "acc_stderr,none": 0.09028938981432691,
+      "acc_norm,none": 0.375,
+      "acc_norm_stderr,none": 0.10094660663590604
+    },
+    "piqa": {
+      "name": "piqa",
+      "alias": "piqa",
+      "sample_len": 24,
+      "acc,none": 0.7083333333333334,
+      "acc_stderr,none": 0.09477598811252413,
+      "acc_norm,none": 0.7083333333333334,
+      "acc_norm_stderr,none": 0.09477598811252413
+    },
+    "winogrande": {
+      "name": "winogrande",
+      "alias": "winogrande",
+      "sample_len": 24,
+      "acc,none": 0.5416666666666666,
+      "acc_stderr,none": 0.10389457216622948
+    }
+  },
+  "runtime": {
+    "device": "auto",
+    "lm_eval": "0.4.13"
+  }
+}

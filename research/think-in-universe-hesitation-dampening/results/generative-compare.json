@@ -1,0 +1,45 @@
+{
+  "n": 16,
+  "baseline_mean": 0.25,
+  "candidate_mean": 0.5,
+  "difference": 0.25,
+  "difference_ci95": [
+    -0.0625,
+    0.5625
+  ],
+  "wins": 6,
+  "losses": 2,
+  "ties": 8,
+  "sign_test_p": 0.2890625,
+  "separable": false,
+  "truncation": {
+    "baseline": 0.875,
+    "candidate": 0.625
+  },
+  "mean_tokens": {
+    "baseline": 1434.4375,
+    "candidate": 1242.125
+  },
+  "hesitation_mentions_in_final_answer": {
+    "baseline": 7.0625,
+    "candidate": 0.0625
+  },
+  "per_benchmark": {
+    "arc_easy": {
+      "n": 8,
+      "baseline": 0.25,
+      "candidate": 0.625,
+      "difference": 0.375,
+      "wins": 4,
+      "losses": 1
+    },
+    "gsm8k": {
+      "n": 8,
+      "baseline": 0.25,
+      "candidate": 0.375,
+      "difference": 0.125,
+      "wins": 2,
+      "losses": 1
+    }
+  }
+}

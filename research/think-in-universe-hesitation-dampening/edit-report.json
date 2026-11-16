@@ -1,0 +1,108 @@
+{
+  "parent_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "edited_sha256": "164c13b1eda0aa2175bf97579d07a9d048910dd88eb401697b12dbc5838e501d",
+  "parent_size_bytes": 1746942600,
+  "edited_size_bytes": 1746942632,
+  "parameters": {
+    "embed_scale": 0.55,
+    "final_norm_gain": 1.35,
+    "hesitation_tokens": {
+      " Wait": 13428,
+      "Wait": 13784,
+      " wait": 3655,
+      "wait": 11158,
+      " Hmm": 85152,
+      "Hmm": 77264,
+      " hmm": 84485,
+      " Actually": 32645,
+      "Actually": 50821,
+      " actually": 3404,
+      "actually": 70546,
+      " Alternatively": 37201,
+      " Perhaps": 18200,
+      "perhaps": 63068,
+      " Maybe": 10380,
+      "maybe": 35542
+    }
+  },
+  "changed_tensors": [
+    "model.language_model.embed_tokens.weight",
+    "model.language_model.norm.weight"
+  ],
+  "changed_values": {
+    "model.language_model.embed_tokens.weight": 16384,
+    "model.language_model.norm.weight": 1024
+  },
+  "hesitation_row_norms": {
+    " Wait": {
+      "before": 0.534511,
+      "after": 0.293981
+    },
+    "Wait": {
+      "before": 0.557399,
+      "after": 0.30657
+    },
+    " wait": {
+      "before": 0.615441,
+      "after": 0.338493
+    },
+    "wait": {
+      "before": 0.64876,
+      "after": 0.356818
+    },
+    " Hmm": {
+      "before": 0.534505,
+      "after": 0.293978
+    },
+    "Hmm": {
+      "before": 0.512756,
+      "after": 0.282016
+    },
+    " hmm": {
+      "before": 0.567917,
+      "after": 0.312354
+    },
+    " Actually": {
+      "before": 0.547843,
+      "after": 0.301314
+    },
+    "Actually": {
+      "before": 0.581515,
+      "after": 0.319834
+    },
+    " actually": {
+      "before": 0.698313,
+      "after": 0.384072
+    },
+    "actually": {
+      "before": 0.648459,
+      "after": 0.356652
+    },
+    " Alternatively": {
+      "before": 0.570762,
+      "after": 0.313919
+    },
+    " Perhaps": {
+      "before": 0.57493,
+      "after": 0.316211
+    },
+    "perhaps": {
+      "before": 0.67632,
+      "after": 0.371976
+    },
+    " Maybe": {
+      "before": 0.575325,
+      "after": 0.316429
+    },
+    "maybe": {
+      "before": 0.615014,
+      "after": 0.338258
+    }
+  },
+  "final_norm_mean": {
+    "before": 3.309152,
+    "after": 4.467355
+  },
+  "dtype": "torch.bfloat16",
+  "note": "Tied embeddings: scaling a row scales both its input embedding and its output logit coefficient. Scaling the final RMSNorm gain is exact logit temperature scaling (temperature x 1/1.35)."
+}
