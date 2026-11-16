@@ -4,7 +4,7 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, private 53.4), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** `b6260904-f8e8-49f6-9986-e74804724103` (submitted 2026-11-16, verification pending)
+- **Submission:** `b6260904-f8e8-49f6-9986-e74804724103` (version `5513e218-61bf-4004-ba74-42cf1694ea0d`), verified: private 52.9 ± 1.58 against the parent's 53.4
 
 All statements about quality below are local and advisory unless marked verified.
 
@@ -115,3 +115,30 @@ Environment: RTX 3090 (24 GB), Python 3.12, torch 2.13.0+cu130, vLLM 0.32.0, tra
 - Stochastic rounding changes 16% of the weights by one bf16 step each; how much of that is signal and how much is harmless noise was not separated.
 - **Negative: three times the learning rate collapses.** The identical run at 3e-6 (same pool, seed and steps) kept normal answer length through step 40, then dropped abruptly from about 2,100 to about 1,200 tokens per answer. Its step 60 scores −5.58 [−7.62, −3.48] on probe set 1 (instruction following −11.6, math −6.4), with 30.8% of bf16 weights changed. With `--len-shape` rewarding brevity, unbiased export makes this collapse reachable; 1e-6 for 60 steps showed no sign of it (answers 3% shorter).
 - Also measured and negative (no training): scaling the parent's final RMSNorm gain by 1.10 gives +0.40 [−0.90, +1.70] on probe set 1 and by 1.25 gives −0.88 [−2.23, +0.47], so further output sharpening of this parent does not help.
+
+## Verified result
+
+Official, from `delta submission status` on `private1000-v6-thinking8k-20261111`:
+
+| | Private test | Private suite passed (of 500) | Validation | Truncation | Output tokens |
+|---|---:|---:|---:|---:|---:|
+| Parent `fb984a19` | 53.4 | 279 | 47.40 | 14.2% | 1,324,788 |
+| **This submission `5513e218`** | **52.9 ± 1.58** | **276** | **47.04** | **11.2%** | **1,274,516** |
+
+- **The hypothesis is not supported on the private test.** The score is 0.5 below the parent, well inside one standard error. The local gain of +2.23 [+1.19, +3.29] on held-out prompts from the training families did not carry over.
+- **Where it went, from the public validation rows** (two independent samplings each of parent and candidate: the official run and my local run; 32 to 114 items per row, so each row alone is noise):
+
+| Benchmark | Parent official / local | Candidate official / local | Mean difference |
+|---|---:|---:|---:|
+| gsm8k | 57.8 / 60.9 | 68.8 / 67.2 | +8.6 |
+| ifeval | 75.0 / 76.6 | 85.9 / 78.1 | +6.2 |
+| math500 | 56.2 / 54.7 | 54.7 / 62.5 | +3.1 |
+| bbh | 33.3 / 31.5 | 24.1 / 29.6 | −5.6 |
+| mbpp | 21.9 / 25.0 | 12.5 / 18.8 | −7.8 |
+| humaneval | 28.1 / 34.4 | 25.0 / 31.2 | −3.1 |
+| commonsense_qa | 59.4 / 59.4 | 56.2 / 56.2 | −3.1 |
+| mmlu_pro | 35.7 / 41.4 | 37.1 / 34.3 | −2.9 |
+
+  The families in the training pool (grade-school and competition math, instruction following) went up in both samplings; families outside it (code, BBH, CommonsenseQA, MMLU-Pro) went down in both. This is consistent with the run trading untrained skills for trained ones, which a probe built only from the training families cannot see. It is a pattern across small rows, not an established effect.
+- **Negative finding for local evaluation:** a paired probe on 2,000 held-out prompts from the training families has now overestimated the private result twice (#81: +0.95 local, −2.5 private; here +2.23 local, −0.5 private). A local go/no-go for RL runs needs the untrained families too.
+
