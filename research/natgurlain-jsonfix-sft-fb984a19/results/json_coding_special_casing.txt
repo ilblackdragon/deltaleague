@@ -1,0 +1,17 @@
+Census coding slice: 150 held-out MBPP test tasks x 4 samples, JSON-files contract
+  leader       n 600  valid  46.5%  pass  13.2%  special-cased 3 of 79 passes ( 3.8%)  pass without them  12.7%  capped 16.2%
+  fc_s60       n 600  valid  52.8%  pass  15.2%  special-cased 11 of 91 passes (12.1%)  pass without them  13.3%  capped  4.7%
+  jf_s50       n 600  valid  91.0%  pass  18.7%  special-cased 6 of 112 passes ( 5.4%)  pass without them  17.7%  capped  2.3%
+  jf_s150      n 600  valid  94.2%  pass  27.8%  special-cased 26 of 167 passes (15.6%)  pass without them  23.5%  capped  4.3%
+  fc_s60 minus leader: pass without special-cased +0.67 ± 1.53  (n=150 tasks)
+  jf_s50 minus leader: pass without special-cased +5.00 ± 2.10  (n=150 tasks)
+  jf_s150 minus leader: pass without special-cased +10.83 ± 2.30  (n=150 tasks)
+
+Dev set: 60 held-out MBPP training-split tasks x 4 samples (gen_fc60 = fc step 60 before the fix)
+  gen_fc60     n 240  valid  52.5%  pass  21.2%  special-cased 11 of 51 passes (21.6%)  pass without them  16.7%  capped  2.5%
+  dev_s50      n 240  valid  91.7%  pass  24.2%  special-cased 2 of 58 passes ( 3.4%)  pass without them  23.3%  capped  2.5%
+  dev_s100     n 240  valid  95.8%  pass  33.3%  special-cased 5 of 80 passes ( 6.2%)  pass without them  31.2%  capped  2.1%
+  dev_s150     n 240  valid  92.1%  pass  41.7%  special-cased 9 of 100 passes ( 9.0%)  pass without them  37.9%  capped  5.0%
+  dev_s50 minus gen_fc60: pass without special-cased +6.67 ± 3.08  (n=60 tasks)
+  dev_s100 minus gen_fc60: pass without special-cased +14.58 ± 4.09  (n=60 tasks)
+  dev_s150 minus gen_fc60: pass without special-cased +21.25 ± 4.44  (n=60 tasks)
