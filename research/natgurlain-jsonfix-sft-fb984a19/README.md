@@ -5,9 +5,9 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, private 53.4), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Built on:** my #82 (`fb984a19` + 60 steps Fair Cast GRPO, verified private 52.9). The patch here is relative to `fb984a19` and contains #82's change plus this one.
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** `b9750427-d06b-40ea-b012-90d481e6fb73`, verification pending
+- **Submission:** `b9750427-d06b-40ea-b012-90d481e6fb73` (version `0bfa4136-8776-446f-a48e-129833464991`), verified: private 51.8 ± 1.58 against the parent's 53.4 and #82's 52.9
 
-All statements about quality below are local and advisory.
+All statements about quality below are local and advisory unless marked verified.
 
 ## Hypothesis
 
@@ -118,3 +118,31 @@ Environment: RTX 3090 (24 GB), Python 3.12, torch 2.13.0+cu130, vLLM 0.32.0, tra
 - **Tool calling by category is noise-sized** (70 items, one sample each): irrelevance +17.1, parallel +8.6, multiple −7.1. Only the total is used.
 - One training run, one seed. MBPP only: other languages, multi-file tasks and the terminal track were not measured.
 - Earlier negative results on this lineage that led here (measured on held-out prompts, no private data): 60 more Fair Cast GRPO steps after #82 erased its local gain (−3.05 against #82), largely because "fewer than N words" instructions went from 81% to 5% compliance; GRPO's gains on this parent came from finishing more answers, not from higher accuracy among finished ones (70% → 71% → 68%); the answer-only exact-match format was already fine (0.8% of samples knew the answer but failed the format).
+
+## Verified result
+
+Official, from `delta submission status` on `private1000-v6-thinking8k-20261111`:
+
+| | Private test | Private suite passed (of 500) | Validation | Truncation | Output tokens |
+|---|---:|---:|---:|---:|---:|
+| Parent `fb984a19` | 53.4 | 279 | 47.40 | 14.2% | 1,324,788 |
+| #82 (the base of this change) | 52.9 ± 1.58 | 276 | 47.04 | 11.2% | 1,274,516 |
+| **This submission `0bfa4136`** | **51.8 ± 1.58** | **273** | **46.71** | **10.4%** | **1,286,155** |
+
+- **The hypothesis is not supported on the private test.** The score is 1.1 below the base and 1.6 below the parent, about one standard error of a single row. The large local gain on the JSON-files coding contract did not show up.
+- **The private suite did not move:** 279, 276 and 273 of 500 for the parent, the base and this model. A contract that went from 53% to 94% valid locally would have moved that count if such tasks were a visible share of the suite. The simplest reading is that the private suite contains few or no tasks in this contract; I cannot check that.
+- **The other 500 test items fell from 253 to 245** (parent 255). That is 1.6 points on 500 items with a standard error of about 2.2, so it is not distinguishable from noise, but it points the same way as the local 4-family probe (−1.0 against the base).
+- **Public validation rows** (32 to 72 items each, single samples, so each row alone is noise):
+
+| Benchmark | #82 official | This submission | Difference |
+|---|---:|---:|---:|
+| mbpp | 12.5 | 18.8 | +6.2 |
+| humaneval | 25.0 | 31.2 | +6.2 |
+| bfcl_single_turn | 56.9 | 65.3 | +8.3 |
+| bbh | 24.1 | 38.9 | +14.8 |
+| gsm8k | 68.8 | 54.7 | −14.1 |
+| ifeval | 85.9 | 70.3 | −15.6 |
+| math500 | 54.7 | 50.0 | −4.7 |
+
+  Code and tool calling are up, the families that #82's GRPO had trained (grade-school math, instruction following) are down. #82's official gsm8k and ifeval rows were high draws (67.2 and 78.1 in my local run of the same suite), so part of this is regression to the mean; the direction agrees with the local probe (instruction following −2.4 ± 2.1, math −1.5 ± 1.7).
+- **Negative finding:** fixing an answer contract that the public scoring code supports, with clean local evidence on open data, is not enough to move this leaderboard. Three local evaluation designs have now failed to predict the private result on this lineage (#81, #82 and this one).
