@@ -1,0 +1,54 @@
+
+===== fc_s60: exact-answer slice (1200 samples)
+  wording kind    exact   reader-correct   knows-but-fails-format   thinking closed   capped   median words in visible answer
+  w1    num     69.0%      74.0%              5.0%               100.0%          0.0%     1
+  w1    choice  51.0%      51.0%              0.0%               100.0%          0.0%     1
+  w2    num     72.0%      74.0%              2.0%               100.0%          0.0%     1
+  w2    choice  61.5%      61.5%              0.0%               100.0%          0.0%     1
+  w3    num     71.0%      71.0%              0.0%               100.0%          0.0%     1
+  w3    choice  60.5%      60.5%              0.0%               100.0%          0.0%     1
+  all   num     70.7%      73.0%              2.3%               100.0%          0.0%     1
+  all   choice  57.7%      57.7%              0.0%               100.0%          0.0%     1
+  all   all     64.2%      65.3%              1.2%               100.0%          0.0%     1
+  spread of exact rate across the three wordings: 6.8 points
+
+===== fc_s60: JSON-file coding slice (600 samples)
+  valid response  52.8%   strict JSON object  48.5%   passes tests  15.2%   passes | valid  28.7%   thinking closed  98.5%   capped   4.7%
+
+===== fc_s60: truncation-prone boxed math (600 samples)
+  platform score  14.8%   local-rule score  14.2%   capped  53.8% (n=323)
+  of capped: thinking closed  84.8%; platform-correct   1.2% (closed ones:   1.5%, n=274); visible answer contains \boxed   0.0%; strictly periodic tail   1.5%
+  capped and closed: median thinking 11865 chars, median visible answer 7331 chars
+  finished samples: platform score  30.7% (n=277)
+
+===== jf_s50: exact-answer slice (1200 samples)
+  wording kind    exact   reader-correct   knows-but-fails-format   thinking closed   capped   median words in visible answer
+  w1    num     73.0%      75.5%              2.5%               100.0%          0.0%     1
+  w1    choice  57.0%      57.0%              0.0%               100.0%          0.0%     1
+  w2    num     70.0%      70.5%              0.5%               100.0%          0.0%     1
+  w2    choice  60.5%      60.5%              0.0%               100.0%          0.0%     1
+  w3    num     65.5%      66.0%              0.5%               100.0%          0.0%     1
+  w3    choice  56.5%      56.5%              0.0%               100.0%          0.0%     1
+  all   num     69.5%      70.7%              1.2%               100.0%          0.0%     1
+  all   choice  58.0%      58.0%              0.0%               100.0%          0.0%     1
+  all   all     63.7%      64.3%              0.6%               100.0%          0.0%     1
+  spread of exact rate across the three wordings: 4.2 points
+
+===== jf_s50: JSON-file coding slice (600 samples)
+  valid response  91.0%   strict JSON object  91.0%   passes tests  18.7%   passes | valid  20.5%   thinking closed  98.3%   capped   2.3%
+
+===== jf_s50: truncation-prone boxed math (600 samples)
+  platform score  14.0%   local-rule score  13.3%   capped  43.0% (n=258)
+  of capped: thinking closed  72.9%; platform-correct   1.6% (closed ones:   2.1%, n=188); visible answer contains \boxed   0.5%; strictly periodic tail   3.5%
+  capped and closed: median thinking 13434 chars, median visible answer 5879 chars
+  finished samples: platform score  23.4% (n=342)
+
+fc_s60: the same 150 MBPP tasks, plain code-block format (saved harness logs, 1 sample)  36.7% vs JSON-files format  15.2%
+
+===== jf_s50 minus fc_s60 (paired by prompt)
+  exact pass                    -0.42 ± 1.39  (n=300 prompts)
+  reader-correct                -1.00 ± 1.36  (n=300 prompts)
+  JSON valid                   +38.17 ± 2.45  (n=150 prompts)
+  JSON coding pass              +3.50 ± 2.03  (n=150 prompts)
+  trunc slice platform score    -0.83 ± 1.57  (n=150 prompts)
+  trunc slice capped           -10.83 ± 2.34  (n=150 prompts)

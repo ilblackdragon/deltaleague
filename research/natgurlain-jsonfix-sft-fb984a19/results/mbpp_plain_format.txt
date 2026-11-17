@@ -1,0 +1,4 @@
+A = fc step 60, B = step 50 of the fix
+  mbpp             n=  500  A= 31.6  B= 30.2  diff= -1.4  [ -4.8,  +2.4]
+A = fc step 60, B = step 150 of the fix
+  mbpp             n=  500  A= 31.6  B= 32.8  diff= +1.2  [ -2.8,  +5.2]

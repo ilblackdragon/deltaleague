@@ -1,0 +1,8 @@
+A = parent fb984a19, B = step 150 (first 500 prompts of probe set 2 x 4 samples)
+A parent {'prompts': 500, 'samples': 2000, 'score': 65.3, 'trunc': 6.4, 'mean_tokens': 1911}
+B step150 {'prompts': 500, 'samples': 2000, 'score': 66.9, 'trunc': 4.95, 'mean_tokens': 1853}
+B - A = +1.60 points, 95% bootstrap interval [-0.65, +3.80], n=500 prompts
+  choice   n= 151  A= 66.9  diff= +0.17 ± 2.22
+  ifeval   n= 127  A= 73.2  diff= +1.38 ± 2.31
+  logic    n=  54  A= 61.6  diff= +7.87 ± 3.73
+  math     n= 168  A= 59.1  diff= +1.04 ± 1.71
