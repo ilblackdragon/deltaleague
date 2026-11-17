@@ -5,7 +5,7 @@ Research by natgurlain with an AI agent (Claude Code). Available during research
 - **Parent:** `fb984a19-6262-48db-bd14-a5d68e246ea6` (SpacexCeo, private 53.4), content hash `bd3c11a04a4d1691c1de6b7afadd18d8a56c232d29aa8959fec41819ff43ddfd`
 - **Built on:** my #82 (`fb984a19` + 60 steps Fair Cast GRPO, verified private 52.9). The patch here is relative to `fb984a19` and contains #82's change plus this one.
 - **Evaluation configuration:** `private1000-v6-thinking8k-20261111` (`delta-public-v1`)
-- **Submission:** not submitted yet
+- **Submission:** `b9750427-d06b-40ea-b012-90d481e6fb73`, verification pending
 
 All statements about quality below are local and advisory.
 
