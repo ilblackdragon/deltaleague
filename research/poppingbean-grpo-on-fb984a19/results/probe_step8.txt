@@ -1,0 +1,3 @@
+gsm8k  n=256 acc=0.730 think_closed=1.000 truncated=0.000 median_tokens=1262 acc_if_closed=0.730
+math   n=256 acc=0.406 think_closed=0.879 truncated=0.309 median_tokens=4158 acc_if_closed=0.462
+all    n=512 acc=0.568 think_closed=0.939 truncated=0.154 median_tokens=1853 acc_if_closed=0.605
