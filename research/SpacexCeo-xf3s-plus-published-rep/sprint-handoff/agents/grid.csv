@@ -1,0 +1,16 @@
+name,s,g,close,mode,tokens,acc,strict_acc,trunc,acc_closed,tokens_mean,math_acc,mc_acc,hedges,think_lt50,closed_overflow,n,private
+a1_new_s2,0.5,1.4,1.3,scale,7 wait/hmm [prompts agents/a1/proxy_s2.json],35.62,35.0,0.556,64.77,6091,37.5,32.5,12.01,0.019,0.106,320,31.4
+a1_xf3s_s2,0.5,1.4,1.3,scale,7 wait/hmm + doubt-dir L0-13 + L16 n998 x-2 (xf3s) [prompts agents/a1/proxy_s2.json],44.69,44.06,0.294,56.97,3643,46.5,41.67,2.9,0.006,0.078,320,36.0
+a3_new_g13,0.5,1.3,1.3,scale,"7 rows: ' wait','wait',' Wait','Wait','Hmm',' hmm',' Hmm'",35.62,34.69,0.537,65.52,6165,38.0,31.67,11.97,0.028,0.081,320,
+a3_new_g155,0.5,1.55,1.3,scale,"7 rows: ' wait','wait',' Wait','Wait','Hmm',' hmm',' Hmm'",32.81,31.88,0.566,60.0,6034,36.0,27.5,9.13,0.013,0.113,320,
+a6_x_c092,0.5,1.4,1.196,rel on b8af1dbc: s x1 c x0.92 g x1,7 wait/hmm + doubt-dir L0-13 + L16 n998 x-2 (xf3s),42.81,42.5,0.378,66.83,4295,43.5,41.67,2.38,0.0,0.022,320,
+a6_x_c092_s2,0.5,1.4,1.196,rel on b8af1dbc: s x1 c x0.92 g x1,7 wait/hmm + doubt-dir L0-13 + L16 n998 x-2 (xf3s) [prompts agents/a1/proxy_s2.json],39.06,38.75,0.384,61.27,4279,39.0,39.17,1.42,0.0,0.025,320,
+a6_x_g095,0.5,1.33,1.3,rel on b8af1dbc: s x1 c x1 g x0.95,7 wait/hmm + doubt-dir L0-13 + L16 n998 x-2 (xf3s),41.25,39.69,0.269,49.07,3461,43.0,38.33,1.57,0.016,0.113,320,
+c_base,1,1,1,-,none,8.12,8.12,0.906,76.47,7899,5.0,13.33,79.03,0.0,0.013,320,18.6
+c_g1667,1,1.667,1,-,none,4.38,4.38,0.953,93.33,7940,3.5,5.83,135.15,0.0,0.0,320,17.2
+c_leader,0.6,1.4,1,mean,11 hedge,25.31,25.31,0.684,78.64,6970,24.0,27.5,2.33,0.0,0.006,320,28.2
+c_new,0.5,1.4,1.3,scale,7 wait/hmm,33.44,33.12,0.553,62.94,6052,36.0,29.17,12.3,0.013,0.084,320,31.4
+c_think15,1,1,1.5,-,</think> only,38.12,18.44,0.438,39.23,4955,37.5,39.17,5.76,0.491,0.409,320,17.6
+c_xf3s,0.5,1.4,1.3,scale,7 wait/hmm + doubt-dir L0-13 + L16 n998 x-2 (xf3s),38.75,37.81,0.316,47.69,3726,42.5,32.5,1.5,0.013,0.128,320,36.0
+f1_h13c13,0.5,1.4,1.3,scale,"13 rows: ' wait','wait',' Wait','Wait','Hmm',' hmm',' Hmm',' Maybe','Maybe',' Actually','Actually',' Alternatively','Alternatively'",36.88,35.0,0.547,65.56,6114,41.5,29.17,2.15,0.013,0.109,320,
+r_newleader,0.5,1.4,1.3,scale,"7 rows: ' wait','wait',' Wait','Wait','Hmm',' hmm',' Hmm'",33.44,33.12,0.553,62.94,6052,36.0,29.17,12.3,0.013,0.084,320,
