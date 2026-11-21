@@ -1,0 +1,83 @@
+{
+  "factors": {
+    "filler": 0.7,
+    "think": 1.15,
+    "norm": 1.2
+  },
+  "rows": {
+    "\u0120wait": {
+      "id": 3655,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69162,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "wait": {
+      "id": 11158,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69042,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "\u0120Wait": {
+      "id": 13428,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69422,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "Wait": {
+      "id": 13784,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69197,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "Hmm": {
+      "id": 77264,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69243,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "\u0120hmm": {
+      "id": 84485,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69141,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "\u0120Hmm": {
+      "id": 85152,
+      "target": 0.7,
+      "lm_head_row_norm_factor": 0.69184,
+      "lm_head_block_factor_min": 0.66667,
+      "lm_head_block_factor_max": 0.72222
+    },
+    "</think>": {
+      "id": 248069,
+      "target": 1.15,
+      "lm_head_row_norm_factor": 1.15712,
+      "lm_head_block_factor_min": 1.11111,
+      "lm_head_block_factor_max": 1.2
+    }
+  },
+  "final_norm_gain_realized_median": 1.2,
+  "changed_tensor_sha256": {
+    "model.language_model.embed_tokens.weight": "e5dfcc857793aff94a29c1722a4cba04e64349f6478eac4d526d706fce033a52",
+    "lm_head.weight_scale": "c86053292739afc940dc11374f8d15013c51e7b46bc78ab8e0d70b5259ec8119",
+    "model.language_model.norm.weight": "9eceae97dc11e88668d62e4e989c524c0570a20b0d65dc6ff4037ed96c9c2e7b"
+  },
+  "patch": {
+    "format": "sparse-diff",
+    "parent_version_id": "47f586c3-5e3f-42ac-9991-e3db49e09103",
+    "parent_content_hash": "38df01e7db3073616412559157ccfee1515b80a1e819af2bbb774bfb63bf8e10",
+    "weights_sha256": "962f3f9ef9cb0b88c4a43eb73ad0b5811be101440cca223dff85e4ef4ff2ad19",
+    "weights_size_bytes": 484304,
+    "tensors": [
+      "lm_head.weight_scale",
+      "model.language_model.embed_tokens.weight",
+      "model.language_model.norm.weight"
+    ]
+  }
+}
