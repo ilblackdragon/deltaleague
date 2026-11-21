@@ -65,6 +65,8 @@ delta evaluate --limit 2 --max-new-tokens 256 --output baseline-quick.json
 
 `--limit` selects the first N problems **per benchmark**; `--benchmark gsm8k` selects one benchmark. These are development checks, not representative estimates of the full public score.
 
+`--samples K` runs every example K times (seeds 1000 to 1000+K−1) and averages, which cuts per-example noise for local comparisons; it is recorded in the report as `samples_override`, sets `full_validation_set` to false, and never changes an official score.
+
 For the entire public set with its configured generation settings:
 
 ```sh
@@ -125,3 +127,7 @@ or modify the pinned public suite. Do not combine `--validation` with `--endpoin
 `--content-hash` or `--tokenizer`; those select the pinned external-server path.
 Custom reports record `validation_kind: custom`, the file path and the hash of
 the exact bytes parsed, and always set `full_validation_set: false`.
+
+`--samples` applies to legacy workspace data and custom `--validation` files.
+It is rejected for the pinned public suite. For a custom file, its exact hash and
+`samples_override` are both recorded, and `full_validation_set` remains false.

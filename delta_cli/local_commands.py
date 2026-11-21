@@ -79,6 +79,7 @@ def evaluate(workspace: Path = Path('.'), version: str | None = None,
              benchmark: str | None = None, limit: int | None = typer.Option(None, min=1),
              max_new_tokens: int | None = typer.Option(None, min=1),
              thinking: bool | None = typer.Option(None, '--thinking/--no-thinking'),
+             samples: int | None = typer.Option(None, min=1, max=16),
              validation_file: Path | None = typer.Option(None, '--validation'),
              output: Path = Path('local-results.json'),
              endpoint: str | None = None, served_model: str = 'candidate',
@@ -93,6 +94,8 @@ def evaluate(workspace: Path = Path('.'), version: str | None = None,
         if validation_file and (endpoint or content_hash or tokenizer):
             raise ValueError('--validation uses local inference; do not combine it with endpoint options.')
         if config.get('protocol_version') == 'delta-public-v1' and validation_file is None:
+            if samples is not None:
+                raise ValueError('--samples is only supported for legacy/custom local evaluations, not the pinned public suite.')
             if not endpoint or not content_hash:
                 raise ValueError('This configuration uses the pinned public evaluator. Supply --endpoint and '
                                  '--content-hash for your served checkpoint, or use `delta public-eval run --help`. '
@@ -114,7 +117,7 @@ def evaluate(workspace: Path = Path('.'), version: str | None = None,
         from .public_eval.custom import check_runtime
         check_runtime()
         tasks, names, full, sha = local.public_examples(root, config, benchmark, limit,
-                                                      validation_file=path if validation_file else None)
+                                                      validation_file=path if validation_file else None, samples=samples)
         output = output.resolve()
         generations = local.generations_path(output)
         if output.exists() or generations.exists():
@@ -127,7 +130,7 @@ def evaluate(workspace: Path = Path('.'), version: str | None = None,
                 result = local.evaluate(runner, tasks, details['generation'], stream,
                     lambda index, total, name: typer.echo(f'[{index}/{total}] {name}', err=True))
             report = {**details, **result, 'complete': True, 'full_validation_set': full,
-                      'selected_benchmarks': names, 'examples_per_benchmark_limit': limit,
+                      'selected_benchmarks': names, 'examples_per_benchmark_limit': limit, 'samples_override': samples,
                       'validation_sha256': sha, 'validation_file': str(path),
                       'validation_kind': 'custom' if validation_file else 'workspace',
                       'generations_file': str(generations),
