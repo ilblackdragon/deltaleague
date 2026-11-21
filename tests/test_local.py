@@ -480,3 +480,59 @@ def test_custom_validation_rejects_terminal_control_in_benchmark(workspace):
     path.write_text(json.dumps({'unsafe\x1b[2J': [{'id': 'x', 'prompt': 'p', 'answer': 'a'}]}))
     with pytest.raises(ValueError, match='Invalid benchmark name'):
         local.public_examples(root, config, validation_file=path)
+
+
+def test_cli_samples_bounds(workspace, monkeypatch):
+    root, _, _ = workspace
+    calls = []
+
+    class FakeRunner:
+        details = {'device': 'cpu'}
+        def __init__(self, *args):
+            pass
+        def generate(self, *args):
+            calls.append(args)
+            return {'text': 'yes', 'tokens': 2, 'generation_seconds': .1, 'truncated': False}
+    monkeypatch.setattr(local, 'Runner', FakeRunner)
+    runner = CliRunner()
+    for bad in ('0', '17'):
+        result = runner.invoke(main.app, ['evaluate', '--workspace', str(root), '--samples', bad,
+                                          '--max-new-tokens', '4', '--output', str(root / f'bad{bad}.json')])
+        assert result.exit_code != 0
+        assert not calls
+        assert not (root / f'bad{bad}.json').exists()
+    output = root / 'sixteen.json'
+    result = runner.invoke(main.app, ['evaluate', '--workspace', str(root), '--samples', '16',
+                                      '--max-new-tokens', '4', '--output', str(output)])
+    assert result.exit_code == 0, result.output
+    assert json.loads(output.read_text())['samples_override'] == 16
+    assert len(output.with_suffix('.generations.jsonl').read_text().splitlines()) == 48
+
+
+def test_custom_sample_override_tracks_hash_and_seeds(workspace, fake_runner):
+    root, _, config = workspace
+    path = root / 'custom.json'
+    path.write_text(json.dumps({'custom': [{'id': 'x', 'prompt': 'P', 'answer': 'yes', 'samples': 1}]}))
+    tasks, names, full, sha = local.public_examples(root, config, validation_file=path, samples=3)
+    assert [t['seed'] for t in tasks] == [1000, 1001, 1002]
+    assert names == ['custom'] and not full and sha == file_hash(path)
+    config['protocol_version'] = 'delta-public-v1'
+    (root / 'evaluation.json').write_text(json.dumps(config))
+    output = root / 'sampled.json'
+    result = CliRunner().invoke(main.app, ['evaluate', '--workspace', str(root), '--validation', str(path),
+                                          '--samples', '3', '--output', str(output)])
+    assert result.exit_code == 0, result.output
+    report = json.loads(output.read_text())
+    assert report['samples_override'] == 3 and not report['full_validation_set']
+    assert report['validation_sha256'] == sha
+    assert len(local.generations_path(output).read_text().splitlines()) == 3
+
+
+def test_pinned_suite_rejects_samples_before_dispatch(workspace, monkeypatch):
+    root, _, config = workspace
+    config['protocol_version'] = 'delta-public-v1'
+    (root / 'evaluation.json').write_text(json.dumps(config))
+    from delta_cli.public_eval import cli
+    monkeypatch.setattr(cli, 'run_command', lambda **kwargs: pytest.fail('Ignored sample override'))
+    result = CliRunner().invoke(main.app, ['evaluate', '--workspace', str(root), '--samples', '2'])
+    assert result.exit_code == 1 and '--samples is only supported' in result.output
