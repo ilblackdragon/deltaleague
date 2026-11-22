@@ -1,0 +1,39 @@
+{
+  "parent_version_id": "5065b8a8-e87d-4f06-b52b-183fcb3bab8c",
+  "parent_content_hash": "d2574ed609c86067c8d42febe6f8869cea2615c1c2d5d820bde84e933f836b0b",
+  "model_config_id": "qwen38-27b-nvfp4-ref",
+  "evaluation": "qwen38-27b-nvfp4-agentic300-8k-v1",
+  "factor": 0.5,
+  "tokens": {
+    "\u0120Alternatively": {
+      "id": 37201,
+      "target": 0.5,
+      "changed_blocks": 320,
+      "lm_head_row_norm_factor": 0.5,
+      "lm_head_block_factor_min": 0.5,
+      "lm_head_block_factor_max": 0.5
+    },
+    "\u0120alternatively": {
+      "id": 66073,
+      "target": 0.5,
+      "changed_blocks": 320,
+      "lm_head_row_norm_factor": 0.5,
+      "lm_head_block_factor_min": 0.5,
+      "lm_head_block_factor_max": 0.5
+    },
+    "Alternatively": {
+      "id": 88842,
+      "target": 0.5,
+      "changed_blocks": 320,
+      "lm_head_row_norm_factor": 0.5,
+      "lm_head_block_factor_min": 0.5,
+      "lm_head_block_factor_max": 0.5
+    }
+  },
+  "changed_elements": 960,
+  "tensor": "lm_head.weight_scale",
+  "sparse_tensor_index": 2,
+  "weights_sha256": "0ad5500a06fa7c90afe97173684977f101cf6d5a76907448623c88a618f6e99c",
+  "weights_size_bytes": 8792,
+  "seed": null
+}
