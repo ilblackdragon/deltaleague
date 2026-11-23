@@ -1,0 +1,7 @@
+{
+  "arm": "query-sharp",
+  "tier": 0,
+  "suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2",
+  "full_replication": false,
+  "patch_sha256": "75ab09205836a490b84546eefbe97a1fc220a6340ce1106b39fdd5bc737ba9ce"
+}

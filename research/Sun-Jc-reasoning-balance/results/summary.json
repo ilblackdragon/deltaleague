@@ -1,0 +1,162 @@
+{
+  "parent": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+  "development_items": 204,
+  "development_benchmarks": 18,
+  "development_suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00",
+  "baseline_macro": 48.50571645162288,
+  "development": {
+    "query-sharp": {
+      "macro": 45.25027847396269,
+      "delta_points": -3.2554379776602076,
+      "paired_90_interval_points": [
+        -7.936507936507937,
+        1.5138154027042916
+      ],
+      "focus": {
+        "math500": {
+          "items": 8,
+          "parent_correct": 5.0,
+          "candidate_correct": 3.0,
+          "wins": 1,
+          "losses": 3
+        },
+        "bbh": {
+          "items": 27,
+          "parent_correct": 11.0,
+          "candidate_correct": 9.0,
+          "wins": 4,
+          "losses": 6
+        }
+      },
+      "report_sha256": "1cb3b187cb1528a0128036e2893871ee58b12b7e22b7223bd8baa7c705ad76d0",
+      "native_reports_verified": 17
+    },
+    "query-soft": {
+      "macro": 43.918244685788544,
+      "delta_points": -4.587471765834337,
+      "paired_90_interval_points": [
+        -8.710046721742629,
+        -0.4410137999319298
+      ],
+      "focus": {
+        "math500": {
+          "items": 8,
+          "parent_correct": 5.0,
+          "candidate_correct": 5.0,
+          "wins": 0,
+          "losses": 0
+        },
+        "bbh": {
+          "items": 27,
+          "parent_correct": 11.0,
+          "candidate_correct": 12.0,
+          "wins": 5,
+          "losses": 4
+        }
+      },
+      "report_sha256": "9461df125985f599e6270b39cd80c4285937d6fa98e375b7701cb9eb805ee8db",
+      "native_reports_verified": 17
+    },
+    "seed-three": {
+      "macro": 44.71015501717256,
+      "delta_points": -3.7955614344503203,
+      "paired_90_interval_points": [
+        -8.226962081128747,
+        0.565843621399177
+      ],
+      "focus": {
+        "math500": {
+          "items": 8,
+          "parent_correct": 5.0,
+          "candidate_correct": 3.0,
+          "wins": 0,
+          "losses": 2
+        },
+        "bbh": {
+          "items": 27,
+          "parent_correct": 11.0,
+          "candidate_correct": 12.0,
+          "wins": 6,
+          "losses": 5
+        }
+      },
+      "report_sha256": "bf3d47456850afe328cd2164416a70500675885c7b2dd1d0d54fe6d9579b71bc",
+      "native_reports_verified": 17
+    },
+    "step-pairs": {
+      "macro": 46.11006683375105,
+      "delta_points": -2.3956496178718396,
+      "paired_90_interval_points": [
+        -6.43371546149324,
+        1.6938565549676656
+      ],
+      "focus": {
+        "math500": {
+          "items": 8,
+          "parent_correct": 5.0,
+          "candidate_correct": 4.0,
+          "wins": 0,
+          "losses": 1
+        },
+        "bbh": {
+          "items": 27,
+          "parent_correct": 11.0,
+          "candidate_correct": 9.0,
+          "wins": 2,
+          "losses": 4
+        }
+      },
+      "report_sha256": "2085882e9ba17ce4f8cd88194f5307bbc43e547badd6aec22e122b8e6eae9a63",
+      "native_reports_verified": 17
+    }
+  },
+  "replication_suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2",
+  "replication": {
+    "query-sharp": {
+      "math500": {
+        "items": 8,
+        "parent_correct": 5.0,
+        "candidate_correct": 5.0,
+        "wins": 0,
+        "losses": 0
+      },
+      "bbh": {
+        "items": 27,
+        "parent_correct": 7.0,
+        "candidate_correct": 12.0,
+        "wins": 8,
+        "losses": 3
+      }
+    },
+    "step-pairs": {
+      "math500": {
+        "items": 8,
+        "parent_correct": 5.0,
+        "candidate_correct": 5.0,
+        "wins": 0,
+        "losses": 0
+      },
+      "bbh": {
+        "items": 27,
+        "parent_correct": 7.0,
+        "candidate_correct": 5.0,
+        "wins": 4,
+        "losses": 6
+      }
+    }
+  },
+  "repeated_parent_generation": {
+    "math500": {
+      "items": 8,
+      "identical_scores": 8,
+      "identical_responses": 8
+    },
+    "bbh": {
+      "items": 27,
+      "identical_scores": 27,
+      "identical_responses": 27
+    }
+  },
+  "decision": "Retain the official parent. No candidate improved development macro or both priority benchmarks.",
+  "scope": "Local MLX, single generation seed, 204-item development subset, 35 disjoint target items per finalist."
+}

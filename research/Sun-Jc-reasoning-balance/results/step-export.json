@@ -1,0 +1,20 @@
+{
+  "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/reasoning-steps-v1/step-pairs/model",
+  "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/reasoning-steps-v1/step-pairs/submission",
+  "parent_content_hash": "2c94041a49dfc1fbf74c1214487dd10dd72e288f5a5e0b6d8fff6d432bb9b59f",
+  "checkpoint_sha256": "daffc166c82b1c15bc1980537f30d3070815374518c686e3b16b3b2dc0ce691e",
+  "patch_sha256": "d52ead6a3566ef28d0114a523692f1056d3a162147de57227c2e55b6f2724e74",
+  "manifest_sha256": "7b4162c19af9c428dc0fff073a8e33b706bd451a5eb64a82cb734b8550669b03",
+  "patch_bytes": 295222,
+  "changed_values": 6154081,
+  "official_content_hash": null,
+  "changes": {
+    "model.language_model.layers.16.mlp.down_proj.weight": 3170384,
+    "model.language_model.layers.20.mlp.down_proj.weight": 2983697
+  },
+  "reconstruction_exact": true,
+  "local_validation": {
+    "passed": true,
+    "log_sha256": "7c8f0f70df9219f39161c40d9ef63a285ee5e06c13059e8ee4f4612f2c6d3966"
+  }
+}

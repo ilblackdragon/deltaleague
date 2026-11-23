@@ -1,0 +1,171 @@
+{
+  "local_only": true,
+  "official_suite": false,
+  "confirmatory": false,
+  "screening_only": true,
+  "macro_scores": {
+    "parent": 48.50571645162289,
+    "query-sharp": 45.25027847396268
+  },
+  "paired_vs_parent": {
+    "query-sharp": {
+      "delta_points": -3.2554379776602076,
+      "one_sided_90_lower_points": -6.959141681363903,
+      "central_90_interval_points": [
+        -7.936507936507937,
+        1.5138154027042916
+      ],
+      "by_benchmark": {
+        "arc_challenge": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "arc_easy": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "bbh": {
+          "n": 27,
+          "delta_points": -7.4074074074074066,
+          "wins": 4,
+          "losses": 6,
+          "ties": 17
+        },
+        "bfcl_multi_turn": {
+          "n": 4,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 4
+        },
+        "bfcl_single_turn": {
+          "n": 6,
+          "delta_points": 16.666666666666664,
+          "wins": 1,
+          "losses": 0,
+          "ties": 5
+        },
+        "boolq": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "commonsense_qa": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "gsm8k": {
+          "n": 8,
+          "delta_points": -25.0,
+          "wins": 0,
+          "losses": 2,
+          "ties": 6
+        },
+        "hellaswag": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "humaneval": {
+          "n": 4,
+          "delta_points": -75.0,
+          "wins": 0,
+          "losses": 3,
+          "ties": 1
+        },
+        "ifeval": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 1,
+          "losses": 1,
+          "ties": 6
+        },
+        "math500": {
+          "n": 8,
+          "delta_points": -25.0,
+          "wins": 1,
+          "losses": 3,
+          "ties": 4
+        },
+        "mbpp": {
+          "n": 4,
+          "delta_points": 50.0,
+          "wins": 2,
+          "losses": 0,
+          "ties": 2
+        },
+        "mmlu": {
+          "n": 57,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 57
+        },
+        "mmlu_pro": {
+          "n": 14,
+          "delta_points": 7.142857142857142,
+          "wins": 2,
+          "losses": 1,
+          "ties": 11
+        },
+        "openbookqa": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "piqa": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        },
+        "winogrande": {
+          "n": 8,
+          "delta_points": 0.0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 8
+        }
+      }
+    }
+  },
+  "uncertainty": {
+    "method": "Paired bootstrap within each benchmark, equal benchmark weights",
+    "draws": 20000,
+    "seed": 20261119,
+    "limitations": "Single generation seed; development subset; conditional on observed tasks; no multiplicity adjustment"
+  },
+  "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00",
+  "focus": {
+    "math500": {
+      "items": 8,
+      "parent_correct": 5.0,
+      "candidate_correct": 3.0,
+      "wins": 1,
+      "losses": 3
+    },
+    "bbh": {
+      "items": 27,
+      "parent_correct": 11.0,
+      "candidate_correct": 9.0,
+      "wins": 4,
+      "losses": 6
+    }
+  }
+}

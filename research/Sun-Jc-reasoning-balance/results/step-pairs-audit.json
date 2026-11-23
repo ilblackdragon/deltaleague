@@ -1,0 +1,12 @@
+{
+  "enabled": false,
+  "arm": "step-pairs",
+  "suite": {
+    "items": {
+      "math500": 24,
+      "bbh": 54
+    },
+    "suite_sha256": "5ba7ada7beff690ce8774f90bcc9fb0523df7d525cee68f146ec2928b630b9a5",
+    "excluded_official_suite_sha256": "16988c0dd47b7bb0e653be3f7c37da30ae73954f5ec79becc581035651a8a67f"
+  }
+}

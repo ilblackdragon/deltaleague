@@ -1,0 +1,68 @@
+{
+  "retrieved_utc": "2026-11-23T03:53:36.768849+00:00",
+  "config": "private1000-v6-thinking8k-20261111",
+  "top": [
+    {
+      "rank": 1,
+      "version_id": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+      "name": "eff1e1b7 + 50/50 Model Soup layers 0-22 (pure eff1e1b7 L23 phase-gating intact)",
+      "created_at": "2026-11-20T10:59:59.150498Z",
+      "parent_id": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+      "username": "iJ03l",
+      "result": {
+        "config_id": "private1000-v6-thinking8k-20261111",
+        "state": "complete",
+        "validation_score": 47.33014538661469,
+        "test_score": 54.7,
+        "completed_at": "2026-11-20T11:58:10.328110Z"
+      }
+    },
+    {
+      "rank": 2,
+      "version_id": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+      "name": "fb984a19 with 25% rollback of phase-gated neurons 1998 and 3529",
+      "created_at": "2026-11-15T10:17:45.975489Z",
+      "parent_id": "fb984a19-6262-48db-bd14-a5d68e246ea6",
+      "username": "Congoss",
+      "result": {
+        "config_id": "private1000-v6-thinking8k-20261111",
+        "state": "complete",
+        "validation_score": 47.06904220427612,
+        "test_score": 54.300000000000004,
+        "completed_at": "2026-11-15T10:41:46.959257Z"
+      }
+    },
+    {
+      "rank": 2,
+      "version_id": "a6eb9f13-47fb-4755-bd08-268a86307674",
+      "name": "eff1e1b7 + seed soup of 2 length-shaped GRPO runs (seeds 1,2; local probe +1.9 +/- 2.3 on 1024 items, not established)",
+      "created_at": "2026-11-15T14:29:17.334374Z",
+      "parent_id": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+      "username": "SpacexCeo",
+      "result": {
+        "config_id": "private1000-v6-thinking8k-20261111",
+        "state": "complete",
+        "validation_score": 47.95350161669606,
+        "test_score": 54.300000000000004,
+        "completed_at": "2026-11-15T14:50:58.276451Z"
+      }
+    },
+    {
+      "rank": 4,
+      "version_id": "fdfd46a4-3a55-4277-91c1-70c739d6139b",
+      "name": "eff1e1b7 + 8 length-shaped GRPO steps (#74 recipe, seed 3)",
+      "created_at": "2026-11-19T17:32:42.881428Z",
+      "parent_id": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+      "username": "mihaikoodo",
+      "result": {
+        "config_id": "private1000-v6-thinking8k-20261111",
+        "state": "complete",
+        "validation_score": 48.2027503171509,
+        "test_score": 53.7,
+        "completed_at": "2026-11-19T18:16:06.397181Z"
+      }
+    }
+  ],
+  "rechecked_utc": "2026-11-23T07:46:49.420870+00:00",
+  "top_four_versions_and_scores_unchanged": true
+}

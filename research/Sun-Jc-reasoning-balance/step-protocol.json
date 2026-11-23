@@ -1,0 +1,8 @@
+{
+  "arm": "step-pairs",
+  "parent": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+  "purpose": "Test a separate, fixed training intervention on intermediate mathematical and logical decisions. The first three arms keep their original selection and replication.",
+  "data": "Generate 96 training pairs (16 per family) and 24 separate diagnostic pairs (4 per family) with a fixed PRNG seed of 20261123. Use exact modular arithmetic, linear equations, inequalities, Boolean expressions, spatial order and object permutations. Each pair supplies matched reasoning contexts with opposite correct next tokens. No benchmark data are used in training or checkpoint selection.",
+  "edit": "Rank-eight LoRA, scale 2, only on MLP down projections of language layers 16 and 20. Fit once, one optimizer step per pair, Adam learning rate 0.00004. Average two correct-versus-alternative logistic losses and regularize each full-vocabulary next-token distribution with 0.5 times forward KL from the frozen leader. No hyperparameter search or early stopping.",
+  "evaluation": "Score the single exported checkpoint on all 18 development benchmarks and the same verified parent. Apply the original positive-tier replication rules to this arm independently. Use identical fixed replication and fresh panels, disclose any reuse if multiple candidates reach them. Report negative outcomes."
+}

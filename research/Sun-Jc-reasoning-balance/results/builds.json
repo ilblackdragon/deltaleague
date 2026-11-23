@@ -1,0 +1,54 @@
+{
+  "official_sources": {
+    "917d6b4f-fea3-432c-9264-e4f89e45890a": {
+      "content_hash": "2c94041a49dfc1fbf74c1214487dd10dd72e288f5a5e0b6d8fff6d432bb9b59f",
+      "checkpoint_sha256": "8cc8c98e9fe5f683eae87eb3f344058f865335f9cc4225860a9ab89008b23137"
+    },
+    "eff1e1b7-18ef-4c77-83ef-25fdcc027e75": {
+      "content_hash": "6ba2eed0971dcc9fbb9e20d8a44128580fcdc1d1d8c3b774470c8d6676006fc2",
+      "checkpoint_sha256": "9f0168d7f622ca5af021253862e465bbdf3881b52784690daf07a2bcc68ae2c6"
+    },
+    "a6eb9f13-47fb-4755-bd08-268a86307674": {
+      "content_hash": "2d1c20e8f75a77b78c45918f6db646f9730d64d47768fa3af913988f09f97bcf",
+      "checkpoint_sha256": "4c608359e3358dac10c6b5d27c901945d4ac1bb6efc1c7d38dc110adae629de9"
+    },
+    "fdfd46a4-3a55-4277-91c1-70c739d6139b": {
+      "content_hash": "8eff5e02135ff7ce6584c93a1ad88f88f61dc206986245c40b57a9fd4501ba3b",
+      "checkpoint_sha256": "5bc5527c7a562b6be4dbaf298f1f5606a314fa643ac5579f1e2abf510df3260c"
+    }
+  },
+  "candidates": {
+    "query-sharp": {
+      "changed_values": 765,
+      "changed_tensors": 3,
+      "patch_bytes": 8090,
+      "patch_sha256": "75ab09205836a490b84546eefbe97a1fc220a6340ce1106b39fdd5bc737ba9ce",
+      "checkpoint_sha256": "ff3906f010eab9e065582efcdee1a05fc251e705827efc8b8942f095e112296c",
+      "effective_q_norm_ratio": {
+        "model.language_model.layers.11.self_attn.q_norm.weight": 1.0799976587295532,
+        "model.language_model.layers.15.self_attn.q_norm.weight": 1.0800549983978271,
+        "model.language_model.layers.19.self_attn.q_norm.weight": 1.079962968826294
+      }
+    },
+    "query-soft": {
+      "changed_values": 765,
+      "changed_tensors": 3,
+      "patch_bytes": 8090,
+      "patch_sha256": "54747ce4d392c80f92dfe4009601809016513b60cbc8dd0f860929cb790df1ac",
+      "checkpoint_sha256": "9a4496be029bc54aa19e9208437c45594b98f8b019660fb513ae914bf7c66111",
+      "effective_q_norm_ratio": {
+        "model.language_model.layers.11.self_attn.q_norm.weight": 0.9199603796005249,
+        "model.language_model.layers.15.self_attn.q_norm.weight": 0.9199593663215637,
+        "model.language_model.layers.19.self_attn.q_norm.weight": 0.9200432896614075
+      }
+    },
+    "seed-three": {
+      "changed_values": 22747451,
+      "changed_tensors": 246,
+      "patch_bytes": 227520060,
+      "patch_sha256": "7b75868dd547feebd7c5d3d9a89b959e645d18f2a01fc5fcfb20b56fad9c7cf1",
+      "checkpoint_sha256": "363f4098fd51713862e9e8a685ad4e562e5d32cc0843fd2fc7570dc8e4cc7ebd",
+      "effective_q_norm_ratio": {}
+    }
+  }
+}

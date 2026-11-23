@@ -1,0 +1,16 @@
+{
+  "math500": {
+    "items": 8,
+    "parent_correct": 5.0,
+    "candidate_correct": 5.0,
+    "wins": 0,
+    "losses": 0
+  },
+  "bbh": {
+    "items": 27,
+    "parent_correct": 7.0,
+    "candidate_correct": 12.0,
+    "wins": 8,
+    "losses": 3
+  }
+}

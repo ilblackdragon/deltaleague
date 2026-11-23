@@ -1,0 +1,23 @@
+{
+  "dataset_sha256": "189448a834b400d91b2a87e63bc4cd982c259939b7aebcbad43fa24cefbbd493",
+  "contexts_checked_by_independent_label_recomputation": {
+    "train": {
+      "boolean": 32,
+      "equation": 32,
+      "inequality": 32,
+      "modular": 32,
+      "permutation": 32,
+      "spatial": 32
+    },
+    "diagnostic": {
+      "boolean": 8,
+      "equation": 8,
+      "inequality": 8,
+      "modular": 8,
+      "permutation": 8,
+      "spatial": 8
+    }
+  },
+  "unique_contexts": 240,
+  "single_token_alternatives_verified": 240
+}

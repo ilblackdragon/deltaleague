@@ -1,0 +1,77 @@
+{
+  "query-sharp": {
+    "macro": 45.25027847396268,
+    "parent": 48.50571645162289,
+    "delta": -3.2554379776602076,
+    "focus": {
+      "math500": {
+        "items": 8,
+        "parent_correct": 5.0,
+        "candidate_correct": 3.0,
+        "wins": 1,
+        "losses": 3
+      },
+      "bbh": {
+        "items": 27,
+        "parent_correct": 11.0,
+        "candidate_correct": 9.0,
+        "wins": 4,
+        "losses": 6
+      }
+    },
+    "interval90": [
+      -7.936507936507937,
+      1.5138154027042916
+    ]
+  },
+  "query-soft": {
+    "macro": 43.91824468578855,
+    "parent": 48.50571645162289,
+    "delta": -4.587471765834337,
+    "focus": {
+      "math500": {
+        "items": 8,
+        "parent_correct": 5.0,
+        "candidate_correct": 5.0,
+        "wins": 0,
+        "losses": 0
+      },
+      "bbh": {
+        "items": 27,
+        "parent_correct": 11.0,
+        "candidate_correct": 12.0,
+        "wins": 5,
+        "losses": 4
+      }
+    },
+    "interval90": [
+      -8.710046721742629,
+      -0.4410137999319298
+    ]
+  },
+  "seed-three": {
+    "macro": 44.71015501717257,
+    "parent": 48.50571645162289,
+    "delta": -3.7955614344503203,
+    "focus": {
+      "math500": {
+        "items": 8,
+        "parent_correct": 5.0,
+        "candidate_correct": 3.0,
+        "wins": 0,
+        "losses": 2
+      },
+      "bbh": {
+        "items": 27,
+        "parent_correct": 11.0,
+        "candidate_correct": 12.0,
+        "wins": 6,
+        "losses": 5
+      }
+    },
+    "interval90": [
+      -8.226962081128747,
+      0.565843621399177
+    ]
+  }
+}

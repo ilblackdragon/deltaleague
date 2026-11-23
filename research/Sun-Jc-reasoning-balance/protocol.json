@@ -1,0 +1,13 @@
+{
+  "reference": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+  "candidates": [
+    "query-sharp: scale effective Q normalization by 1.08 on full-attention layers 11, 15 and 19; preserve K, gates and layer 23.",
+    "query-soft: scale the same effective Q normalization by 0.92 to test the opposite attention concentration.",
+    "seed-three: average eff1e1b7 at 0.5, a6eb9f13 at 0.25 and seed-three fdfd46a4 at 0.25 in FP32 then cast once, only for language layers 0 through 22. Keep the reference embedding, final block and all other weights."
+  ],
+  "hypothesis": "Retrieving the right intermediate quantity or condition can matter for both contest mathematics and multistep logic. Vary the attention-logit scale without changing output decoding. Separately test whether averaging a third public length-shaped GRPO run reduces seed-specific behavior while preserving the leader's phase gate.",
+  "development": "Score every candidate on all 204 items of the established 18-benchmark development suite (b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00). Run MATH500 and BBH first for each candidate. Use original native scorers, batch-eight MLX, official 8192-token thinking settings and seed 20261104. Reuse the recorded leader only after verifying runtime, parent files, original raw scores, suite and item IDs.",
+  "selection": "Prioritize strict improvement on both MATH500 and BBH with a positive 18-group macro difference. Next prefer positive macro with neither target declining. Within the same priority, rank by macro difference, then the smaller of the two target differences, then the listed order.",
+  "replication": "A finalist in either positive tier gets a full independent 18-benchmark paired comparison on the previously frozen disjoint 204-item suite. Otherwise evaluate the best finalist once on both disjoint target groups with the same native scorers and paired parent. Do not tune on replication outcomes. Report matched counts, macro differences, uncertainty, and any regressions.",
+  "scope": "Public checkpoint edits only. No training on validation prompts. Local experimental scores."
+}

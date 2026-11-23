@@ -1,0 +1,51 @@
+{
+  "parent_content_hash": "2c94041a49dfc1fbf74c1214487dd10dd72e288f5a5e0b6d8fff6d432bb9b59f",
+  "dataset_sha256": "189448a834b400d91b2a87e63bc4cd982c259939b7aebcbad43fa24cefbbd493",
+  "layers": [
+    16,
+    20
+  ],
+  "rank": 8,
+  "alpha": 16,
+  "train_pairs": 96,
+  "trainable_parameters": 73728,
+  "initial": {
+    "contexts": 4,
+    "mean_relative_margin": 0.0,
+    "improved_margins": 0,
+    "mean_forward_kl": 0.0
+  },
+  "diagnostic": {
+    "contexts": 48,
+    "mean_relative_margin": -0.030927658081054688,
+    "improved_margins": 22,
+    "mean_forward_kl": 0.05002193777666738
+  },
+  "trace": [
+    {
+      "step": 16,
+      "loss": 0.6124477386474609
+    },
+    {
+      "step": 32,
+      "loss": 0.9910131692886353
+    },
+    {
+      "step": 48,
+      "loss": 0.5313141942024231
+    },
+    {
+      "step": 64,
+      "loss": 1.4905208349227905
+    },
+    {
+      "step": 80,
+      "loss": 0.6523882150650024
+    },
+    {
+      "step": 96,
+      "loss": 0.5737819075584412
+    }
+  ],
+  "elapsed_seconds": 35.117830500006676
+}
