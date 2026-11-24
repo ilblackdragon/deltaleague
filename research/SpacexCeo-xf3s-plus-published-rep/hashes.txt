@@ -1,0 +1,10 @@
+SUBMITTED (alpha 0.5):
+full edited checkpoint model.safetensors sha256: 7eb594667d708b3534e4e81e34619e6883ce47fd14eba1f6aa55834946b8c0ec
+patch weights.safetensors sha256: 291996a885cc8c3b962023cfce0b5e3e6ac25d4ae335db207d0e5435c5475e60
+patch parent_content_hash (b8af1dbc): 9522f6a7d1cf101cc91eff98656fb7a620c1cfb39012b49fe9ee5fdf652b7cbb
+
+alpha 1.0 (not submitted):
+full edited checkpoint model.safetensors sha256: 6520bda84071382231129883e1d736a295efee61428775d6cc4b45bf9a444713
+patch weights.safetensors sha256: 1fb40231464e2af5ee22ac2d101ea2ef70e9db4a1adf64db47aa88b1d47a61a1 (1,302,200 bytes)
+upstream layers.15.mlp.down_proj base/edited sha256 (BF16 bytes): ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca / 82e2d733ea64feaeb4af93a1e065641d3df98b494a8b7576ef2f52e90fe2ee53
+upstream layers.19.mlp.down_proj base/edited sha256 (BF16 bytes): 638eedeb701b94aa861f4438e615c07ec6c60ee703db1bfee2de577bb6498c3e / 8ef3c61bc36af113ad58e89dbb0a4a14dcba5a45cb750c15ab515c82ddd12eb2
