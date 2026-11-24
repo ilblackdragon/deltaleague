@@ -1,0 +1,23 @@
+{
+ "groups": {
+  "gsm8k_sampled_strict": {
+   "n": 40,
+   "base": 55.00000000000001,
+   "edit": 52.5,
+   "diff": -2.5,
+   "wins": 6,
+   "losses": 7,
+   "sign_test_p": 1.0
+  }
+ },
+ "overall": {
+  "diff": -2.5,
+  "ci95": [
+   -20.0,
+   15.0
+  ],
+  "wins": 6,
+  "losses": 7,
+  "sign_test_p": 1.0
+ }
+}
