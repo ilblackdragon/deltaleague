@@ -1,0 +1,81 @@
+{
+  "factors": {
+    "filler": 1.0,
+    "think": 1.0,
+    "norm": 1.2
+  },
+  "rows": {
+    "\u0120wait": {
+      "id": 3655,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "wait": {
+      "id": 11158,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "\u0120Wait": {
+      "id": 13428,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "Wait": {
+      "id": 13784,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "Hmm": {
+      "id": 77264,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "\u0120hmm": {
+      "id": 84485,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "\u0120Hmm": {
+      "id": 85152,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    },
+    "</think>": {
+      "id": 248069,
+      "target": 1.0,
+      "lm_head_row_norm_factor": 1.0,
+      "lm_head_block_factor_min": 1.0,
+      "lm_head_block_factor_max": 1.0
+    }
+  },
+  "final_norm_gain_realized_median": 1.2,
+  "changed_tensor_sha256": {
+    "model.language_model.embed_tokens.weight": "a158f24c6ad72736067768b4255e70a384e2e931f601b12f853e98ce83ec6bbe",
+    "lm_head.weight_scale": "f236e5b001083ddd87752767ed4dd440064d37d817aac034e2c4651d5c087c6f",
+    "model.language_model.norm.weight": "9eceae97dc11e88668d62e4e989c524c0570a20b0d65dc6ff4037ed96c9c2e7b"
+  },
+  "patch": {
+    "format": "sparse-diff",
+    "parent_version_id": "47f586c3-5e3f-42ac-9991-e3db49e09103",
+    "parent_content_hash": "38df01e7db3073616412559157ccfee1515b80a1e819af2bbb774bfb63bf8e10",
+    "weights_sha256": "aa165bb05b9b48bdf33786b7dc7f7a4ef71a264e2235b85f1089d94d39dfaba2",
+    "weights_size_bytes": 51360,
+    "tensors": [
+      "model.language_model.norm.weight"
+    ]
+  }
+}
