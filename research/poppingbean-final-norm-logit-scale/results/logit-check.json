@@ -1,0 +1,47 @@
+[
+ {
+  "prompt": "Natalia sold clips to 48 of her friends ",
+  "positions": 34,
+  "fitted_scale": 1.2496764659881592,
+  "relative_residual": 0.00116838444955647,
+  "argmax_agreement": 1.0,
+  "last_pos_entropy_nats": [
+   1.26735520362854,
+   0.6609958410263062
+  ],
+  "last_pos_top1_prob": [
+   0.7272946834564209,
+   0.8485655188560486
+  ]
+ },
+ {
+  "prompt": "The capital of France is",
+  "positions": 5,
+  "fitted_scale": 1.2496386766433716,
+  "relative_residual": 0.001070712460204959,
+  "argmax_agreement": 1.0,
+  "last_pos_entropy_nats": [
+   4.321906566619873,
+   3.2286577224731445
+  ],
+  "last_pos_top1_prob": [
+   0.12943881750106812,
+   0.19858412444591522
+  ]
+ },
+ {
+  "prompt": "def fibonacci(n):",
+  "positions": 4,
+  "fitted_scale": 1.2510243654251099,
+  "relative_residual": 0.002481447998434305,
+  "argmax_agreement": 1.0,
+  "last_pos_entropy_nats": [
+   0.1737828105688095,
+   0.05394462123513222
+  ],
+  "last_pos_top1_prob": [
+   0.9731202721595764,
+   0.9923836588859558
+  ]
+ }
+]
