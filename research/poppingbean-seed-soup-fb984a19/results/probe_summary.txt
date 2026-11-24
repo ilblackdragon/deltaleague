@@ -1,0 +1,13 @@
+soup3 gsm8k  n=256 acc=0.742 think_closed=1.000 truncated=0.000 median_tokens=1232 acc_if_closed=0.742
+soup3 math   n=256 acc=0.422 think_closed=0.938 truncated=0.344 median_tokens=4143 acc_if_closed=0.450
+soup3 all    n=512 acc=0.582 think_closed=0.969 truncated=0.172 median_tokens=1958 acc_if_closed=0.601
+soup2 gsm8k  n=256 acc=0.758 think_closed=1.000 truncated=0.008 median_tokens=1234 acc_if_closed=0.758
+soup2 math   n=256 acc=0.465 think_closed=0.941 truncated=0.266 median_tokens=3960 acc_if_closed=0.494
+soup2 all    n=512 acc=0.611 think_closed=0.971 truncated=0.137 median_tokens=1831 acc_if_closed=0.630
+c8 gsm8k  n=256 acc=0.754 think_closed=1.000 truncated=0.008 median_tokens=1196 acc_if_closed=0.754
+c8 math   n=256 acc=0.465 think_closed=0.930 truncated=0.273 median_tokens=3606 acc_if_closed=0.500
+c8 all    n=512 acc=0.609 think_closed=0.965 truncated=0.141 median_tokens=1782 acc_if_closed=0.632
+
+paired vs c8 (same 512 items, same pod):
+soup2 +0.20 +- 1.67  wins 37 losses 36
+soup3 -2.73 +- 1.63  wins 28 losses 42
