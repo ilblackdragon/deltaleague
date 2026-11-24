@@ -1,0 +1,3 @@
+# The seal is the sha256 of the item file's bytes, so every file here keeps LF line endings on checkout,
+# whatever the checkout's own setting (Git for Windows converts to CRLF by default).
+* text eol=lf

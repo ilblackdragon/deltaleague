@@ -1,0 +1,338 @@
+{
+ "name": "evidence-verdicts-v1",
+ "tag": "EV2",
+ "per_part": 6,
+ "page": "23bbbdcd06",
+ "items": [
+  {
+   "key": "ref|polymarket-0121|leading-digit|0",
+   "part": "refuted",
+   "prompt_sha256": "d74c4bd422e5542c2583a6c790a33bfda305d205cb2f4f32b926084aeb646ea0",
+   "options": [
+    "refuted",
+    "supported",
+    "insufficient"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ins|cardano-0008|defi-0025",
+   "part": "unrelated",
+   "prompt_sha256": "7095f222f2db01745792990380a8c751bdfde574e5c1f3ee209a6e31531dc6fb",
+   "options": [
+    "insufficient",
+    "refuted",
+    "supported"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ins|avalanche-0083|near",
+   "part": "close",
+   "prompt_sha256": "06c4090ad9dada2d8f3f2c28750d75a6584d60410c010607568e1a61f3885cdd",
+   "options": [
+    "supported",
+    "refuted",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|stablecoin-0023",
+   "part": "supported",
+   "prompt_sha256": "fa1bb0556d008fc0ed635db364a5e062d38772917c1e0439ec923588fc3192ca",
+   "options": [
+    "insufficient",
+    "supported",
+    "refuted"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ref|prediction-market-0215|natural",
+   "part": "flagged",
+   "prompt_sha256": "0dfab200807eb382e335eb1a4934c9e695fd07fdb7004f89794de21a3c02c56d",
+   "options": [
+    "supported",
+    "refuted",
+    "insufficient"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ins|ethereum-0107|tether-0091",
+   "part": "unrelated",
+   "prompt_sha256": "fb7159c35b4a1e8e1455dc66a2cae9ed31cd822e2f7c8b7216b99d15692b2fa3",
+   "options": [
+    "refuted",
+    "supported",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|avalanche-0023",
+   "part": "supported",
+   "prompt_sha256": "7c083e8f1ccf308885fd066d4d58ce80c5cf51340e7d362705b636ee53983a82",
+   "options": [
+    "insufficient",
+    "refuted",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ref|stablecoin-0141|year-shift|0",
+   "part": "refuted",
+   "prompt_sha256": "69e7c566ac2572fecad794d09b1fbaf326b93a72bd91311587c385d05c3d0b9f",
+   "options": [
+    "insufficient",
+    "refuted",
+    "supported"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ins|stablecoin-0083|rel|stablecoin-0023",
+   "part": "close",
+   "prompt_sha256": "5b3b12123eddb0474b7435502e1e06570491623a5058cf56b0200812b14fe23c",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "sup|polymarket-0086",
+   "part": "flagged",
+   "prompt_sha256": "637fdc5d6cc43c4722cfe32017e3c16b44c9b2063e247b4096a01b0a78d1c1a2",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|avalanche-0079",
+   "part": "supported",
+   "prompt_sha256": "9daeb818181943dbe5a3dbf8c80d6dc1827ecae3ae55e693530ad6046dbe3d64",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ref|solana-0016|year-shift|0",
+   "part": "refuted",
+   "prompt_sha256": "b01984f89afdb6404ce32454d67526dc4a9134c3861d4306479148fd29e50891",
+   "options": [
+    "supported",
+    "insufficient",
+    "refuted"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|near-0001",
+   "part": "flagged",
+   "prompt_sha256": "0e2b7a880433ce7b9c2061f50c8087df1a154e9ae52dde859f3c5522a8010c1a",
+   "options": [
+    "supported",
+    "insufficient",
+    "refuted"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ins|aave-0004|polymarket-0121",
+   "part": "unrelated",
+   "prompt_sha256": "4d6293ab9ca4a99330dffd18573fada039e02778034c438d0fbc5431c795105f",
+   "options": [
+    "insufficient",
+    "supported",
+    "refuted"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ins|monero-0027|monero-0005",
+   "part": "unrelated",
+   "prompt_sha256": "6dfbb30d43956ebfc59d3e11617ff0d6c101edbee05bfc7182ad659c4fd97f49",
+   "options": [
+    "supported",
+    "refuted",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ref|ethereum-0039|year-shift|1",
+   "part": "refuted",
+   "prompt_sha256": "61764eadd98b8facff8bc2774d34b2dc3e145dcfa20721043b46e5cdd780f2d7",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "sup|tether-0003",
+   "part": "flagged",
+   "prompt_sha256": "4c1b047441d51d944243f5af834ac837c1cfb17ab5a4419e890a2a534e6f3191",
+   "options": [
+    "insufficient",
+    "refuted",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|ethereum-0134",
+   "part": "flagged",
+   "prompt_sha256": "656d0bcaf2a6a3c63a6390a205a4e3d9f67d1be71a4a2999a35dd719aa69aa64",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|bitcoin-0076",
+   "part": "flagged",
+   "prompt_sha256": "0857dbdd683ce13cf7ad93bef55257d2b8a3f345d5afceb6c64298e694d740a5",
+   "options": [
+    "supported",
+    "insufficient",
+    "refuted"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ref|monero-0026|year-shift|0",
+   "part": "refuted",
+   "prompt_sha256": "e78f02473c70d9560354365716d11cdb07bf0581b9962a423dc75c6591583205",
+   "options": [
+    "refuted",
+    "supported",
+    "insufficient"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "sup|uniswap-0029",
+   "part": "supported",
+   "prompt_sha256": "fbad254232406e18f91b0fa377c1467be30058d6b94c62c83d158dca9cab8b25",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ins|dai-0033|usdc-0010",
+   "part": "unrelated",
+   "prompt_sha256": "b1a633e9ee145eb2e96428f6ea03a3e345d0d44263e6adc5ab70b4feec5deb71",
+   "options": [
+    "refuted",
+    "insufficient",
+    "supported"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ins|ethereum-0083|near",
+   "part": "close",
+   "prompt_sha256": "f4e3fb7e6a976e3bcfa9b6c13eb2d48cc88e628549fcf6f7a0624bce274c2493",
+   "options": [
+    "supported",
+    "refuted",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|stablecoin-0181",
+   "part": "supported",
+   "prompt_sha256": "e8f3367c2294655117e068d2279001ebe5ca5f4759e9d623996bd3450d6edb3c",
+   "options": [
+    "supported",
+    "insufficient",
+    "refuted"
+   ],
+   "answer": "A"
+  },
+  {
+   "key": "ins|prediction-market-0213|ethereum-0137",
+   "part": "unrelated",
+   "prompt_sha256": "0ee3fc2a426fff803c5f68f43c0601a4fcfc354cf75c04c2d3ba8c5128494966",
+   "options": [
+    "supported",
+    "insufficient",
+    "refuted"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ins|ethereum-0081|rel|ethereum-0077",
+   "part": "close",
+   "prompt_sha256": "2ff563de71a3bca271f69311ade2c5a908318f98ab9ac02b966021df875fbd79",
+   "options": [
+    "supported",
+    "refuted",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "sup|tether-0061",
+   "part": "supported",
+   "prompt_sha256": "9f0b173f1ece820891179a0d3595b3c6cd3b3bf6c6d066db714b1570ab7aded2",
+   "options": [
+    "refuted",
+    "supported",
+    "insufficient"
+   ],
+   "answer": "B"
+  },
+  {
+   "key": "ref|uniswap-0004|year-shift|0",
+   "part": "refuted",
+   "prompt_sha256": "9b4d72b2fde05e0e4092a0fbff6dd3d25ee183c1dce4bafb18e916333d175684",
+   "options": [
+    "insufficient",
+    "supported",
+    "refuted"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ins|tether-0073|near",
+   "part": "close",
+   "prompt_sha256": "c9f245a541c107eb6dd10f2fba30d441c7bb7dde0072dd8f5dc166eef1faeb81",
+   "options": [
+    "refuted",
+    "supported",
+    "insufficient"
+   ],
+   "answer": "C"
+  },
+  {
+   "key": "ins|stablecoin-0146|near",
+   "part": "close",
+   "prompt_sha256": "11734000821b1e3794190a6df4c3268fed0d4ca9d6f40fb6574d688e084625b6",
+   "options": [
+    "insufficient",
+    "refuted",
+    "supported"
+   ],
+   "answer": "A"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "name": "evidence-verdicts-v1",
+ "note": "Items a second reader found arguable, besides the ones a hosted model outside the gate answered differently. A second reader cannot remove an item: each of these goes to the human reader, blind, mixed into the sample, and is removed only if that reader does not agree with its label.",
+ "rows": [
+  {"key": "ref|prediction-market-0215|natural", "by": "an AI review of the proposal", "why": "the passage stops before the page says pUSD is on Polygon and backed by USDC, so it may not show \"uses USDC\" false"},
+  {"key": "sup|bitcoin-0076", "by": "an AI review of the proposal", "why": "connecting satoshis to mBTC needs outside knowledge"},
+  {"key": "sup|ethereum-0134", "by": "an AI review of the proposal", "why": "the passage never says the tip goes to the proposer"},
+  {"key": "sup|near-0001", "by": "an AI review of the proposal", "why": "\"smart contracts\" comes only from a navigation menu"},
+  {"key": "sup|tether-0003", "by": "an AI review of the proposal", "why": "\"by market cap\" is not in the passage"},
+  {"key": "sup|polymarket-0086", "by": "an AI review of the proposal", "why": "Polymarket restricting 40 countries may not be \"blocked in several countries\""}
+ ]
+}

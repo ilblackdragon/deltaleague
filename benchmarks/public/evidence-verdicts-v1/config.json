@@ -1,0 +1,78 @@
+{
+ "name": "evidence-verdicts-v1",
+ "claim_form": "checkable",
+ "instruction": "Please reason step by step, and put your final answer within \\boxed{}.",
+ "labels": [
+  "supported",
+  "refuted",
+  "insufficient"
+ ],
+ "options": {
+  "supported": "Supported: the evidence shows the claim is true.",
+  "refuted": "Refuted: the evidence shows the claim is false.",
+  "insufficient": "Not enough evidence: the evidence does not settle the claim."
+ },
+ "caps": {
+  "excerpt_chars": 300,
+  "excerpts_per_item": 3,
+  "edits_per_sentence": 2,
+  "insufficient_items": 100,
+  "hard_insufficient_items": 100,
+  "claim_chars": 300,
+  "claim_min_words": 3
+ },
+ "years": {
+  "min": 1990,
+  "max": 2026
+ },
+ "gate_models": [
+  "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+  "z-ai/glm-5.3-flash"
+ ],
+ "edit_rule": "sibling_not_refuted",
+ "kinds_in_prompts": [
+  "prose",
+  "code"
+ ],
+ "excluded_hosts": [
+  "thedefiant.io",
+  "thestar.com.my",
+  "cointelegraph.com",
+  "coindesk.com",
+  "theblock.co",
+  "decrypt.co",
+  "bloomberg.com",
+  "reuters.com",
+  "forbes.com",
+  "wsj.com",
+  "nytimes.com",
+  "ft.com",
+  "cnbc.com",
+  "techcrunch.com",
+  "wired.com",
+  "fortune.com",
+  "theverge.com",
+  "bbc.com",
+  "bbc.co.uk",
+  "theguardian.com",
+  "apnews.com",
+  "axios.com",
+  "businessinsider.com",
+  "blockworks.co",
+  "dlnews.com",
+  "protos.com"
+ ],
+ "people": "\\b(Ardoino|Devasini|Pierce|Collins|Willett|Potter|Hoegner|Lutnick|Polosukhin|Skidanov|Gregaard|Nakamoto|Buterin|Hoskinson|Yakovenko|Coplan|Zooko|Larimer|Kulechov|Nazarov|Allaire|Armstrong|Musk|Trump|Christensen|Lubin|Wilcox|Szabo|Finney|Gavin Wood|Hayden Adams|Justin Sun|Sergey|Vitalik|Satoshi|Diogo Mónica)\\b",
+ "close_ignore_words": [
+  "thousand",
+  "million",
+  "billion",
+  "trillion",
+  "about",
+  "around",
+  "approximately",
+  "roughly",
+  "nearly",
+  "almost"
+ ]
+}

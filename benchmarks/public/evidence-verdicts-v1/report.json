@@ -1,0 +1,78 @@
+{
+ "name": "evidence-verdicts-v1",
+ "sha256": "d9d22e1e2ac7cd085916a37a717164e4331e8f2097036cb937356325a3fec6ec",
+ "records": {
+  "total": 301,
+  "usable": 271
+ },
+ "candidates": {
+  "ev_insufficient": 330,
+  "ev_refuted": 94,
+  "ev_supported": 257
+ },
+ "final": {
+  "ev_insufficient": 167,
+  "ev_refuted": 79,
+  "ev_supported": 132
+ },
+ "final_by_stratum": {
+  "insufficient/cross_page": 55,
+  "insufficient/near_miss": 47,
+  "insufficient/related": 20,
+  "insufficient/same_page": 45,
+  "refuted/numeric_edit": 25,
+  "refuted/stale": 5,
+  "refuted/wrong": 2,
+  "refuted/year_edit": 47,
+  "supported/corpus": 69,
+  "supported/extra_check": 63
+ },
+ "gold_letters": {
+  "ev_supported": {
+   "A": 46,
+   "B": 39,
+   "C": 47
+  },
+  "ev_refuted": {
+   "A": 25,
+   "B": 26,
+   "C": 28
+  },
+  "ev_insufficient": {
+   "A": 49,
+   "B": 64,
+   "C": 54
+  }
+ },
+ "clusters": 194,
+ "gate_models": [
+  "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+  "z-ai/glm-5.3-flash"
+ ],
+ "dropped_after_candidates": {
+  "a gate model called its unedited sentence refuted, or did not answer it": 2,
+  "a gate model did not give the gold answer": 139,
+  "a gate model gave no letter the scorer can read": 12,
+  "over the family's cap, by sha256 order": 148,
+  "the hand check disagreed with the label": 2
+ },
+ "vetoed_before_candidates": {
+  "names a person": 2,
+  "no receipt can be shown": 27,
+  "no replacement digit passes the safeguards": 2,
+  "the claim lists three or more quantities": 3,
+  "the value follows a one-sided bound": 2,
+  "the value is followed by a bound": 1,
+  "the value is not in the excerpts": 6,
+  "the year follows a word that makes it a bound or a span": 2,
+  "the year is not in the excerpts": 1,
+  "too few words": 1
+ },
+ "hand_check": {
+  "rows": 30,
+  "agreed": 28,
+  "disagreed": 2,
+  "flagged": 0,
+  "rows_for_a_changed_or_gone_item": 0
+ }
+}
