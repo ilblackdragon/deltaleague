@@ -1,0 +1,6 @@
+SUBMITTED (v3): LoRA patch weights.safetensors sha256: 9b8a199f9bb033463301dd6a4da3b330c3464695d15e1bfd2a141c770767d486 (40,917,480 bytes, format lora, 150 tensors, alpha 32, r 16)
+parent 344c8376 content hash: a432d0987dd4ed9d31fa58422820e5f228f433a93fff629ed2fb5b1b122e2544
+SUBMITTED (v6 on cd0b95bb): LoRA patch weights.safetensors sha256: 3a661031529170e023dbba1d6fe0d8f4b518e8dc6ef791d495ca5ae13a73edb0 (40,917,480 bytes, format lora, 150 tensors, alpha 32, r 16)
+manifest.json sha256: 129ec2cd582fcdebf96474eb2217920d882bc707c3ab5c2a866bac52d2b80f47
+parent cd0b95bb-c5c0-4656-b9be-ad6482f04075 content hash: 30f14773a9f9aefed3285d77c7514cf3bbf6652e033ec861092d4d4659df52f1
+submission (v6 on cd0b95bb): 6f927dec-be15-4f7f-8fac-eb58c8c61751
