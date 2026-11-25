@@ -1,0 +1,23 @@
+{
+ "parent": "model-orig",
+ "data": "data",
+ "out": "runs/gates3",
+ "gen": "evaluation.json",
+ "steps": 6,
+ "prompts": 12,
+ "group": 16,
+ "cap": 8192,
+ "lr": 0.0003,
+ "clip": 1.0,
+ "seed": 20261124,
+ "port": 18000,
+ "util": 0.5,
+ "conc": 256,
+ "kill_truncation": 0.8875,
+ "eval_every": 3,
+ "pool": "data/pool.jsonl",
+ "max_seqs": 256,
+ "max_neg": 4,
+ "train_bench": null,
+ "eval_cap": 8192
+}

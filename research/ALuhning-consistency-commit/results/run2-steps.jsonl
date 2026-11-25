@@ -1,0 +1,1 @@
+{"step": 0, "gen_s": 2624, "rollouts": 256, "reward": 0.045855712890625004, "correct": 0.03515625, "closed": 0.03515625, "truncated": 0.96484375, "mean_tokens": 8113.75, "useful_groups": 2, "train_s": 834, "grad_norm": 0.023821250056631285, "clip_scale": 1.0}
