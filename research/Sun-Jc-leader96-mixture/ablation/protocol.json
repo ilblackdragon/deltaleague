@@ -1,0 +1,44 @@
+{
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+  "transfer_parent": "96b67023-ce48-4cfa-be8c-8db86694f154",
+  "transfer_source_sha256": "a59163d933fd46e746aecf1b73637c43a404a381ceb62ef5d38e3bb9eb5730ea",
+  "transfer_patch_sha256": "d779da82ecaf6a54914cf957c8f914e428ecc992f8777b9936702a91493a79a8",
+  "arms": {
+    "full-attention-transfer": {
+      "family": "transfer-delta",
+      "modules": [
+        "self_attn.o_proj.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22
+    }
+  },
+  "development": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261111,
+    "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"
+  },
+  "confirmation": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261112,
+    "suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2"
+  },
+  "fresh": {
+    "math500": 40,
+    "bbh": 54,
+    "seed": 20261113,
+    "salt": "leaderd012-attention-transfer-v1"
+  },
+  "suite_id": "leaderd012-transfer-new-reasoning",
+  "extra_exclusions": {
+    "leader96-mixture-v1/fresh-suite.json": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8"
+  },
+  "selection": "Fixed after the two broad panels for the all-attention transfer and before either fresh MATH500 or BBH comparison was available. Keep only the full-attention output projections at layers 11, 15 and 19. Test all three panels, with the same questions, seeds and verified d0120ae6 parent reports as the full transfer; the broad panels are follow-up diagnostics and the reasoning panel was still blinded at registration.",
+  "interpretation": "Report broad replication (positive macro on both 18-task panels) and strict joint transfer (both fresh reasoning counts rise) separately. Label a candidate as meeting the full objective only when both hold. Report paired intervals, task counts and protection-task regressions. Local evidence cannot establish private rank.",
+  "parent_run": "leaderd012-transfer-v1",
+  "parent_arm": "attention-transfer",
+  "fresh_suite_sha256": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86"
+}

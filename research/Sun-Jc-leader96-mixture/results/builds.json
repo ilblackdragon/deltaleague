@@ -1,0 +1,333 @@
+{
+  "query-transfer": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/query-transfer/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/query-transfer/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+    "checkpoint_sha256": "73a460983f95fc93f6191bbff8ad8de486af5a6f222b7065563afe58db986261",
+    "patch_sha256": "0c9cc6404f47b841bf646a5a6019f9b731b33e07dae6f0935658a71994f85aa3",
+    "manifest_sha256": "c6e381a68b0e8d3ad6443beafdd564301811eccb1f84221976ba62daab995267",
+    "patch_bytes": 6200,
+    "changed_values": 576,
+    "edit": {
+      "family": "nonrotary-query",
+      "layers": [
+        11,
+        15,
+        19
+      ],
+      "factor": 1.08
+    },
+    "by_tensor": {
+      "model.language_model.layers.11.self_attn.q_norm.weight": {
+        "eligible": 192,
+        "changed": 192
+      },
+      "model.language_model.layers.15.self_attn.q_norm.weight": {
+        "eligible": 192,
+        "changed": 192
+      },
+      "model.language_model.layers.19.self_attn.q_norm.weight": {
+        "eligible": 192,
+        "changed": 192
+      }
+    },
+    "official_reconstruction_exact": true
+  },
+  "attention-toward-grpo": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/attention-toward-grpo/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/attention-toward-grpo/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+    "checkpoint_sha256": "a59163d933fd46e746aecf1b73637c43a404a381ceb62ef5d38e3bb9eb5730ea",
+    "patch_sha256": "d779da82ecaf6a54914cf957c8f914e428ecc992f8777b9936702a91493a79a8",
+    "manifest_sha256": "de9542f3053817980bf671649aa9b45e2fe46c0010574edc7b97d64c91f69aa9",
+    "patch_bytes": 5379272,
+    "changed_values": 537688,
+    "edit": {
+      "family": "mixture",
+      "modules": [
+        "self_attn.o_proj.weight",
+        "linear_attn.out_proj.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22,
+      "donor_fraction": 0.625
+    },
+    "by_tensor": {
+      "model.language_model.layers.10.linear_attn.out_proj.weight": {
+        "source_differences": 71826,
+        "eligible": 71826,
+        "changed": 37937
+      },
+      "model.language_model.layers.11.self_attn.o_proj.weight": {
+        "source_differences": 73789,
+        "eligible": 73789,
+        "changed": 38808
+      },
+      "model.language_model.layers.12.linear_attn.out_proj.weight": {
+        "source_differences": 75181,
+        "eligible": 75181,
+        "changed": 39481
+      },
+      "model.language_model.layers.13.linear_attn.out_proj.weight": {
+        "source_differences": 70390,
+        "eligible": 70390,
+        "changed": 37173
+      },
+      "model.language_model.layers.14.linear_attn.out_proj.weight": {
+        "source_differences": 71481,
+        "eligible": 71481,
+        "changed": 37621
+      },
+      "model.language_model.layers.15.self_attn.o_proj.weight": {
+        "source_differences": 55672,
+        "eligible": 55672,
+        "changed": 29137
+      },
+      "model.language_model.layers.16.linear_attn.out_proj.weight": {
+        "source_differences": 69738,
+        "eligible": 69738,
+        "changed": 36823
+      },
+      "model.language_model.layers.17.linear_attn.out_proj.weight": {
+        "source_differences": 73318,
+        "eligible": 73318,
+        "changed": 38677
+      },
+      "model.language_model.layers.18.linear_attn.out_proj.weight": {
+        "source_differences": 75661,
+        "eligible": 75661,
+        "changed": 40001
+      },
+      "model.language_model.layers.19.self_attn.o_proj.weight": {
+        "source_differences": 42116,
+        "eligible": 42116,
+        "changed": 22207
+      },
+      "model.language_model.layers.20.linear_attn.out_proj.weight": {
+        "source_differences": 70477,
+        "eligible": 70477,
+        "changed": 37123
+      },
+      "model.language_model.layers.21.linear_attn.out_proj.weight": {
+        "source_differences": 63114,
+        "eligible": 63114,
+        "changed": 33354
+      },
+      "model.language_model.layers.22.linear_attn.out_proj.weight": {
+        "source_differences": 57476,
+        "eligible": 57476,
+        "changed": 30449
+      },
+      "model.language_model.layers.8.linear_attn.out_proj.weight": {
+        "source_differences": 73234,
+        "eligible": 73234,
+        "changed": 38320
+      },
+      "model.language_model.layers.9.linear_attn.out_proj.weight": {
+        "source_differences": 77047,
+        "eligible": 77047,
+        "changed": 40577
+      }
+    },
+    "official_reconstruction_exact": true
+  },
+  "attention-toward-917": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/attention-toward-917/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/attention-toward-917/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+    "checkpoint_sha256": "0d4d0718c5ff429ed1689ffd55fa23d7868d1b7762d5deafe4ba353e3d3aa5a6",
+    "patch_sha256": "7afc8cd60b731091d61baf08965d47ac456c23150b88219b2e92aeb6a7094ff3",
+    "manifest_sha256": "2dfcc87837938d3dda6477cb8f5c574262f5cf36edc40774888b4e595eacdc41",
+    "patch_bytes": 3532904,
+    "changed_values": 353052,
+    "edit": {
+      "family": "mixture",
+      "modules": [
+        "self_attn.o_proj.weight",
+        "linear_attn.out_proj.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22,
+      "donor_fraction": 0.375
+    },
+    "by_tensor": {
+      "model.language_model.layers.10.linear_attn.out_proj.weight": {
+        "source_differences": 71826,
+        "eligible": 71826,
+        "changed": 24763
+      },
+      "model.language_model.layers.11.self_attn.o_proj.weight": {
+        "source_differences": 73789,
+        "eligible": 73789,
+        "changed": 25670
+      },
+      "model.language_model.layers.12.linear_attn.out_proj.weight": {
+        "source_differences": 75181,
+        "eligible": 75181,
+        "changed": 26161
+      },
+      "model.language_model.layers.13.linear_attn.out_proj.weight": {
+        "source_differences": 70390,
+        "eligible": 70390,
+        "changed": 24242
+      },
+      "model.language_model.layers.14.linear_attn.out_proj.weight": {
+        "source_differences": 71481,
+        "eligible": 71481,
+        "changed": 24892
+      },
+      "model.language_model.layers.15.self_attn.o_proj.weight": {
+        "source_differences": 55672,
+        "eligible": 55672,
+        "changed": 19338
+      },
+      "model.language_model.layers.16.linear_attn.out_proj.weight": {
+        "source_differences": 69738,
+        "eligible": 69738,
+        "changed": 24152
+      },
+      "model.language_model.layers.17.linear_attn.out_proj.weight": {
+        "source_differences": 73318,
+        "eligible": 73318,
+        "changed": 25254
+      },
+      "model.language_model.layers.18.linear_attn.out_proj.weight": {
+        "source_differences": 75661,
+        "eligible": 75661,
+        "changed": 26290
+      },
+      "model.language_model.layers.19.self_attn.o_proj.weight": {
+        "source_differences": 42116,
+        "eligible": 42116,
+        "changed": 14472
+      },
+      "model.language_model.layers.20.linear_attn.out_proj.weight": {
+        "source_differences": 70477,
+        "eligible": 70477,
+        "changed": 24328
+      },
+      "model.language_model.layers.21.linear_attn.out_proj.weight": {
+        "source_differences": 63114,
+        "eligible": 63114,
+        "changed": 21655
+      },
+      "model.language_model.layers.22.linear_attn.out_proj.weight": {
+        "source_differences": 57476,
+        "eligible": 57476,
+        "changed": 19718
+      },
+      "model.language_model.layers.8.linear_attn.out_proj.weight": {
+        "source_differences": 73234,
+        "eligible": 73234,
+        "changed": 25369
+      },
+      "model.language_model.layers.9.linear_attn.out_proj.weight": {
+        "source_differences": 77047,
+        "eligible": 77047,
+        "changed": 26748
+      }
+    },
+    "official_reconstruction_exact": true
+  },
+  "mlp-toward-917": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/mlp-toward-917/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leader96-mixture-v1/mlp-toward-917/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+    "checkpoint_sha256": "aa1a1ae57db74d12fd966fbdf29b7757d92ab68c1fda4f81f32879316bdcd584",
+    "patch_sha256": "95be931c98447fb40dd22dea55615f1d10d5c2a99574f8670bf414c0f7b7c8b8",
+    "manifest_sha256": "dec8f4c4d3608fc384ed86114b3a1c50546e7a5c560d30ddc8ec99164e05a3b2",
+    "patch_bytes": 7481932,
+    "changed_values": 747954,
+    "edit": {
+      "family": "mixture",
+      "modules": [
+        "mlp.down_proj.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22,
+      "donor_fraction": 0.375
+    },
+    "by_tensor": {
+      "model.language_model.layers.10.mlp.down_proj.weight": {
+        "source_differences": 161276,
+        "eligible": 161276,
+        "changed": 56049
+      },
+      "model.language_model.layers.11.mlp.down_proj.weight": {
+        "source_differences": 160845,
+        "eligible": 160845,
+        "changed": 55672
+      },
+      "model.language_model.layers.12.mlp.down_proj.weight": {
+        "source_differences": 160448,
+        "eligible": 160448,
+        "changed": 55655
+      },
+      "model.language_model.layers.13.mlp.down_proj.weight": {
+        "source_differences": 158559,
+        "eligible": 158559,
+        "changed": 55002
+      },
+      "model.language_model.layers.14.mlp.down_proj.weight": {
+        "source_differences": 155132,
+        "eligible": 155132,
+        "changed": 54034
+      },
+      "model.language_model.layers.15.mlp.down_proj.weight": {
+        "source_differences": 140551,
+        "eligible": 140551,
+        "changed": 48665
+      },
+      "model.language_model.layers.16.mlp.down_proj.weight": {
+        "source_differences": 136929,
+        "eligible": 136929,
+        "changed": 47313
+      },
+      "model.language_model.layers.17.mlp.down_proj.weight": {
+        "source_differences": 136170,
+        "eligible": 136170,
+        "changed": 47054
+      },
+      "model.language_model.layers.18.mlp.down_proj.weight": {
+        "source_differences": 135830,
+        "eligible": 135830,
+        "changed": 47139
+      },
+      "model.language_model.layers.19.mlp.down_proj.weight": {
+        "source_differences": 124490,
+        "eligible": 124490,
+        "changed": 43170
+      },
+      "model.language_model.layers.20.mlp.down_proj.weight": {
+        "source_differences": 121579,
+        "eligible": 121579,
+        "changed": 41866
+      },
+      "model.language_model.layers.21.mlp.down_proj.weight": {
+        "source_differences": 120681,
+        "eligible": 120681,
+        "changed": 41798
+      },
+      "model.language_model.layers.22.mlp.down_proj.weight": {
+        "source_differences": 123226,
+        "eligible": 123226,
+        "changed": 42552
+      },
+      "model.language_model.layers.8.mlp.down_proj.weight": {
+        "source_differences": 159156,
+        "eligible": 159156,
+        "changed": 55365
+      },
+      "model.language_model.layers.9.mlp.down_proj.weight": {
+        "source_differences": 162928,
+        "eligible": 162928,
+        "changed": 56620
+      }
+    },
+    "official_reconstruction_exact": true
+  }
+}

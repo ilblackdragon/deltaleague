@@ -1,0 +1,41 @@
+{
+  "id": "4a2abfda-eb1e-458c-be5c-b744d5902576",
+  "title": "d0120ae6 with a three-layer full-attention output transfer",
+  "state": "verified",
+  "created_at": "2026-11-25T01:29:05.269593Z",
+  "pr_url": "https://github.com/ilblackdragon/deltaleague/pull/108",
+  "error_code": "",
+  "version_id": "63fa172a-3e69-49cf-b667-65f2db8810b3",
+  "result": {
+    "state": "complete",
+    "validation_score": 47.45705409356725,
+    "test_score": 53.400000000000006,
+    "config_id": "private1000-v6-thinking8k-20261111",
+    "validation_benchmarks": {
+      "bbh": 33.33333333333333,
+      "mbpp": 18.75,
+      "mmlu": 49.122807017543856,
+      "piqa": 73.4375,
+      "boolq": 64.0625,
+      "gsm8k": 64.0625,
+      "ifeval": 85.9375,
+      "math500": 56.25,
+      "arc_easy": 71.875,
+      "mmlu_pro": 40.0,
+      "hellaswag": 45.3125,
+      "humaneval": 15.625,
+      "openbookqa": 34.375,
+      "winogrande": 64.0625,
+      "arc_challenge": 26.5625,
+      "commonsense_qa": 53.125,
+      "bfcl_multi_turn": 0.0,
+      "bfcl_single_turn": 58.333333333333336
+    },
+    "completed_at": "2026-11-25T09:02:22.673614Z"
+  },
+  "stats": {
+    "generation_seconds": 26902.257017,
+    "test_standard_error": 1.578268332993769,
+    "gpu_cost_attribution": "shared fleet; unavailable per submission"
+  }
+}

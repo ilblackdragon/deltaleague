@@ -1,0 +1,17 @@
+{
+  "parent": "96b67023-ce48-4cfa-be8c-8db86694f154",
+  "content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+  "sources": ["917d6b4f", "a6eb9f13"],
+  "arms": {
+    "query-transfer": {"family":"nonrotary-query", "layers":[11,15,19], "factor":1.08},
+    "attention-toward-grpo": {"family":"mixture", "modules":["self_attn.o_proj.weight","linear_attn.out_proj.weight"], "first_layer":8, "last_layer":22, "donor_fraction":0.625},
+    "attention-toward-917": {"family":"mixture", "modules":["self_attn.o_proj.weight","linear_attn.out_proj.weight"], "first_layer":8, "last_layer":22, "donor_fraction":0.375},
+    "mlp-toward-917": {"family":"mixture", "modules":["mlp.down_proj.weight"], "first_layer":8, "last_layer":22, "donor_fraction":0.375}
+  },
+  "mixture": "Change only entries where the sources differ and the official leader equals their FP32 midpoint rounded to its original dtype. Recompute the new convex combination from the two sources in FP32, round once, and inherit every other entry from the official leader.",
+  "development": {"items":204, "benchmarks":18, "seed":20261104, "suite_sha256":"b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"},
+  "confirmation": {"items":204, "benchmarks":18, "seed":20261109, "suite_sha256":"ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2"},
+  "fresh": {"math500":40, "bbh":54, "seed":20261110, "salt":"leader96-mixture-fresh-v1"},
+  "selection": "Rank by tier, then overall macro difference, then the weaker of the two reasoning deltas, then registered order. Tiers in order: positive macro with both MATH500 and BBH positive; positive macro with both nonnegative; any positive macro; remainder. Freeze one finalist. Run both follow-up panels regardless of development score.",
+  "interpretation": "Report broad replication (positive macro on both 18-task panels) and strict joint transfer (both fresh reasoning counts rise) separately. Label a candidate as meeting the full objective only when both hold. Report paired intervals, task counts and protection-task regressions. Local evidence cannot establish private rank."
+}

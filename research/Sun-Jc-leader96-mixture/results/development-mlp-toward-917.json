@@ -1,0 +1,153 @@
+{
+  "phase": "development",
+  "seed": 20261104,
+  "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00",
+  "patch_sha256": "95be931c98447fb40dd22dea55615f1d10d5c2a99574f8670bf414c0f7b7c8b8",
+  "macro": {
+    "macro": 47.31891457037655,
+    "parent": 47.48425848572048,
+    "delta": -0.16534391534393222,
+    "interval90": [
+      -1.951058201058201,
+      1.8518518518518516
+    ],
+    "reasoning": 0.0,
+    "protection": -2.380952380952381,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": 0.0,
+      "ifeval": 0.0,
+      "humaneval": 0.0,
+      "mmlu_pro": -7.142857142857142
+    }
+  },
+  "by_benchmark": {
+    "arc_challenge": {
+      "items": 8,
+      "parent_correct": 2.0,
+      "candidate_correct": 2.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "arc_easy": {
+      "items": 8,
+      "parent_correct": 5.0,
+      "candidate_correct": 5.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 27,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bfcl_multi_turn": {
+      "items": 4,
+      "parent_correct": 0.0,
+      "candidate_correct": 0.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bfcl_single_turn": {
+      "items": 6,
+      "parent_correct": 2.0,
+      "candidate_correct": 3.0,
+      "wins": 1,
+      "losses": 0
+    },
+    "boolq": {
+      "items": 8,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "commonsense_qa": {
+      "items": 8,
+      "parent_correct": 3.0,
+      "candidate_correct": 3.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "gsm8k": {
+      "items": 8,
+      "parent_correct": 5.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "hellaswag": {
+      "items": 8,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "humaneval": {
+      "items": 4,
+      "parent_correct": 2.0,
+      "candidate_correct": 2.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "ifeval": {
+      "items": 8,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "math500": {
+      "items": 8,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mbpp": {
+      "items": 4,
+      "parent_correct": 1.0,
+      "candidate_correct": 1.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mmlu": {
+      "items": 57,
+      "parent_correct": 31.0,
+      "candidate_correct": 31.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mmlu_pro": {
+      "items": 14,
+      "parent_correct": 4.0,
+      "candidate_correct": 3.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "openbookqa": {
+      "items": 8,
+      "parent_correct": 3.0,
+      "candidate_correct": 3.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "piqa": {
+      "items": 8,
+      "parent_correct": 5.0,
+      "candidate_correct": 5.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "winogrande": {
+      "items": 8,
+      "parent_correct": 6.0,
+      "candidate_correct": 6.0,
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "uncertainty_method": "Paired bootstrap within each benchmark, equal benchmark weights"
+}

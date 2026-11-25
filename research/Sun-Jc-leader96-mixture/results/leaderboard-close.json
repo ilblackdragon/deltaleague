@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-24T22:42:35.324858+00:00",
+  "config": "private1000-v6-thinking8k-20261111",
+  "rows": [
+    {
+      "rank": 1,
+      "id": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+      "submitter": "udirobert",
+      "created_at": "2026-11-24T14:43:02.645154Z",
+      "public": 48.50276250038677,
+      "private": 54.900000000000006
+    },
+    {
+      "rank": 2,
+      "id": "96b67023-ce48-4cfa-be8c-8db86694f154",
+      "submitter": "udirobert",
+      "created_at": "2026-11-24T10:16:41.619666Z",
+      "public": 49.58640331538723,
+      "private": 54.800000000000004
+    }
+  ]
+}

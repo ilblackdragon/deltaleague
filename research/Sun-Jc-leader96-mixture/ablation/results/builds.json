@@ -1,0 +1,39 @@
+{
+  "full-attention-transfer": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leaderd012-full-attention-v1/full-attention-transfer/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leaderd012-full-attention-v1/full-attention-transfer/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "ad211f2a5418f662aebe537b7e0d8bd6387a04227c9b76b3052d38889fd437d4",
+    "patch_sha256": "1927d9570fe4caf3bff2ec469fafeecad5c43f96ddb5948b0fef1435a4334a3a",
+    "manifest_sha256": "6bcb476d38483dbc5cc065e078ba24995b762a5e56810268555bc218748d097d",
+    "patch_bytes": 901762,
+    "changed_values": 90129,
+    "edit": {
+      "family": "transfer-delta",
+      "modules": [
+        "self_attn.o_proj.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22
+    },
+    "by_tensor": {
+      "model.language_model.layers.11.self_attn.o_proj.weight": {
+        "source_differences": 38808,
+        "eligible": 38808,
+        "changed": 38797
+      },
+      "model.language_model.layers.15.self_attn.o_proj.weight": {
+        "source_differences": 29137,
+        "eligible": 29137,
+        "changed": 29127
+      },
+      "model.language_model.layers.19.self_attn.o_proj.weight": {
+        "source_differences": 22207,
+        "eligible": 22207,
+        "changed": 22205
+      }
+    },
+    "official_reconstruction_exact": true
+  }
+}

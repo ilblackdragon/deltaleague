@@ -1,0 +1,5 @@
+{
+  "arm": "attention-transfer",
+  "patch_sha256": "23b4e519613ca56cda74b63846cf06d91ed0bd9b078d5e2cc29132187e5f767a",
+  "ranking_rule": "One prespecified candidate. Add the verified previous finalist minus its official parent to the new official parent in FP32 on the registered tensors, then round once to the original dtype. No tuning on d0120ae6."
+}

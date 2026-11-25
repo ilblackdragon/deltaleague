@@ -1,0 +1,5 @@
+{
+  "arm": "attention-toward-grpo",
+  "patch_sha256": "d779da82ecaf6a54914cf957c8f914e428ecc992f8777b9936702a91493a79a8",
+  "ranking_rule": "Rank by tier, then overall macro difference, then the weaker of the two reasoning deltas, then registered order. Tiers in order: positive macro with both MATH500 and BBH positive; positive macro with both nonnegative; any positive macro; remainder. Freeze one finalist. Run both follow-up panels regardless of development score."
+}

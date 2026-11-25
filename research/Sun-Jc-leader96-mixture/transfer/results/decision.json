@@ -1,0 +1,59 @@
+{
+  "arm": "attention-transfer",
+  "patch_sha256": "23b4e519613ca56cda74b63846cf06d91ed0bd9b078d5e2cc29132187e5f767a",
+  "development": {
+    "macro": 45.45603979083512,
+    "parent": 43.9752931711996,
+    "delta": 1.480746619635518,
+    "interval90": [
+      -1.1059670781893003,
+      4.258524397413287
+    ],
+    "reasoning": -8.101851851851851,
+    "protection": 14.285714285714286,
+    "group_delta": {
+      "math500": -12.5,
+      "bbh": -3.7037037037037033,
+      "ifeval": 25.0,
+      "humaneval": 25.0,
+      "mmlu_pro": -7.142857142857142
+    }
+  },
+  "confirmation": {
+    "macro": 46.440174510349955,
+    "parent": 47.92092112998546,
+    "delta": -1.4807466196355037,
+    "interval90": [
+      -4.089506172839506,
+      0.8083480305702527
+    ],
+    "reasoning": 1.8518518518518516,
+    "protection": -5.9523809523809526,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": 3.7037037037037033,
+      "ifeval": 0.0,
+      "humaneval": -25.0,
+      "mmlu_pro": 7.142857142857142
+    }
+  },
+  "fresh": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 17.0,
+      "candidate_correct": 16.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 21.0,
+      "candidate_correct": 21.0,
+      "wins": 4,
+      "losses": 4
+    }
+  },
+  "broad_replication": false,
+  "joint_fresh_gain": false,
+  "full_objective": false
+}

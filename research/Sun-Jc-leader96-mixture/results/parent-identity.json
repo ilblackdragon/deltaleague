@@ -1,0 +1,47 @@
+{
+  "parent_version_ids": [
+    "917d6b4f-fea3-432c-9264-e4f89e45890a"
+  ],
+  "id": "96b67023-ce48-4cfa-be8c-8db86694f154",
+  "name": "917d6b4f + a6eb9f13 50/50 model soup (GRPO seed-soup x layer-soup blend)",
+  "parent_id": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+  "content_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+  "model_id": "qwen35-08b-v1",
+  "files": [
+    {
+      "name": "model.safetensors",
+      "sha256": "daea46fd6baf4a7e36581325a3a6bce7f7727cce812033ace2e0b08a05a09b43",
+      "size_bytes": 1746942600
+    },
+    {
+      "name": "chat_template.jinja",
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "size_bytes": 7755
+    },
+    {
+      "name": "config.json",
+      "sha256": "b90b86f35c8e6925ef74ee04d0e758f0a845c83a42089ad82bbaa948de9b4204",
+      "size_bytes": 2907
+    },
+    {
+      "name": "merges.txt",
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "size_bytes": 3353259
+    },
+    {
+      "name": "tokenizer.json",
+      "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "size_bytes": 12807982
+    },
+    {
+      "name": "tokenizer_config.json",
+      "sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c",
+      "size_bytes": 16709
+    },
+    {
+      "name": "vocab.json",
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+      "size_bytes": 6722759
+    }
+  ]
+}

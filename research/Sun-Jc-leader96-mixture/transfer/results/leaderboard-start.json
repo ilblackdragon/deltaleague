@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-11-24T14:43:02.645154Z",
+  "version_id": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "parent_id": "917d6b4f-fea3-432c-9264-e4f89e45890a",
+  "name": "0.4*917d6b4f + 0.4*a6eb9f13 + 0.2*b338518d (layer-soup x GRPO seed-soup x 6-GRPO mean)",
+  "rank": 1,
+  "submitter": "udirobert",
+  "validation": 48.50276250038677,
+  "private": 54.900000000000006,
+  "benchmarks": {
+    "bbh": 42.592592592592595,
+    "mbpp": 18.75,
+    "mmlu": 49.122807017543856,
+    "piqa": 73.4375,
+    "boolq": 64.0625,
+    "gsm8k": 65.625,
+    "ifeval": 76.5625,
+    "math500": 48.4375,
+    "arc_easy": 70.3125,
+    "mmlu_pro": 34.285714285714285,
+    "hellaswag": 45.3125,
+    "humaneval": 37.5,
+    "openbookqa": 34.375,
+    "winogrande": 65.625,
+    "arc_challenge": 26.5625,
+    "commonsense_qa": 56.25,
+    "bfcl_multi_turn": 3.125,
+    "bfcl_single_turn": 61.111111111111114
+  }
+}

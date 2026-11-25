@@ -1,0 +1,59 @@
+{
+  "arm": "attention-toward-grpo",
+  "patch_sha256": "d779da82ecaf6a54914cf957c8f914e428ecc992f8777b9936702a91493a79a8",
+  "development": {
+    "macro": 48.972353723815715,
+    "parent": 47.48425848572048,
+    "delta": 1.4880952380952337,
+    "interval90": [
+      -0.01469723691945914,
+      3.2113462669018222
+    ],
+    "reasoning": 0.0,
+    "protection": 8.928571428571429,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": 0.0,
+      "ifeval": 12.5,
+      "humaneval": 0.0,
+      "mmlu_pro": 14.285714285714285
+    }
+  },
+  "confirmation": {
+    "macro": 48.12300813762802,
+    "parent": 46.157252699650364,
+    "delta": 1.9657554379776556,
+    "interval90": [
+      -0.3747795414462082,
+      4.295267489711934
+    ],
+    "reasoning": 3.7037037037037033,
+    "protection": 10.714285714285714,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": 7.4074074074074066,
+      "ifeval": 25.0,
+      "humaneval": 0.0,
+      "mmlu_pro": 7.142857142857142
+    }
+  },
+  "fresh": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 22.0,
+      "candidate_correct": 23.0,
+      "wins": 1,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 23.0,
+      "candidate_correct": 21.0,
+      "wins": 1,
+      "losses": 3
+    }
+  },
+  "broad_replication": true,
+  "joint_fresh_gain": false,
+  "full_objective": false
+}

@@ -1,0 +1,21 @@
+{
+  "seed": 20261110,
+  "suite_sha256": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8",
+  "scores": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 22.0,
+      "candidate_correct": 23.0,
+      "wins": 1,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 23.0,
+      "candidate_correct": 21.0,
+      "wins": 1,
+      "losses": 3
+    }
+  },
+  "baseline_source": "fresh-attention-toward-grpo"
+}

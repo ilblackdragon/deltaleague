@@ -1,0 +1,21 @@
+{
+  "seed": 20261113,
+  "suite_sha256": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86",
+  "scores": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 17.0,
+      "candidate_correct": 16.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 21.0,
+      "candidate_correct": 19.0,
+      "wins": 0,
+      "losses": 2
+    }
+  },
+  "baseline_source": "/Volumes/T9/ai-models/deltaleague/delta-experiments/leaderd012-transfer-v1/fresh-attention-transfer"
+}
