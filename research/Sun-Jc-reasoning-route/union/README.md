@@ -1,0 +1,3 @@
+# Combining the two routing finalists
+
+On the first new reasoning panel the late-block graft gained one net MATH500 answer and tied BBH. The recurrent-content graft gained two BBH answers and preserved all MATH500 scores. Both passed the broad macro comparison on two disjoint panels. This motivates a union of their tensor masks. The overlapping tensors are copied once from the same public donor. The original results informed this single candidate, so the two broad reruns serve as diagnostics. The separate 94-question set had already been selected for the seed residual study and had no model scores when this union was registered. The union is evaluated first. [Protocol](protocol.json)

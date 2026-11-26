@@ -1,0 +1,10 @@
+{
+  "candidates": [
+    "late-block",
+    "recurrent-content"
+  ],
+  "selection_sha256": "3569f78a98e761959909060e9d12d83e9a5916a8aa6fb02239e13be4cbc76aca",
+  "replication_sha256": "ad9676aa872f46ab40ffac33e739310a127ec6cf33b43152683f127f0750928d",
+  "seed": 20261126,
+  "rule": "The original routing trial has already closed with no nominee. Retest both unchanged finalists on the second untouched 94-question panel. This is a prespecified follow-up. Require two positive broad panels, no net regression on either fresh benchmark in either cohort, and pooled positive net gains separately for MATH500 and BBH. At least one new answer must be gained on the second cohort. Rank qualified candidates by the smaller pooled percentage-point gain across the two benchmarks, then summed broad advantage, then registration order. Report the first and second panels separately. No submission from a broad-only result."
+}

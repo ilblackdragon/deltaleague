@@ -1,0 +1,11 @@
+{
+  "mlp-channel-graft": {
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "9624c8759c222d1b74199b3341912d06c3bcde7d96ec4557cc1771a5be6ec51e",
+    "patch_sha256": "fd1b21acb0d19a222b67b0f426eea3d6445392b2418e4ac4d1f032b55829e295",
+    "manifest_sha256": "d8d17fe24ad2f4c7e4ba47c2f9b03a29861ad8e35876c77a045685f073e58c5e",
+    "patch_bytes": 7020460,
+    "changed_values": 700954,
+    "official_reconstruction_exact": true
+  }
+}

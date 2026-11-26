@@ -1,0 +1,98 @@
+{
+  "development": {
+    "consensus-floor": {
+      "macro": 45.94472291840713,
+      "parent": 43.9752931711996,
+      "delta": 1.9694297472075277,
+      "interval90": [
+        -0.6099353321575542,
+        4.8317166372721925
+      ],
+      "reasoning": -3.7037037037037033,
+      "protection": 14.285714285714286,
+      "group_delta": {
+        "math500": 0.0,
+        "bbh": -7.4074074074074066,
+        "ifeval": 25.0,
+        "humaneval": 25.0,
+        "mmlu_pro": -7.142857142857142
+      }
+    },
+    "consensus-recurrent": {
+      "macro": 45.85286518766051,
+      "parent": 43.9752931711996,
+      "delta": 1.8775720164609098,
+      "interval90": [
+        -0.3968253968253968,
+        4.464285714285714
+      ],
+      "reasoning": -1.8518518518518516,
+      "protection": 12.5,
+      "group_delta": {
+        "math500": 0.0,
+        "bbh": -3.7037037037037033,
+        "ifeval": 12.5,
+        "humaneval": 25.0,
+        "mmlu_pro": 0.0
+      }
+    }
+  },
+  "confirmation": {
+    "consensus-floor": {
+      "macro": 48.20384294068504,
+      "parent": 47.92092112998546,
+      "delta": 0.2829218106995839,
+      "interval90": [
+        -2.700617283950617,
+        3.4722222222222223
+      ],
+      "reasoning": -3.7037037037037033,
+      "protection": 4.166666666666667,
+      "group_delta": {
+        "math500": 0.0,
+        "bbh": -7.4074074074074066,
+        "ifeval": -12.5,
+        "humaneval": 25.0,
+        "mmlu_pro": 0.0
+      }
+    },
+    "consensus-recurrent": {
+      "macro": 47.02071536866859,
+      "parent": 47.92092112998546,
+      "delta": -0.9002057613168688,
+      "interval90": [
+        -3.1893004115226335,
+        1.183127572016461
+      ],
+      "reasoning": 4.398148148148149,
+      "protection": -8.333333333333334,
+      "group_delta": {
+        "math500": 12.5,
+        "bbh": -3.7037037037037033,
+        "ifeval": 0.0,
+        "humaneval": -25.0,
+        "mmlu_pro": 0.0
+      }
+    }
+  },
+  "fresh": {
+    "consensus-floor": {
+      "math500": {
+        "items": 40,
+        "parent_correct": 22.0,
+        "candidate_correct": 21.0,
+        "wins": 1,
+        "losses": 2
+      },
+      "bbh": {
+        "items": 54,
+        "parent_correct": 15.0,
+        "candidate_correct": 18.0,
+        "wins": 4,
+        "losses": 1
+      }
+    }
+  },
+  "qualifying": [],
+  "nominate": null
+}

@@ -1,0 +1,52 @@
+{
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "parent_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+  "donor": "96b67023-ce48-4cfa-be8c-8db86694f154",
+  "donor_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+  "arms": {
+    "mlp-channel-graft": {
+      "family": "mlp-channel-graft",
+      "first_layer": 0,
+      "last_layer": 22,
+      "divisor": 8
+    }
+  },
+  "development": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261111,
+    "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"
+  },
+  "confirmation": {
+    "items": 332,
+    "benchmarks": 18,
+    "seed": 20261127,
+    "suite_sha256": "ea4cbb00395faaa32bab5df41bed939d42b359f2e1394e1d8bc8aa0452fab0e7"
+  },
+  "fresh": {
+    "math500": 40,
+    "bbh": 54,
+    "seed": 20261201,
+    "salt": "sun-jc-mlp-channel-independent-holdout-v1"
+  },
+  "suite_id": "mlp-channel-independent-holdout",
+  "extra_exclusions": {
+    "leader96-mixture-v1/fresh-suite.json": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8",
+    "leaderd012-transfer-v1/fresh-suite.json": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86",
+    "reasoning-route-v1/fresh-suite.json": "3569f78a98e761959909060e9d12d83e9a5916a8aa6fb02239e13be4cbc76aca",
+    "reasoning-route-residual-v1/fresh-suite.json": "ad9676aa872f46ab40ffac33e739310a127ec6cf33b43152683f127f0750928d",
+    "reasoning-route-generalization-v1/suite.json": "ea4cbb00395faaa32bab5df41bed939d42b359f2e1394e1d8bc8aa0452fab0e7",
+    "reasoning-route-recurrent-panel-v1/suite.json": "90480015f4c7d12120a7dc93694eeeffc13b48908103a6c1746c44e11e4cade1",
+    "reasoning-route-consensus-v1/fresh-suite.json": "767c5bfbdec93b968b9e2af80b3c212b56b44121724b083ebabe53385eb4c108",
+    "reasoning-route-final-channel-v1/fresh-suite.json": "631c38e69d4e4f5b5ac09b7c7ab1ff9b85725cb87d41043d801d834cb848f67f"
+  },
+  "pinned_helpers": {
+    "build.py": "b4ad50b6a1a01a754a4b57b10d952be47cd17783e381b61b0b1977d58769eb4b",
+    "evaluate_round.py": "f34479ea88754ef877ea23466e4656eb9dce7dda6476b5f78e0c77d17081b411",
+    "evaluate_ablation.py": "cc844275e0285c1790d8a0f8a3069f993a4ae615f0b4444957f21c520aa44dd5",
+    "fresh_panel.py": "20c87ed2dbf66e8a2d62c7637acee9099e13fdfdab56dc26e3107bdb4502d389"
+  },
+  "ranking": "Test the single frozen edit on the 204-item development panel. A positive macro advances to the disjoint 332-item 18-task panel. A positive macro on both advances to a previously unused 40-MATH500 and 54-BBH public cohort. Require positive net correct counts in both fresh tasks to nominate. Report all completed stages, uncertainty and regressions.",
+  "activation": "Evaluate only if the final-channel single candidate ends without a nominee.",
+  "hypothesis": "In layers 0 through 22 of the official parent and rank-two model, count the different BF16 weights in each MLP neuron across its gate row, up row and down column. In each layer copy all three vectors from the donor for the highest-count one-eighth of neurons, breaking ties by ascending channel index. Moving incoming and outgoing weights together keeps each donor neuron intact. The rank-two donor scores 54.69 on public MATH500 and 42.59 on BBH, compared with 48.44 and 42.59 for the parent. The edit uses only weight differences for selection."
+}

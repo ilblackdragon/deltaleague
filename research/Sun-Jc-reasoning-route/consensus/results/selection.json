@@ -1,0 +1,7 @@
+{
+  "ordered": [
+    "consensus-floor",
+    "consensus-recurrent"
+  ],
+  "ranking": "Rank the two arms on the development panel. Prefer a positive macro with both reasoning benchmarks improved, then positive macro with neither regressing, then positive macro, then remaining. Within tiers prefer larger macro gain. Confirm both on the separate 18-task panel. Test those with positive macro on both panels on the locked new reasoning items in the registered rank order. Nominate only an arm with net gains on both fresh tasks. Break a qualifying tie by the development ranking."
+}

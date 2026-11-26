@@ -1,0 +1,15 @@
+{
+  "candidate": "mlp-channel-graft",
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "patch_sha256": "fd1b21acb0d19a222b67b0f426eea3d6445392b2418e4ac4d1f032b55829e295",
+  "source_run": "reasoning-route-mlp-channels-v1",
+  "baseline_run": "reasoning-route-recurrent-panel-v1",
+  "baseline_alias": "recurrent-content",
+  "suite_sha256": "90480015f4c7d12120a7dc93694eeeffc13b48908103a6c1746c44e11e4cade1",
+  "seed": 20261128,
+  "items": 332,
+  "fresh_sha256": "6b3986ad5646fae16ede4cac288852e50f0be1d196fa41508488616158c34cc1",
+  "registration_context": "Development rose by 1.18 points and 332-item confirmation rose by 1.46 points (paired central 90% interval +0.20 to +2.96). This registration precedes the new reasoning outcome and any scoring of this checkpoint on the third broad panel. The public panel has been used for an unrelated recurrent patch.",
+  "activation": "The original 204/332/94 joint-reasoning decision takes precedence. If it fails, test the unchanged candidate once on this independently selected third broad panel before considering the next blend. Retain and report the original decision.",
+  "decision": "Nominate for overall improvement if all three broad macro differences are positive, both held-out reasoning tasks have nonnegative pooled net correct counts across the first 332, the new 94 and the second 332, and at least one of those pooled counts is positive. Also report strict joint gains and each cohort separately. Repeat the paired uncertainty interval. No coefficient or question selection uses these outcomes."
+}

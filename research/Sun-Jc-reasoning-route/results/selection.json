@@ -1,0 +1,7 @@
+{
+  "ordered": [
+    "late-block",
+    "recurrent-content"
+  ],
+  "ranking": "Rank the four arms by prior registered tiers: positive macro with both reasoning benchmarks improved; positive macro with neither regressing; positive macro; remaining. Within tiers prefer larger macro gain. Confirm the first two. On the blinded fresh set test the confirmed arms with positive development and confirmation macro in rank order. A candidate with gains on both new reasoning tasks qualifies. If both qualify, submit the first in the prespecified order."
+}

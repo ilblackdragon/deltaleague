@@ -1,0 +1,20 @@
+{
+  "consensus-floor": {
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "6aa0985e22c92dfe24f717946e42fbf59a4d8c2c8fdc4646fe22228836ab0a4d",
+    "patch_sha256": "0b08c224a23d0e9cea12fbe76369980a6bb527b7971418bf69170fc22ac8b0ee",
+    "manifest_sha256": "3d9d8c8a5194117386f386bb674ce7f1adf8c9046d257d0b082011187c16714b",
+    "patch_bytes": 29832422,
+    "changed_values": 2980363,
+    "official_reconstruction_exact": true
+  },
+  "consensus-recurrent": {
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "bec17cc351f9ee34e41d90d0ef0f712af01c58097efd72143fa297e7508690b9",
+    "patch_sha256": "786f5aded7efc371915d7fe5699f343c74daca313ae1824ccf5fae3faa856955",
+    "manifest_sha256": "9100b499795992641fb79c272a45a56ef63abcc7fd0d790a59e10c275228f25d",
+    "patch_bytes": 6182568,
+    "changed_values": 617684,
+    "official_reconstruction_exact": true
+  }
+}

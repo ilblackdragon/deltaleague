@@ -1,0 +1,21 @@
+{
+  "seed": 20261129,
+  "suite_sha256": "767c5bfbdec93b968b9e2af80b3c212b56b44121724b083ebabe53385eb4c108",
+  "scores": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 22.0,
+      "candidate_correct": 21.0,
+      "wins": 1,
+      "losses": 2
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 15.0,
+      "candidate_correct": 18.0,
+      "wins": 4,
+      "losses": 1
+    }
+  },
+  "baseline_source": "fresh-consensus-floor"
+}

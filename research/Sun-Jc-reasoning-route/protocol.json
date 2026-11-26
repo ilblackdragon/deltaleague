@@ -1,0 +1,90 @@
+{
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "parent_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+  "donor": "96b67023-ce48-4cfa-be8c-8db86694f154",
+  "donor_hash": "0fc5a7fd4127cecba26377095c487ad62555f50300ee0ab780b4655065eadbae",
+  "arms": {
+    "full-qkv": {
+      "family": "transfer-delta",
+      "modules": [
+        "self_attn.q_proj.weight",
+        "self_attn.k_proj.weight",
+        "self_attn.v_proj.weight"
+      ],
+      "first_layer": 3,
+      "last_layer": 23
+    },
+    "recurrent-content": {
+      "family": "transfer-delta",
+      "modules": [
+        "linear_attn.in_proj_qkv.weight",
+        "linear_attn.conv1d.weight"
+      ],
+      "first_layer": 8,
+      "last_layer": 22
+    },
+    "late-mlp-input": {
+      "family": "transfer-delta",
+      "modules": [
+        "mlp.gate_proj.weight",
+        "mlp.up_proj.weight"
+      ],
+      "first_layer": 16,
+      "last_layer": 23
+    },
+    "late-block": {
+      "family": "transfer-delta",
+      "modules": [
+        "linear_attn.A_log",
+        "linear_attn.conv1d.weight",
+        "linear_attn.in_proj_a.weight",
+        "linear_attn.in_proj_b.weight",
+        "linear_attn.in_proj_qkv.weight",
+        "linear_attn.in_proj_z.weight",
+        "linear_attn.norm.weight",
+        "linear_attn.out_proj.weight",
+        "mlp.down_proj.weight",
+        "mlp.gate_proj.weight",
+        "mlp.up_proj.weight",
+        "post_attention_layernorm.weight",
+        "input_layernorm.weight",
+        "self_attn.k_proj.weight",
+        "self_attn.o_proj.weight",
+        "self_attn.q_proj.weight",
+        "self_attn.v_proj.weight"
+      ],
+      "first_layer": 16,
+      "last_layer": 23
+    }
+  },
+  "development": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261111,
+    "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"
+  },
+  "confirmation": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261112,
+    "suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2"
+  },
+  "fresh": {
+    "math500": 40,
+    "bbh": 54,
+    "seed": 20261125,
+    "salt": "sun-jc-input-route-20261125-round1"
+  },
+  "suite_id": "input-route-fresh-round1",
+  "extra_exclusions": {
+    "leader96-mixture-v1/fresh-suite.json": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8",
+    "leaderd012-transfer-v1/fresh-suite.json": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86"
+  },
+  "pinned_helpers": {
+    "build.py": "b4ad50b6a1a01a754a4b57b10d952be47cd17783e381b61b0b1977d58769eb4b",
+    "evaluate_round.py": "f34479ea88754ef877ea23466e4656eb9dce7dda6476b5f78e0c77d17081b411",
+    "evaluate_ablation.py": "cc844275e0285c1790d8a0f8a3069f993a4ae615f0b4444957f21c520aa44dd5",
+    "fresh_panel.py": "20c87ed2dbf66e8a2d62c7637acee9099e13fdfdab56dc26e3107bdb4502d389"
+  },
+  "ranking": "Rank the four arms by prior registered tiers: positive macro with both reasoning benchmarks improved; positive macro with neither regressing; positive macro; remaining. Within tiers prefer larger macro gain. Confirm the first two. On the blinded fresh set test the confirmed arms with positive development and confirmation macro in rank order. A candidate with gains on both new reasoning tasks qualifies. If both qualify, submit the first in the prespecified order."
+}

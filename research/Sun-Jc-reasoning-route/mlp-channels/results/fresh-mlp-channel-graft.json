@@ -1,0 +1,21 @@
+{
+  "seed": 20261201,
+  "suite_sha256": "6b3986ad5646fae16ede4cac288852e50f0be1d196fa41508488616158c34cc1",
+  "scores": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 14.0,
+      "candidate_correct": 16.0,
+      "wins": 2,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 16.0,
+      "candidate_correct": 17.0,
+      "wins": 1,
+      "losses": 0
+    }
+  },
+  "baseline_source": "fresh-mlp-channel-graft"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "1ad1e001-24f1-45e4-adda-3f683d310b89",
+  "title": "d0120ae6 + complete MLP channels from 96b67023 (layers 0-22)",
+  "created_at": "2026-11-26T14:51:17.481982Z",
+  "model_id": "qwen35-08b-v1",
+  "parent_version_id": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "config_id": "private1000-v6-thinking8k-20261111",
+  "pr_url": "https://github.com/ilblackdragon/deltaleague/pull/112",
+  "url": "https://deltaleague.ai/submissions/1ad1e001-24f1-45e4-adda-3f683d310b89/",
+  "state_at_receipt": "verifying",
+  "patch_sha256": "fd1b21acb0d19a222b67b0f426eea3d6445392b2418e4ac4d1f032b55829e295"
+}

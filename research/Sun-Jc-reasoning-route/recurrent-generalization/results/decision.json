@@ -1,0 +1,163 @@
+{
+  "arm": "recurrent-content",
+  "patch_sha256": "669d467032c4128e27b0b2934db9d53119b4af923e5efa8c7da3dd5fae88f59f",
+  "suite_sha256": "90480015f4c7d12120a7dc93694eeeffc13b48908103a6c1746c44e11e4cade1",
+  "total": 332,
+  "macro": {
+    "macro": 43.210360004950644,
+    "parent": 43.26731179801355,
+    "delta": -0.05695179306290754,
+    "interval90": [
+      -0.8009994121105233,
+      0.6944444444444444
+    ],
+    "reasoning": -1.8518518518518516,
+    "protection": 0.8928571428571429,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": -3.7037037037037033,
+      "ifeval": 6.25,
+      "humaneval": 0.0,
+      "mmlu_pro": -3.571428571428571
+    }
+  },
+  "broad": [
+    1.1831275720164598,
+    0.6944444444444358,
+    -0.05695179306290754
+  ],
+  "by_benchmark": {
+    "arc_challenge": {
+      "items": 16,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "arc_easy": {
+      "items": 16,
+      "parent_correct": 10.0,
+      "candidate_correct": 10.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 27,
+      "parent_correct": 12.0,
+      "candidate_correct": 11.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "boolq": {
+      "items": 16,
+      "parent_correct": 9.0,
+      "candidate_correct": 9.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "commonsense_qa": {
+      "items": 16,
+      "parent_correct": 8.0,
+      "candidate_correct": 8.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "gsm8k": {
+      "items": 16,
+      "parent_correct": 11.0,
+      "candidate_correct": 11.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "hellaswag": {
+      "items": 16,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "ifeval": {
+      "items": 16,
+      "parent_correct": 8.0,
+      "candidate_correct": 9.0,
+      "wins": 1,
+      "losses": 0
+    },
+    "math500": {
+      "items": 24,
+      "parent_correct": 12.0,
+      "candidate_correct": 12.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mmlu": {
+      "items": 57,
+      "parent_correct": 24.0,
+      "candidate_correct": 24.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mmlu_pro": {
+      "items": 28,
+      "parent_correct": 13.0,
+      "candidate_correct": 12.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "openbookqa": {
+      "items": 16,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "piqa": {
+      "items": 16,
+      "parent_correct": 12.0,
+      "candidate_correct": 12.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "winogrande": {
+      "items": 16,
+      "parent_correct": 11.0,
+      "candidate_correct": 11.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "humaneval": {
+      "items": 8,
+      "parent_correct": 2.0,
+      "candidate_correct": 2.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mbpp": {
+      "items": 8,
+      "parent_correct": 1.0,
+      "candidate_correct": 1.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bfcl_single_turn": {
+      "items": 12,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bfcl_multi_turn": {
+      "items": 8,
+      "parent_correct": 0.0,
+      "candidate_correct": 0.0,
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "pooled_reasoning": {
+    "math500": 1,
+    "bbh": 0
+  },
+  "strict_joint": false,
+  "nominate": null
+}

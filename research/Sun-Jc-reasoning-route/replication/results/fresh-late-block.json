@@ -1,0 +1,21 @@
+{
+  "seed": 20261126,
+  "suite_sha256": "ad9676aa872f46ab40ffac33e739310a127ec6cf33b43152683f127f0750928d",
+  "scores": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 23.0,
+      "candidate_correct": 22.0,
+      "wins": 2,
+      "losses": 3
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 15.0,
+      "candidate_correct": 24.0,
+      "wins": 10,
+      "losses": 1
+    }
+  },
+  "baseline_source": "/Volumes/T9/ai-models/deltaleague/delta-experiments/reasoning-route-union-v1/fresh-late-plus-recurrent"
+}

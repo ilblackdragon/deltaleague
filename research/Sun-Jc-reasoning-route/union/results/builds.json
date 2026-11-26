@@ -1,0 +1,486 @@
+{
+  "late-plus-recurrent": {
+    "model": "/Volumes/T9/ai-models/deltaleague/delta-experiments/reasoning-route-union-v1/late-plus-recurrent/model",
+    "submission": "/Volumes/T9/ai-models/deltaleague/delta-experiments/reasoning-route-union-v1/late-plus-recurrent/submission",
+    "official_content_hash": null,
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "e63ca7006e023589aec07863d8874586abc050e002180fc7827637cc9625137c",
+    "patch_sha256": "f3ad1674ef147ec2b92dc685fc0291d62186c98847553bf2b451e7d518f7808b",
+    "manifest_sha256": "2b4447e6a1666ab28f52c9ae28adb00928da022bb01f75b267ecbf23b21dc4d7",
+    "patch_bytes": 29048522,
+    "changed_values": 2903217,
+    "edit": {
+      "family": "union",
+      "pieces": [
+        {
+          "family": "transfer-delta",
+          "modules": [
+            "linear_attn.A_log",
+            "linear_attn.conv1d.weight",
+            "linear_attn.in_proj_a.weight",
+            "linear_attn.in_proj_b.weight",
+            "linear_attn.in_proj_qkv.weight",
+            "linear_attn.in_proj_z.weight",
+            "linear_attn.norm.weight",
+            "linear_attn.out_proj.weight",
+            "mlp.down_proj.weight",
+            "mlp.gate_proj.weight",
+            "mlp.up_proj.weight",
+            "post_attention_layernorm.weight",
+            "input_layernorm.weight",
+            "self_attn.k_proj.weight",
+            "self_attn.o_proj.weight",
+            "self_attn.q_proj.weight",
+            "self_attn.v_proj.weight"
+          ],
+          "first_layer": 16,
+          "last_layer": 23
+        },
+        {
+          "family": "transfer-delta",
+          "modules": [
+            "linear_attn.in_proj_qkv.weight",
+            "linear_attn.conv1d.weight"
+          ],
+          "first_layer": 8,
+          "last_layer": 22
+        }
+      ]
+    },
+    "by_tensor": {
+      "model.language_model.layers.10.linear_attn.conv1d.weight": {
+        "source_differences": 916,
+        "changed": 916
+      },
+      "model.language_model.layers.10.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 70322,
+        "changed": 70322
+      },
+      "model.language_model.layers.12.linear_attn.conv1d.weight": {
+        "source_differences": 627,
+        "changed": 627
+      },
+      "model.language_model.layers.12.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 63788,
+        "changed": 63788
+      },
+      "model.language_model.layers.13.linear_attn.conv1d.weight": {
+        "source_differences": 596,
+        "changed": 596
+      },
+      "model.language_model.layers.13.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 65134,
+        "changed": 65134
+      },
+      "model.language_model.layers.14.linear_attn.conv1d.weight": {
+        "source_differences": 566,
+        "changed": 566
+      },
+      "model.language_model.layers.14.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 66932,
+        "changed": 66932
+      },
+      "model.language_model.layers.16.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.16.linear_attn.A_log": {
+        "source_differences": 15,
+        "changed": 15
+      },
+      "model.language_model.layers.16.linear_attn.conv1d.weight": {
+        "source_differences": 606,
+        "changed": 606
+      },
+      "model.language_model.layers.16.linear_attn.in_proj_a.weight": {
+        "source_differences": 104,
+        "changed": 104
+      },
+      "model.language_model.layers.16.linear_attn.in_proj_b.weight": {
+        "source_differences": 170,
+        "changed": 170
+      },
+      "model.language_model.layers.16.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 54485,
+        "changed": 54485
+      },
+      "model.language_model.layers.16.linear_attn.in_proj_z.weight": {
+        "source_differences": 25546,
+        "changed": 25546
+      },
+      "model.language_model.layers.16.linear_attn.norm.weight": {
+        "source_differences": 122,
+        "changed": 122
+      },
+      "model.language_model.layers.16.linear_attn.out_proj.weight": {
+        "source_differences": 35918,
+        "changed": 35918
+      },
+      "model.language_model.layers.16.mlp.down_proj.weight": {
+        "source_differences": 70659,
+        "changed": 70659
+      },
+      "model.language_model.layers.16.mlp.gate_proj.weight": {
+        "source_differences": 42410,
+        "changed": 42410
+      },
+      "model.language_model.layers.16.mlp.up_proj.weight": {
+        "source_differences": 65222,
+        "changed": 65222
+      },
+      "model.language_model.layers.16.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.17.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.17.linear_attn.A_log": {
+        "source_differences": 15,
+        "changed": 15
+      },
+      "model.language_model.layers.17.linear_attn.conv1d.weight": {
+        "source_differences": 397,
+        "changed": 397
+      },
+      "model.language_model.layers.17.linear_attn.in_proj_a.weight": {
+        "source_differences": 118,
+        "changed": 118
+      },
+      "model.language_model.layers.17.linear_attn.in_proj_b.weight": {
+        "source_differences": 194,
+        "changed": 194
+      },
+      "model.language_model.layers.17.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 45976,
+        "changed": 45976
+      },
+      "model.language_model.layers.17.linear_attn.in_proj_z.weight": {
+        "source_differences": 23778,
+        "changed": 23778
+      },
+      "model.language_model.layers.17.linear_attn.norm.weight": {
+        "source_differences": 114,
+        "changed": 114
+      },
+      "model.language_model.layers.17.linear_attn.out_proj.weight": {
+        "source_differences": 37825,
+        "changed": 37825
+      },
+      "model.language_model.layers.17.mlp.down_proj.weight": {
+        "source_differences": 70321,
+        "changed": 70321
+      },
+      "model.language_model.layers.17.mlp.gate_proj.weight": {
+        "source_differences": 37020,
+        "changed": 37020
+      },
+      "model.language_model.layers.17.mlp.up_proj.weight": {
+        "source_differences": 63991,
+        "changed": 63991
+      },
+      "model.language_model.layers.17.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.18.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.18.linear_attn.A_log": {
+        "source_differences": 16,
+        "changed": 16
+      },
+      "model.language_model.layers.18.linear_attn.conv1d.weight": {
+        "source_differences": 460,
+        "changed": 460
+      },
+      "model.language_model.layers.18.linear_attn.in_proj_a.weight": {
+        "source_differences": 97,
+        "changed": 97
+      },
+      "model.language_model.layers.18.linear_attn.in_proj_b.weight": {
+        "source_differences": 191,
+        "changed": 191
+      },
+      "model.language_model.layers.18.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 45209,
+        "changed": 45209
+      },
+      "model.language_model.layers.18.linear_attn.in_proj_z.weight": {
+        "source_differences": 24523,
+        "changed": 24523
+      },
+      "model.language_model.layers.18.linear_attn.norm.weight": {
+        "source_differences": 118,
+        "changed": 118
+      },
+      "model.language_model.layers.18.linear_attn.out_proj.weight": {
+        "source_differences": 39300,
+        "changed": 39300
+      },
+      "model.language_model.layers.18.mlp.down_proj.weight": {
+        "source_differences": 70300,
+        "changed": 70300
+      },
+      "model.language_model.layers.18.mlp.gate_proj.weight": {
+        "source_differences": 34751,
+        "changed": 34751
+      },
+      "model.language_model.layers.18.mlp.up_proj.weight": {
+        "source_differences": 63147,
+        "changed": 63147
+      },
+      "model.language_model.layers.18.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.19.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.19.mlp.down_proj.weight": {
+        "source_differences": 64185,
+        "changed": 64185
+      },
+      "model.language_model.layers.19.mlp.gate_proj.weight": {
+        "source_differences": 35710,
+        "changed": 35710
+      },
+      "model.language_model.layers.19.mlp.up_proj.weight": {
+        "source_differences": 60241,
+        "changed": 60241
+      },
+      "model.language_model.layers.19.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.19.self_attn.k_proj.weight": {
+        "source_differences": 8871,
+        "changed": 8871
+      },
+      "model.language_model.layers.19.self_attn.o_proj.weight": {
+        "source_differences": 21626,
+        "changed": 21626
+      },
+      "model.language_model.layers.19.self_attn.q_proj.weight": {
+        "source_differences": 49038,
+        "changed": 49038
+      },
+      "model.language_model.layers.19.self_attn.v_proj.weight": {
+        "source_differences": 5606,
+        "changed": 5606
+      },
+      "model.language_model.layers.20.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.20.linear_attn.A_log": {
+        "source_differences": 12,
+        "changed": 12
+      },
+      "model.language_model.layers.20.linear_attn.conv1d.weight": {
+        "source_differences": 473,
+        "changed": 473
+      },
+      "model.language_model.layers.20.linear_attn.in_proj_a.weight": {
+        "source_differences": 87,
+        "changed": 87
+      },
+      "model.language_model.layers.20.linear_attn.in_proj_b.weight": {
+        "source_differences": 131,
+        "changed": 131
+      },
+      "model.language_model.layers.20.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 41898,
+        "changed": 41898
+      },
+      "model.language_model.layers.20.linear_attn.in_proj_z.weight": {
+        "source_differences": 24334,
+        "changed": 24334
+      },
+      "model.language_model.layers.20.linear_attn.norm.weight": {
+        "source_differences": 118,
+        "changed": 118
+      },
+      "model.language_model.layers.20.linear_attn.out_proj.weight": {
+        "source_differences": 36460,
+        "changed": 36460
+      },
+      "model.language_model.layers.20.mlp.down_proj.weight": {
+        "source_differences": 62557,
+        "changed": 62557
+      },
+      "model.language_model.layers.20.mlp.gate_proj.weight": {
+        "source_differences": 35047,
+        "changed": 35047
+      },
+      "model.language_model.layers.20.mlp.up_proj.weight": {
+        "source_differences": 58387,
+        "changed": 58387
+      },
+      "model.language_model.layers.20.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.21.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.21.linear_attn.A_log": {
+        "source_differences": 14,
+        "changed": 14
+      },
+      "model.language_model.layers.21.linear_attn.conv1d.weight": {
+        "source_differences": 466,
+        "changed": 466
+      },
+      "model.language_model.layers.21.linear_attn.in_proj_a.weight": {
+        "source_differences": 98,
+        "changed": 98
+      },
+      "model.language_model.layers.21.linear_attn.in_proj_b.weight": {
+        "source_differences": 162,
+        "changed": 162
+      },
+      "model.language_model.layers.21.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 42761,
+        "changed": 42761
+      },
+      "model.language_model.layers.21.linear_attn.in_proj_z.weight": {
+        "source_differences": 21286,
+        "changed": 21286
+      },
+      "model.language_model.layers.21.linear_attn.norm.weight": {
+        "source_differences": 119,
+        "changed": 119
+      },
+      "model.language_model.layers.21.linear_attn.out_proj.weight": {
+        "source_differences": 32466,
+        "changed": 32466
+      },
+      "model.language_model.layers.21.mlp.down_proj.weight": {
+        "source_differences": 62149,
+        "changed": 62149
+      },
+      "model.language_model.layers.21.mlp.gate_proj.weight": {
+        "source_differences": 34556,
+        "changed": 34556
+      },
+      "model.language_model.layers.21.mlp.up_proj.weight": {
+        "source_differences": 57401,
+        "changed": 57401
+      },
+      "model.language_model.layers.21.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.22.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.22.linear_attn.A_log": {
+        "source_differences": 13,
+        "changed": 13
+      },
+      "model.language_model.layers.22.linear_attn.conv1d.weight": {
+        "source_differences": 575,
+        "changed": 575
+      },
+      "model.language_model.layers.22.linear_attn.in_proj_a.weight": {
+        "source_differences": 85,
+        "changed": 85
+      },
+      "model.language_model.layers.22.linear_attn.in_proj_b.weight": {
+        "source_differences": 144,
+        "changed": 144
+      },
+      "model.language_model.layers.22.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 50929,
+        "changed": 50929
+      },
+      "model.language_model.layers.22.linear_attn.in_proj_z.weight": {
+        "source_differences": 20181,
+        "changed": 20181
+      },
+      "model.language_model.layers.22.linear_attn.norm.weight": {
+        "source_differences": 112,
+        "changed": 112
+      },
+      "model.language_model.layers.22.linear_attn.out_proj.weight": {
+        "source_differences": 29730,
+        "changed": 29730
+      },
+      "model.language_model.layers.22.mlp.down_proj.weight": {
+        "source_differences": 63620,
+        "changed": 63620
+      },
+      "model.language_model.layers.22.mlp.gate_proj.weight": {
+        "source_differences": 35438,
+        "changed": 35438
+      },
+      "model.language_model.layers.22.mlp.up_proj.weight": {
+        "source_differences": 56843,
+        "changed": 56843
+      },
+      "model.language_model.layers.22.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.23.input_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.23.mlp.down_proj.weight": {
+        "source_differences": 170959,
+        "changed": 170959
+      },
+      "model.language_model.layers.23.mlp.gate_proj.weight": {
+        "source_differences": 78735,
+        "changed": 78735
+      },
+      "model.language_model.layers.23.mlp.up_proj.weight": {
+        "source_differences": 127413,
+        "changed": 127413
+      },
+      "model.language_model.layers.23.post_attention_layernorm.weight": {
+        "source_differences": 0,
+        "changed": 0
+      },
+      "model.language_model.layers.23.self_attn.k_proj.weight": {
+        "source_differences": 27852,
+        "changed": 27852
+      },
+      "model.language_model.layers.23.self_attn.o_proj.weight": {
+        "source_differences": 80315,
+        "changed": 80315
+      },
+      "model.language_model.layers.23.self_attn.q_proj.weight": {
+        "source_differences": 132081,
+        "changed": 132081
+      },
+      "model.language_model.layers.23.self_attn.v_proj.weight": {
+        "source_differences": 15039,
+        "changed": 15039
+      },
+      "model.language_model.layers.8.linear_attn.conv1d.weight": {
+        "source_differences": 863,
+        "changed": 863
+      },
+      "model.language_model.layers.8.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 64963,
+        "changed": 64963
+      },
+      "model.language_model.layers.9.linear_attn.conv1d.weight": {
+        "source_differences": 852,
+        "changed": 852
+      },
+      "model.language_model.layers.9.linear_attn.in_proj_qkv.weight": {
+        "source_differences": 68217,
+        "changed": 68217
+      }
+    },
+    "official_reconstruction_exact": true
+  }
+}

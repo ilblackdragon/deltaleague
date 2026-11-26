@@ -1,0 +1,41 @@
+{
+  "arm": "final-channel-transfer",
+  "development": {
+    "macro": 47.370354899594666,
+    "parent": 43.9752931711996,
+    "delta": 3.3950617283950635,
+    "interval90": [
+      -1.5799529688418579,
+      8.4619341563786
+    ],
+    "reasoning": 5.555555555555555,
+    "protection": 16.666666666666668,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": 11.11111111111111,
+      "ifeval": 25.0,
+      "humaneval": 25.0,
+      "mmlu_pro": 0.0
+    }
+  },
+  "confirmation": {
+    "macro": 49.512283795909525,
+    "parent": 50.772668554101294,
+    "delta": -1.260384758191769,
+    "interval90": [
+      -4.519588902812587,
+      1.9290896995575346
+    ],
+    "reasoning": -5.555555555555555,
+    "protection": -13.69047619047619,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": -11.11111111111111,
+      "ifeval": 0.0,
+      "humaneval": -37.5,
+      "mmlu_pro": -3.571428571428571
+    }
+  },
+  "fresh": null,
+  "nominate": null
+}

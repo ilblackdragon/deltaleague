@@ -1,0 +1,92 @@
+{
+  "evidence": {
+    "late-block": {
+      "broad": [
+        1.3815402704291628,
+        2.6859200470311535
+      ],
+      "first": {
+        "math500": {
+          "items": 40,
+          "parent_correct": 19.0,
+          "candidate_correct": 20.0,
+          "wins": 4,
+          "losses": 3
+        },
+        "bbh": {
+          "items": 54,
+          "parent_correct": 17.0,
+          "candidate_correct": 17.0,
+          "wins": 3,
+          "losses": 3
+        }
+      },
+      "second": {
+        "math500": {
+          "items": 40,
+          "parent_correct": 23.0,
+          "candidate_correct": 22.0,
+          "wins": 2,
+          "losses": 3
+        },
+        "bbh": {
+          "items": 54,
+          "parent_correct": 15.0,
+          "candidate_correct": 24.0,
+          "wins": 10,
+          "losses": 1
+        }
+      },
+      "pooled": {
+        "math500": 0,
+        "bbh": 9
+      },
+      "qualified": false
+    },
+    "recurrent-content": {
+      "broad": [
+        1.1831275720164598,
+        0.6944444444444358
+      ],
+      "first": {
+        "math500": {
+          "items": 40,
+          "parent_correct": 19.0,
+          "candidate_correct": 19.0,
+          "wins": 0,
+          "losses": 0
+        },
+        "bbh": {
+          "items": 54,
+          "parent_correct": 17.0,
+          "candidate_correct": 19.0,
+          "wins": 2,
+          "losses": 0
+        }
+      },
+      "second": {
+        "math500": {
+          "items": 40,
+          "parent_correct": 23.0,
+          "candidate_correct": 24.0,
+          "wins": 1,
+          "losses": 0
+        },
+        "bbh": {
+          "items": 54,
+          "parent_correct": 15.0,
+          "candidate_correct": 14.0,
+          "wins": 0,
+          "losses": 1
+        }
+      },
+      "pooled": {
+        "math500": 1,
+        "bbh": 1
+      },
+      "qualified": false
+    }
+  },
+  "qualified": [],
+  "nominate": null
+}

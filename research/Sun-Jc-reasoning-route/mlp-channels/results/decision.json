@@ -1,0 +1,56 @@
+{
+  "arm": "mlp-channel-graft",
+  "development": {
+    "macro": 45.15842074321606,
+    "parent": 43.9752931711996,
+    "delta": 1.1831275720164598,
+    "interval90": [
+      -0.20576131687242796,
+      2.7777777777777777
+    ],
+    "reasoning": -1.8518518518518516,
+    "protection": 8.333333333333334,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": -3.7037037037037033,
+      "ifeval": 25.0,
+      "humaneval": 0.0,
+      "mmlu_pro": 0.0
+    }
+  },
+  "confirmation": {
+    "macro": 52.23688078220241,
+    "parent": 50.772668554101294,
+    "delta": 1.4642122281011183,
+    "interval90": [
+      0.1984126984126984,
+      2.961860670193998
+    ],
+    "reasoning": 0.2314814814814814,
+    "protection": 4.464285714285714,
+    "group_delta": {
+      "math500": 4.166666666666666,
+      "bbh": -3.7037037037037033,
+      "ifeval": 6.25,
+      "humaneval": 0.0,
+      "mmlu_pro": 7.142857142857142
+    }
+  },
+  "fresh": {
+    "math500": {
+      "items": 40,
+      "parent_correct": 14.0,
+      "candidate_correct": 16.0,
+      "wins": 2,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 54,
+      "parent_correct": 16.0,
+      "candidate_correct": 17.0,
+      "wins": 1,
+      "losses": 0
+    }
+  },
+  "nominate": "mlp-channel-graft"
+}

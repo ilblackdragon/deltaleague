@@ -1,0 +1,56 @@
+{
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "parent_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+  "donor": "bde3d8e4-77a8-4605-bbd7-b96f7a2db4ac",
+  "donor_hash": "beccb8348dc1d2c78af20c37c7b0833765a1d265e7093814a54465bd58b33312",
+  "arms": {
+    "final-channel-transfer": {
+      "family": "final-channel-transfer",
+      "layer": 23,
+      "channel_indices": [
+        1040,
+        1366,
+        1831
+      ]
+    }
+  },
+  "development": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261111,
+    "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"
+  },
+  "confirmation": {
+    "items": 332,
+    "benchmarks": 18,
+    "seed": 20261127,
+    "suite_sha256": "ea4cbb00395faaa32bab5df41bed939d42b359f2e1394e1d8bc8aa0452fab0e7"
+  },
+  "fresh": {
+    "math500": 40,
+    "bbh": 54,
+    "seed": 20261130,
+    "salt": "sun-jc-final-channel-independent-holdout-v1"
+  },
+  "suite_id": "final-channel-independent-holdout",
+  "extra_exclusions": {
+    "leader96-mixture-v1/fresh-suite.json": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8",
+    "leaderd012-transfer-v1/fresh-suite.json": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86",
+    "reasoning-route-v1/fresh-suite.json": "3569f78a98e761959909060e9d12d83e9a5916a8aa6fb02239e13be4cbc76aca",
+    "reasoning-route-residual-v1/fresh-suite.json": "ad9676aa872f46ab40ffac33e739310a127ec6cf33b43152683f127f0750928d",
+    "reasoning-route-generalization-v1/suite.json": "ea4cbb00395faaa32bab5df41bed939d42b359f2e1394e1d8bc8aa0452fab0e7",
+    "reasoning-route-recurrent-panel-v1/suite.json": "90480015f4c7d12120a7dc93694eeeffc13b48908103a6c1746c44e11e4cade1",
+    "reasoning-route-consensus-v1/fresh-suite.json": "767c5bfbdec93b968b9e2af80b3c212b56b44121724b083ebabe53385eb4c108"
+  },
+  "pinned_helpers": {
+    "build.py": "b4ad50b6a1a01a754a4b57b10d952be47cd17783e381b61b0b1977d58769eb4b",
+    "evaluate_round.py": "f34479ea88754ef877ea23466e4656eb9dce7dda6476b5f78e0c77d17081b411",
+    "evaluate_ablation.py": "cc844275e0285c1790d8a0f8a3069f993a4ae615f0b4444957f21c520aa44dd5",
+    "fresh_panel.py": "20c87ed2dbf66e8a2d62c7637acee9099e13fdfdab56dc26e3107bdb4502d389"
+  },
+  "ranking": "Test the single frozen edit on the 204-item development panel. A positive macro advances to the disjoint 332-item 18-task panel. A positive macro on both advances to a previously unused 40-MATH500 and 54-BBH public cohort. Require positive net correct counts in both fresh tasks to nominate. Report all completed stages, uncertainty and regressions.",
+  "ancestor": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+  "ancestor_hash": "6ba2eed0971dcc9fbb9e20d8a44128580fcdc1d1d8c3b774470c8d6676006fc2",
+  "activation": "Evaluate only if the registered consensus study ends without a nominee. This single candidate has no fitted coefficients.",
+  "hypothesis": "Official public bde3d8e4 scores 53.12 on MATH500 and 46.30 on BBH compared with 48.44 and 42.59 for d0120ae6. Its only differences from eff1e1b7 are the final RMSNorm and three neuron channels of the final MLP. Both channels and norm can be grafted onto the leader as a unit. Copy the three entire gate/up rows, three down columns and the final norm from the donor. The smaller donor intervention may transfer without losing the advantages of the leader elsewhere. Public scores of the donor do not establish causality."
+}

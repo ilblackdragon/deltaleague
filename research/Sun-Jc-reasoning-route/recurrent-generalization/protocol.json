@@ -1,0 +1,28 @@
+{
+  "arm": "recurrent-content",
+  "patch_sha256": "669d467032c4128e27b0b2934db9d53119b4af923e5efa8c7da3dd5fae88f59f",
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "seed": 20261128,
+  "salt": "sun-jc-recurrent-independent-general-v1",
+  "text_default": 16,
+  "math500": 24,
+  "by_subtask": {
+    "bbh": 1,
+    "mmlu": 1,
+    "mmlu_pro": 2
+  },
+  "code_per_group": 8,
+  "bfcl_per_category": 2,
+  "activation": "Only if the seed-residual round does not nominate a candidate. The earlier recurrent-content patch remains exactly frozen. It beat its parent on both broad panels and gained one net answer in each target task over two additional cohorts. This is an independent general validation with a separate question set. The preceding panel for late-block is excluded.",
+  "nomination": "Require positive macro differences in all three broad panels, plus nonnegative pooled MATH500 and BBH net gains individually over the two earlier fresh cohorts and the new broad panel, with a positive total reasoning gain. This test qualifies a candidate for the overall leaderboard. Also report whether both reasoning nets strictly increased. The two-cohort reasoning-only study retains its separate decision.",
+  "suite_id": "recurrent-content-independent-general-panel",
+  "outside_manifest": [
+    "bbh",
+    "mmlu",
+    "mmlu_pro",
+    "math500"
+  ],
+  "extra_exclusions": {
+    "reasoning-route-generalization-v1/suite.json": "ea4cbb00395faaa32bab5df41bed939d42b359f2e1394e1d8bc8aa0452fab0e7"
+  }
+}

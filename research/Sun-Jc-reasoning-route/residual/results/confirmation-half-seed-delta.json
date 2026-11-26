@@ -1,0 +1,153 @@
+{
+  "phase": "confirmation",
+  "seed": 20261112,
+  "suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2",
+  "patch_sha256": "07897746d2a090ae764a11b4fbcda9a5178308c757cbdc71dda99603c078d4f2",
+  "macro": {
+    "macro": 45.227652464494575,
+    "parent": 47.92092112998546,
+    "delta": -2.6932686654908835,
+    "interval90": [
+      -6.356554967666079,
+      0.6099353321575542
+    ],
+    "reasoning": -3.7037037037037033,
+    "protection": -1.190476190476191,
+    "group_delta": {
+      "math500": 0.0,
+      "bbh": -7.4074074074074066,
+      "ifeval": 0.0,
+      "humaneval": -25.0,
+      "mmlu_pro": 21.428571428571427
+    }
+  },
+  "by_benchmark": {
+    "arc_challenge": {
+      "items": 8,
+      "parent_correct": 1.0,
+      "candidate_correct": 1.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "arc_easy": {
+      "items": 8,
+      "parent_correct": 6.0,
+      "candidate_correct": 6.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bbh": {
+      "items": 27,
+      "parent_correct": 11.0,
+      "candidate_correct": 9.0,
+      "wins": 4,
+      "losses": 6
+    },
+    "bfcl_multi_turn": {
+      "items": 4,
+      "parent_correct": 0.0,
+      "candidate_correct": 0.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "bfcl_single_turn": {
+      "items": 6,
+      "parent_correct": 5.0,
+      "candidate_correct": 5.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "boolq": {
+      "items": 8,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "commonsense_qa": {
+      "items": 8,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "gsm8k": {
+      "items": 8,
+      "parent_correct": 6.0,
+      "candidate_correct": 5.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "hellaswag": {
+      "items": 8,
+      "parent_correct": 3.0,
+      "candidate_correct": 3.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "humaneval": {
+      "items": 4,
+      "parent_correct": 1.0,
+      "candidate_correct": 0.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "ifeval": {
+      "items": 8,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "math500": {
+      "items": 8,
+      "parent_correct": 4.0,
+      "candidate_correct": 4.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mbpp": {
+      "items": 4,
+      "parent_correct": 2.0,
+      "candidate_correct": 1.0,
+      "wins": 0,
+      "losses": 1
+    },
+    "mmlu": {
+      "items": 57,
+      "parent_correct": 25.0,
+      "candidate_correct": 25.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "mmlu_pro": {
+      "items": 14,
+      "parent_correct": 1.0,
+      "candidate_correct": 4.0,
+      "wins": 4,
+      "losses": 1
+    },
+    "openbookqa": {
+      "items": 8,
+      "parent_correct": 1.0,
+      "candidate_correct": 1.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "piqa": {
+      "items": 8,
+      "parent_correct": 7.0,
+      "candidate_correct": 7.0,
+      "wins": 0,
+      "losses": 0
+    },
+    "winogrande": {
+      "items": 8,
+      "parent_correct": 6.0,
+      "candidate_correct": 6.0,
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "uncertainty_method": "Paired bootstrap within each benchmark, equal benchmark weights"
+}

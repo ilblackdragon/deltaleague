@@ -1,0 +1,18 @@
+{
+  "arm": "late-block",
+  "patch_sha256": "217c1c88e5f7fb34b7875a127b9b6ff9b561818617e75e6f64e4cfda12aff576",
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "seed": 20261127,
+  "salt": "sun-jc-three-broad-panels-nov25",
+  "text_default": 16,
+  "math500": 24,
+  "by_subtask": {
+    "bbh": 1,
+    "mmlu": 1,
+    "mmlu_pro": 2
+  },
+  "code_per_group": 8,
+  "bfcl_per_category": 2,
+  "activation": "A first-pass nominee or a successful two-cohort replication takes precedence. Otherwise test this already frozen candidate. The original two broad scores were positive, and the first two additional reasoning cohorts pooled to a MATH500 tie and a nine-answer BBH gain. A new panel covers all 18 tasks. Exclude both previous broad panels and both reasoning cohorts. BBH and MMLU use new items in each subtask because previous panels exhausted the organizer manifest selections for those groups.",
+  "nomination": "Require positive macro differences in all three broad panels, plus nonnegative pooled MATH500 and BBH net gains individually over the two earlier fresh cohorts and the new broad panel, with a positive total reasoning gain. This test qualifies a candidate for the overall leaderboard. Also report whether both reasoning nets strictly increased. The two-cohort reasoning-only study retains its separate decision."
+}

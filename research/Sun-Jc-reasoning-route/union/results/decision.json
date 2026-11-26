@@ -1,0 +1,45 @@
+{
+  "development": {
+    "late-plus-recurrent": {
+      "macro": 43.96794455273987,
+      "parent": 43.9752931711996,
+      "delta": -0.007348618459730005,
+      "interval90": [
+        -1.7012051734273956,
+        1.778365667254556
+      ],
+      "reasoning": -1.8518518518518516,
+      "protection": 1.190476190476191,
+      "group_delta": {
+        "math500": 0.0,
+        "bbh": -3.7037037037037033,
+        "ifeval": 25.0,
+        "humaneval": 0.0,
+        "mmlu_pro": -21.428571428571427
+      }
+    }
+  },
+  "confirmation": {
+    "late-plus-recurrent": {
+      "macro": 48.806429654382875,
+      "parent": 47.92092112998546,
+      "delta": 0.8855085243974159,
+      "interval90": [
+        -1.1206643151087594,
+        3.0827454438565542
+      ],
+      "reasoning": 4.398148148148149,
+      "protection": -1.7857142857142858,
+      "group_delta": {
+        "math500": 12.5,
+        "bbh": -3.7037037037037033,
+        "ifeval": -12.5,
+        "humaneval": 0.0,
+        "mmlu_pro": 7.142857142857142
+      }
+    }
+  },
+  "fresh": {},
+  "qualifying": [],
+  "nominate": null
+}

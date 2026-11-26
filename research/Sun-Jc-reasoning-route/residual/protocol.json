@@ -1,0 +1,60 @@
+{
+  "parent": "d0120ae6-20e2-4cd8-a73e-136470311df5",
+  "parent_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+  "donor": "fdfd46a4-3a55-4277-91c1-70c739d6139b",
+  "donor_hash": "8eff5e02135ff7ce6584c93a1ad88f88f61dc206986245c40b57a9fd4501ba3b",
+  "arms": {
+    "absent-seed-delta": {
+      "family": "missing-seed",
+      "first_layer": 0,
+      "last_layer": 22,
+      "factor": 1.0
+    },
+    "half-seed-delta": {
+      "family": "scaled-seed",
+      "first_layer": 0,
+      "last_layer": 22,
+      "factor": 0.5
+    },
+    "opposed-seed-rollback": {
+      "family": "opposed-rollback",
+      "first_layer": 0,
+      "last_layer": 22,
+      "factor": 1.0
+    }
+  },
+  "development": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261111,
+    "suite_sha256": "b22f0530da84f9f92d11cae15883270fc3e54d6c1f080e1db2f210ca19c73e00"
+  },
+  "confirmation": {
+    "items": 204,
+    "benchmarks": 18,
+    "seed": 20261112,
+    "suite_sha256": "ba6736dce10369669cc828d8306f8a2b2fd521f13a476115094156ea98d149d2"
+  },
+  "fresh": {
+    "math500": 40,
+    "bbh": 54,
+    "seed": 20261126,
+    "salt": "sun-jc-residual-seed-round2-20261125"
+  },
+  "suite_id": "residual-seed-fresh-round2",
+  "extra_exclusions": {
+    "leader96-mixture-v1/fresh-suite.json": "5c18c7378c704feb803f093a1890a5c565eb6095ff091cda6d14f1f40f584da8",
+    "leaderd012-transfer-v1/fresh-suite.json": "57001181964e255803e868ffae65648d3f1951c9b16d1be6c9b7fdce01546c86",
+    "reasoning-route-v1/fresh-suite.json": "3569f78a98e761959909060e9d12d83e9a5916a8aa6fb02239e13be4cbc76aca"
+  },
+  "pinned_helpers": {
+    "build.py": "b4ad50b6a1a01a754a4b57b10d952be47cd17783e381b61b0b1977d58769eb4b",
+    "evaluate_round.py": "f34479ea88754ef877ea23466e4656eb9dce7dda6476b5f78e0c77d17081b411",
+    "evaluate_ablation.py": "cc844275e0285c1790d8a0f8a3069f993a4ae615f0b4444957f21c520aa44dd5",
+    "fresh_panel.py": "20c87ed2dbf66e8a2d62c7637acee9099e13fdfdab56dc26e3107bdb4502d389"
+  },
+  "ranking": "Rank the three arms by prior registered tiers: positive macro with both reasoning benchmarks improved; positive macro with neither regressing; positive macro; remaining. Within tiers prefer larger macro gain. Confirm the first two. On the blinded fresh set test the confirmed arms with positive development and confirmation macro in rank order. A candidate with gains on both new reasoning tasks qualifies. If both qualify, submit the first in the prespecified order.",
+  "ancestor": "eff1e1b7-18ef-4c77-83ef-25fdcc027e75",
+  "ancestor_hash": "6ba2eed0971dcc9fbb9e20d8a44128580fcdc1d1d8c3b774470c8d6676006fc2",
+  "activation": "Run only if the first routing round has no qualifying candidate. Encoder, embedding, norms and decoder layer 23 are held fixed. Only 2D projection weights are editable."
+}

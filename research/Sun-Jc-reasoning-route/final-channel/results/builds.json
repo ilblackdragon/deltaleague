@@ -1,0 +1,29 @@
+{
+  "final-channel-transfer": {
+    "parent_content_hash": "76eedd5171dfeab2ca372369ebf4d42af40f4aaeeb7c289854075f09b7fea839",
+    "checkpoint_sha256": "e2ecff0e7aba6b72025b0b2322e4b0a251031ccc1613b1c7707e374b19f1d88f",
+    "patch_sha256": "8672403bbf194a43e6ed66975ae6d73b91ef71cdce12a4af018c605c1b9168f6",
+    "manifest_sha256": "aed6609adb0043270bdbe345458ed54f1e7e54967e5b8a42eab66e74cb06094d",
+    "patch_bytes": 102968,
+    "changed_values": 10236,
+    "by_tensor": {
+      "model.language_model.layers.23.mlp.down_proj.weight": {
+        "eligible": 3072,
+        "changed": 3072
+      },
+      "model.language_model.layers.23.mlp.gate_proj.weight": {
+        "eligible": 3072,
+        "changed": 3071
+      },
+      "model.language_model.layers.23.mlp.up_proj.weight": {
+        "eligible": 3072,
+        "changed": 3069
+      },
+      "model.language_model.norm.weight": {
+        "eligible": 1024,
+        "changed": 1024
+      }
+    },
+    "official_reconstruction_exact": true
+  }
+}
