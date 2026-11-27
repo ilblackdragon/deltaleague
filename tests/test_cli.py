@@ -688,3 +688,55 @@ def test_run_treats_help_after_separator_as_prompt(monkeypatch, prompt):
     assert result.exit_code == 0, result.output
     assert seen == [prompt]
     assert 'generated' in result.output
+
+
+def multipart_session(sizes, expires_in=None):
+    parts = [{'number': n, 'size_bytes': size, 'url': f'https://blob.invalid/part?n={n}&sig=secret'}
+             for n, size in enumerate(sizes, 1)]
+    session = {'id': 'upload-big', 'files': [{'name': 'weights.safetensors', 'url': None,
+                                              'multipart': {'part_bytes': sizes[0], 'parts': parts}}]}
+    if expires_in:
+        session['expires_in'] = expires_in
+    return session
+
+
+def test_submit_uploads_multipart_parts_and_resumes_after_a_failed_part(tmp_path, monkeypatch):
+    payload = b'0123456789abcdefghij-tail'
+    root = submission_dir(tmp_path, payload=payload)
+    calls, puts = [], []
+
+    def call(method, path, **kwargs):
+        calls.append(path)
+        if path == 'upload-sessions':
+            return multipart_session([10, 10, 5], expires_in=6 * 3600)
+        return {'id': 'submission-big'}
+
+    def put(url, **kwargs):
+        body = kwargs['content'].read()
+        assert kwargs['headers']['Content-Length'] == str(len(body))
+        puts.append((url.split('n=')[1].split('&')[0], body))
+        if len(puts) == 2:  # the second part fails once
+            raise httpx.ReadError('secret')
+        return httpx.Response(200, request=httpx.Request('PUT', url))
+
+    monkeypatch.setattr(main, 'call', call)
+    monkeypatch.setattr(main.httpx, 'put', put)
+    first = runner.invoke(main.app, ['submit', str(root)])
+    assert first.exit_code == 1 and 'part 2' in first.output and 'secret' not in first.output
+    state = json.loads((root / '.delta-upload.json').read_text())
+    assert [p['number'] for p in state['pending_files'][0]['multipart']['parts']] == [2, 3]
+    assert state['expires_at'] > __import__('time').time() + 5 * 3600
+    second = runner.invoke(main.app, ['submit', str(root)])
+    assert second.exit_code == 0, second.output
+    assert calls == ['upload-sessions', 'submissions']
+    assert [n for n, _ in puts] == ['1', '2', '2', '3']
+    assert b''.join(body for _, body in [puts[0], puts[2], puts[3]]) == payload
+
+
+@pytest.mark.parametrize('sizes', [[10, 10], [10, 10, 10], [0, 25]])
+def test_submit_rejects_a_multipart_plan_that_does_not_cover_the_file(tmp_path, monkeypatch, sizes):
+    root = submission_dir(tmp_path, payload=b'0123456789abcdefghij-tail')
+    monkeypatch.setattr(main, 'call', lambda method, path, **kwargs: multipart_session(sizes))
+    monkeypatch.setattr(main.httpx, 'put', lambda *a, **k: pytest.fail('nothing may be uploaded'))
+    result = runner.invoke(main.app, ['submit', str(root)])
+    assert result.exit_code == 1 and 'invalid upload session' in result.output

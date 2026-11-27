@@ -499,22 +499,93 @@ def put_artifact(directory: Path, name: str, url):
         fail(f"Upload failed for {name} (HTTP {response.status_code}).")
 
 
+class FileRange:
+    """A byte range of a file, read in pieces, as an httpx upload body."""
+
+    def __init__(self, path: Path, start: int, size: int):
+        self.stream = path.open("rb")
+        self.stream.seek(start)
+        self.left = size
+
+    def read(self, size=-1):
+        size = self.left if size is None or size < 0 else min(size, self.left)
+        data = self.stream.read(size)
+        self.left -= len(data)
+        return data
+
+    def __iter__(self):
+        while chunk := self.read(1024 * 1024):
+            yield chunk
+
+    def close(self):
+        self.stream.close()
+
+
+def put_parts(directory: Path, name: str, item: dict, save):
+    """Upload the remaining parts of one multipart artifact; ``save`` persists progress after each part."""
+    file = directory / name
+    parts = item["multipart"]["parts"]
+    total = item["multipart"]["count"]
+    while parts:
+        part = parts[0]
+        if not upload_url_allowed(part.get("url")):
+            fail(f"Upload failed for {name}: the upload URL is not allowed.")
+        typer.echo(f"Uploading {name} part {part['number']}/{total} ({part['size_bytes'] / 1024**2:.0f} MiB)", err=True)
+        body = FileRange(file, part["offset"], part["size_bytes"])
+        try:
+            response = httpx.put(part["url"], content=body, headers={"Content-Length": str(part["size_bytes"])},
+                                 timeout=600, follow_redirects=False)
+        except (httpx.HTTPError, httpx.InvalidURL, OSError):
+            fail(f"Upload failed for {name} part {part['number']}. Check the connection and rerun the same submit command.")
+        finally:
+            body.close()
+        if response.status_code < 200 or response.status_code >= 300:
+            fail(f"Upload failed for {name} part {part['number']} (HTTP {response.status_code}).")
+        parts.pop(0)
+        save()
+
+
+def multipart_plan(artifact: dict, multipart):
+    """Validate a server multipart plan: parts 1..n in order, covering exactly the artifact's bytes."""
+    parts = multipart.get("parts") if isinstance(multipart, dict) else None
+    if not isinstance(parts, list) or not parts:
+        fail("Upload failed: the server returned an invalid upload session.")
+    plan, offset = [], 0
+    for number, part in enumerate(parts, 1):
+        if (not isinstance(part, dict) or part.get("number") != number or type(part.get("size_bytes")) is not int
+                or part["size_bytes"] <= 0):
+            fail("Upload failed: the server returned an invalid upload session.")
+        plan.append({"number": number, "size_bytes": part["size_bytes"], "offset": offset, "url": part.get("url")})
+        offset += part["size_bytes"]
+    if offset != artifact["size_bytes"]:
+        fail("Upload failed: the server returned an invalid upload session.")
+    return {"count": len(plan), "parts": plan}
+
+
 def pending_upload_files(manifest: dict, upload):
-    """Map URLs to manifest names without opening server-selected paths."""
+    """Map URLs (or multipart part URLs) to manifest names without opening server-selected paths."""
     if not isinstance(upload, dict) or not isinstance(upload.get("id"), str) or not upload["id"]:
         fail("Upload failed: the server returned an invalid upload session.")
     files = upload.get("files")
     if not isinstance(files, list):
         fail("Upload failed: the server returned an invalid upload session.")
     names = {artifact["name"] for artifact in manifest["artifacts"]}
-    urls = {}
+    urls, multiparts = {}, {}
     for item in files:
         if isinstance(item, dict) and isinstance(item.get("name"), str) and item["name"] in names:
             if item["name"] in urls:
                 fail("Upload failed: duplicate artifact URLs in upload session.")
             urls[item["name"]] = item.get("url")
-    return [{"name": artifact["name"], "url": urls.get(artifact["name"])}
-            for artifact in manifest["artifacts"]]
+            if item.get("multipart") is not None:
+                multiparts[item["name"]] = item["multipart"]
+    pending = []
+    for artifact in manifest["artifacts"]:
+        entry = {"name": artifact["name"], "url": urls.get(artifact["name"])}
+        if artifact["name"] in multiparts:
+            # Files too large for one PUT: one URL per part, resumable part by part.
+            entry = {"name": artifact["name"], "multipart": multipart_plan(artifact, multiparts[artifact["name"]])}
+        pending.append(entry)
+    return pending
 
 
 @app.command()
@@ -541,8 +612,10 @@ def submit(path: Path, title: str = "Weight modification", pr: str | None = None
         expires = state.get("expires_at", 0)
         reusable = type(expires) in (int, float) and expires > time.time()
     if not reusable:
-        expires_at = time.time() + 3600
         upload = call("POST", "upload-sessions", json={"manifest": manifest})
+        # Large uploads get a longer session; older servers send no lifetime (one hour).
+        lifetime = upload.get("expires_in") if isinstance(upload, dict) else None
+        expires_at = time.time() + (lifetime if type(lifetime) is int and 0 < lifetime <= 86400 else 3600)
         pending = pending_upload_files(manifest, upload)
         state = {"upload_id": upload["id"], "idempotency_key": str(uuid.uuid4()),
                  "fingerprint": fingerprint, "api": API, "title": title,
@@ -559,7 +632,12 @@ def submit(path: Path, title: str = "Weight modification", pr: str | None = None
         item = state["pending_files"][0]
         if not isinstance(item, dict) or not isinstance(item.get("name"), str) or item["name"] not in names:
             fail("Upload failed: saved session contains an unexpected artifact.")
-        put_artifact(path, item["name"], item.get("url"))
+        if "multipart" in item:
+            if not isinstance(item["multipart"], dict) or not isinstance(item["multipart"].get("parts"), list):
+                fail("Upload failed: saved session contains an unexpected artifact.")
+            put_parts(path, item["name"], item, lambda: write_upload_state(state_path, state))
+        else:
+            put_artifact(path, item["name"], item.get("url"))
         state["pending_files"].pop(0)
         write_upload_state(state_path, state)
     # Persist before POST: a lost response may already have finalized the upload.
