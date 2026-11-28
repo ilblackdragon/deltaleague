@@ -1,0 +1,15 @@
+
+== runs/train1/train/eval_cand_d10.jsonl.gz  acc 55.2  trunc 8.2  trunc_after_think 4.2  tokens 908152
+   by src: {'gsm8k': 67.0, 'math500': 50.0, 'mmlu_pro': 34.0, 'arc_challenge': 74.0, 'commonsense_qa': 51.0}
+   vs leader   acc  +1.2 [-3.0, +5.6]  trunc  -2.2 [-4.2, -0.2]  math500 acc  +1.0 [-7.0, +9.0]
+   vs cand_d10 acc  +0.0 [+0.0, +0.0]  trunc  +0.0 [+0.0, +0.0]  math500 acc  +0.0 [+0.0, +0.0]
+
+== runs/dpo1/dpo/eval_a.jsonl.gz  acc 53.2  trunc 4.2  trunc_after_think 3.8  tokens 767818
+   by src: {'gsm8k': 59.0, 'math500': 46.0, 'mmlu_pro': 33.0, 'arc_challenge': 75.0, 'commonsense_qa': 53.0}
+   vs leader   acc  -0.8 [-5.0, +3.8]  trunc  -6.2 [-8.8, -3.8]  math500 acc  -3.0 [-11.0, +6.0]
+   vs cand_d10 acc  -2.0 [-6.0, +2.0]  trunc  -4.0 [-6.2, -2.0]  math500 acc  -4.0 [-12.0, +4.0]
+
+== runs/dpo1/dpo/eval_b.jsonl.gz  acc 54.2  trunc 5.4  trunc_after_think 4.6  tokens 798613
+   by src: {'gsm8k': 59.0, 'math500': 50.0, 'mmlu_pro': 35.0, 'arc_challenge': 73.0, 'commonsense_qa': 54.0}
+   vs leader   acc  +0.2 [-4.4, +4.8]  trunc  -5.0 [-7.4, -2.6]  math500 acc  +1.0 [-9.0, +12.0]
+   vs cand_d10 acc  -1.0 [-5.6, +3.4]  trunc  -2.8 [-4.8, -0.8]  math500 acc  +0.0 [-10.0, +10.0]
