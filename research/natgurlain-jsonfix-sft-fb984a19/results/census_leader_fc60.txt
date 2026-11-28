@@ -1,0 +1,56 @@
+
+===== leader: exact-answer slice (1200 samples)
+  wording kind    exact   reader-correct   knows-but-fails-format   thinking closed   capped   median words in visible answer
+  w1    num     72.0%      74.5%              2.5%               100.0%          0.0%     1
+  w1    choice  54.0%      54.0%              0.0%               100.0%          0.0%     1
+  w2    num     76.5%      76.5%              0.0%               100.0%          0.0%     1
+  w2    choice  60.5%      60.5%              0.0%               100.0%          0.0%     1
+  w3    num     69.5%      70.5%              1.0%               100.0%          0.0%     1
+  w3    choice  54.5%      55.5%              1.0%               100.0%          0.0%     1
+  all   num     72.7%      73.8%              1.2%               100.0%          0.0%     1
+  all   choice  56.3%      56.7%              0.3%               100.0%          0.0%     1
+  all   all     64.5%      65.2%              0.8%               100.0%          0.0%     1
+  spread of exact rate across the three wordings: 6.5 points
+
+===== leader: JSON-file coding slice (600 samples)
+  valid response  46.5%   strict JSON object  45.0%   passes tests  13.2%   passes | valid  28.3%   thinking closed  91.2%   capped  16.2%
+
+===== leader: truncation-prone boxed math (600 samples)
+  platform score   9.2%   local-rule score   8.2%   capped  69.7% (n=418)
+  of capped: thinking closed  76.1%; platform-correct   1.4% (closed ones:   1.9%, n=318); visible answer contains \boxed   0.0%; strictly periodic tail   1.9%
+  capped and closed: median thinking 11079 chars, median visible answer 6220 chars
+  finished samples: platform score  26.9% (n=182)
+
+===== fc_s60: exact-answer slice (1200 samples)
+  wording kind    exact   reader-correct   knows-but-fails-format   thinking closed   capped   median words in visible answer
+  w1    num     69.0%      74.0%              5.0%               100.0%          0.0%     1
+  w1    choice  51.0%      51.0%              0.0%               100.0%          0.0%     1
+  w2    num     72.0%      74.0%              2.0%               100.0%          0.0%     1
+  w2    choice  61.5%      61.5%              0.0%               100.0%          0.0%     1
+  w3    num     71.0%      71.0%              0.0%               100.0%          0.0%     1
+  w3    choice  60.5%      60.5%              0.0%               100.0%          0.0%     1
+  all   num     70.7%      73.0%              2.3%               100.0%          0.0%     1
+  all   choice  57.7%      57.7%              0.0%               100.0%          0.0%     1
+  all   all     64.2%      65.3%              1.2%               100.0%          0.0%     1
+  spread of exact rate across the three wordings: 6.8 points
+
+===== fc_s60: JSON-file coding slice (600 samples)
+  valid response  52.8%   strict JSON object  48.5%   passes tests  15.2%   passes | valid  28.7%   thinking closed  98.5%   capped   4.7%
+
+===== fc_s60: truncation-prone boxed math (600 samples)
+  platform score  14.8%   local-rule score  14.2%   capped  53.8% (n=323)
+  of capped: thinking closed  84.8%; platform-correct   1.2% (closed ones:   1.5%, n=274); visible answer contains \boxed   0.0%; strictly periodic tail   1.5%
+  capped and closed: median thinking 11865 chars, median visible answer 7331 chars
+  finished samples: platform score  30.7% (n=277)
+
+leader: the same 150 MBPP tasks, plain code-block format (saved harness logs, 1 sample)  26.7% vs JSON-files format  13.2%
+
+fc_s60: the same 150 MBPP tasks, plain code-block format (saved harness logs, 1 sample)  36.7% vs JSON-files format  15.2%
+
+===== fc_s60 minus leader (paired by prompt)
+  exact pass                    -0.33 ± 1.38  (n=300 prompts)
+  reader-correct                +0.08 ± 1.35  (n=300 prompts)
+  JSON valid                    +6.33 ± 3.04  (n=150 prompts)
+  JSON coding pass              +2.00 ± 1.59  (n=150 prompts)
+  trunc slice platform score    +5.67 ± 1.58  (n=150 prompts)
+  trunc slice capped           -15.83 ± 2.22  (n=150 prompts)
